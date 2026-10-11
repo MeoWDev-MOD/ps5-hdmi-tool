@@ -132,6 +132,8 @@ PROGRESS_COLOR = "#4edea3"  # mesma cor verde-menta da barra de progresso
 IMAGES_DIR = BUNDLE_DIR / "images"
 ICON_ICO = IMAGES_DIR / "icon.ico"
 LOGO_PNG = IMAGES_DIR / "logo.png"
+AUTHOR_CREDIT = "Developed by MeoWDev MOD"
+SPLASH_MIN_MS = 2500  # tempo minimo da tela de carregamento
 FLAGS_DIR = IMAGES_DIR / "flags"
 IDLE_GIF = IMAGES_DIR / "idle.gif"
 IDLE_SIZE = (260, 260)
@@ -201,11 +203,58 @@ def safe_filename_part(text: str | None, fallback: str) -> str:
     return cleaned[:40] if cleaned else fallback
 
 
+class SplashScreen(tk.Toplevel):
+    """Tela de carregamento sem borda: logo do criador, barra de progresso
+    animada e o credito de autoria. Fecha sozinha via close()."""
+
+    def __init__(self, master):
+        super().__init__(master)
+        self.overrideredirect(True)
+        self.configure(bg=BG, highlightthickness=1, highlightbackground=BORDER)
+        self.attributes("-topmost", True)
+
+        w, h = 420, 340
+        x = (self.winfo_screenwidth() - w) // 2
+        y = (self.winfo_screenheight() - h) // 2
+        self.geometry(f"{w}x{h}+{x}+{y}")
+
+        self._logo = None
+        try:
+            if LOGO_PNG.exists():
+                img = tk.PhotoImage(file=str(LOGO_PNG))
+                factor = max(1, img.width() // 160)
+                self._logo = img.subsample(factor, factor) if factor > 1 else img
+        except tk.TclError:
+            pass
+        if self._logo is not None:
+            tk.Label(self, image=self._logo, bg=BG).pack(pady=(28, 6))
+
+        tk.Label(self, text="PS5 HDMI Tool", bg=BG, fg=FG,
+                 font=("Segoe UI", 16, "bold")).pack()
+        self._bar = ttk.Progressbar(self, mode="indeterminate", length=240)
+        self._bar.pack(pady=(18, 0))
+        self._bar.start(12)
+        tk.Label(self, text=AUTHOR_CREDIT, bg=BG, fg=FG_MUTED,
+                 font=("Segoe UI", 10)).pack(side="bottom", pady=(0, 18))
+        self.update_idletasks()
+
+    def close(self):
+        try:
+            self._bar.stop()
+        except tk.TclError:
+            pass
+        self.destroy()
+
+
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("PS5 HDMI Tool")
         self.geometry("1020x760")
+        self.withdraw()
+        self._apply_dark_theme()
+        self._splash = SplashScreen(self)
+        self._splash_started = time.monotonic()
 
         self.spi: CH341SPI | None = None
         self.last_info: NorInfo | None = None
@@ -231,10 +280,43 @@ class App(tk.Tk):
         self._flag_photos: dict[str, tk.PhotoImage] = {}
 
         self._set_icon()
-        self._apply_dark_theme()
         self._build_widgets()
         self.protocol("WM_DELETE_WINDOW", self.on_close)
         self.after(3000, self._start_update_check)
+        elapsed_ms = int((time.monotonic() - self._splash_started) * 1000)
+        self.after(max(0, SPLASH_MIN_MS - elapsed_ms), self._finish_splash)
+
+    def _finish_splash(self):
+        splash = getattr(self, "_splash", None)
+        if splash is not None:
+            splash.close()
+            self._splash = None
+        self.deiconify()
+
+    def _show_about(self):
+        win = tk.Toplevel(self)
+        win.title(t("about.title"))
+        win.configure(bg=BG)
+        win.resizable(False, False)
+        win.transient(self)
+        try:
+            if ICON_ICO.exists():
+                win.iconbitmap(str(ICON_ICO))
+        except tk.TclError:
+            pass
+        if getattr(self, "_logo_img", None) is not None:
+            tk.Label(win, image=self._logo_img, bg=BG).pack(padx=40, pady=(24, 8))
+        tk.Label(win, text=t("app.title"), bg=BG, fg=FG,
+                 font=("Segoe UI", 14, "bold")).pack()
+        tk.Label(win, text=f"v{APP_VERSION}", bg=BG, fg=FG_MUTED).pack()
+        tk.Label(win, text=AUTHOR_CREDIT, bg=BG, fg=PROGRESS_COLOR,
+                 font=("Segoe UI", 11, "bold")).pack(pady=(14, 4))
+        ttk.Button(win, text=t("about.close"), command=win.destroy).pack(pady=(10, 20))
+        win.update_idletasks()
+        x = self.winfo_rootx() + (self.winfo_width() - win.winfo_width()) // 2
+        y = self.winfo_rooty() + (self.winfo_height() - win.winfo_height()) // 2
+        win.geometry(f"+{max(0, x)}+{max(0, y)}")
+        win.grab_set()
 
     # -- Idioma (bandeiras no canto superior direito) ------------------------
     def _build_language_switcher(self, parent):
@@ -273,6 +355,7 @@ class App(tk.Tk):
         diante."""
         self.title(t("app.title"))
         self.lbl_app_title.configure(text=t("app.title"))
+        self.btn_about.configure(text=t("about.btn"))
 
         self.notebook.tab(self.hw_tab, text=t("tab.hardware"))
         self.notebook.tab(self.file_tab, text=t("tab.file"))
@@ -350,6 +433,8 @@ class App(tk.Tk):
         self.lbl_app_title.pack(side="left")
 
         self._build_language_switcher(header)
+        self.btn_about = ttk.Button(header, text=t("about.btn"), command=self._show_about)
+        self.btn_about.pack(side="right", padx=(0, 12))
 
         style = ttk.Style(self)
         style.configure("TNotebook", background=BG, bordercolor=BORDER)
@@ -415,7 +500,7 @@ class App(tk.Tk):
         self.combo_target.set(TARGET_NUVOTON)
         self.combo_target.pack(side="left", padx=8)
 
-        self.btn_preview = ttk.Button(patch_row1, text=t("common.btn_preview"),
+        self.btn_preview = ttk.Button(patch_row1, text=t("common.btn_apply_patch"),
                                        command=self.on_preview, state="disabled")
         self.btn_preview.pack(side="left", padx=5)
 
@@ -623,7 +708,7 @@ class App(tk.Tk):
         self.btn_read.configure(text=t("hw.btn_read"))
         self.lblframe_patch.configure(text=t("hw.patch_frame_title"))
         self.lbl_target.configure(text=t("hw.target_label"))
-        self.btn_preview.configure(text=t("common.btn_preview"))
+        self.btn_preview.configure(text=t("common.btn_apply_patch"))
         self.lbl_donor_sep.configure(text=t("hw.donor_sep_label"))
         self.btn_donor.configure(text=t("hw.btn_donor"))
         self.btn_write.configure(text=t("hw.btn_write"))
@@ -693,7 +778,7 @@ class App(tk.Tk):
         combo.set(TARGET_NUVOTON)
         combo.pack(side="left", padx=8)
 
-        self.btn_file_preview = ttk.Button(file_patch_row1, text=t("common.btn_preview"),
+        self.btn_file_preview = ttk.Button(file_patch_row1, text=t("common.btn_apply_patch"),
                                             command=self.on_file_preview, state="disabled")
         self.btn_file_preview.pack(side="left", padx=5)
 
@@ -701,11 +786,6 @@ class App(tk.Tk):
         file_patch_row2.pack(fill="x", pady=(8, 0))
         self.lbl_file_donor_sep = ttk.Label(file_patch_row2, text=t("file.donor_sep_label"), foreground=FG_MUTED)
         self.lbl_file_donor_sep.pack(side="left")
-        self.btn_file_donor = ttk.Button(
-            file_patch_row2, text=t("file.btn_donor"), command=self.on_file_use_donor, state="disabled"
-        )
-        self.btn_file_donor.pack(side="left", padx=8)
-
         self.btn_file_donor_manual = ttk.Button(
             file_patch_row2, text=t("file.btn_donor_manual"),
             command=self.on_file_use_donor_manual, state="disabled"
@@ -772,9 +852,8 @@ class App(tk.Tk):
             lbl.configure(text=t(f"file.field.{key}"))
         self.lblframe_file_patch.configure(text=t("file.patch_frame_title"))
         self.lbl_file_target.configure(text=t("file.target_label"))
-        self.btn_file_preview.configure(text=t("common.btn_preview"))
+        self.btn_file_preview.configure(text=t("common.btn_apply_patch"))
         self.lbl_file_donor_sep.configure(text=t("file.donor_sep_label"))
-        self.btn_file_donor.configure(text=t("file.btn_donor"))
         self.btn_file_donor_manual.configure(text=t("file.btn_donor_manual"))
         self.lbl_file_console_type.configure(text=t("file.console_type_label"))
         current_idx = self.combo_file_console_type.current()
@@ -811,7 +890,6 @@ class App(tk.Tk):
 
         donor_path = self.donor_files.get(info.board_family) if info.board_family else None
         self._file_donor_path = donor_path
-        self.btn_file_donor.configure(state="normal" if donor_path is not None else "disabled")
         self.btn_file_donor_manual.configure(state="normal" if info.size_ok else "disabled")
         self.btn_file_console_type.configure(state="normal" if info.size_ok else "disabled")
 
@@ -875,54 +953,45 @@ class App(tk.Tk):
         if self.file_dump is None:
             return
         target = self.file_target_var.get()
-        result = apply_patch(self.file_dump, target)
-        self.file_patch = result
+
+        # Alvo Nuvoton + familia com NOR base: grava as informacoes do console
+        # em cima da base. Senao, aplica o patch direto no arquivo do usuario
+        # (que tambem mantem todas as informacoes do console).
+        donor_path = self._file_donor_path if target == TARGET_NUVOTON else None
+        donor_data = None
+        if donor_path is not None:
+            try:
+                donor_data = donor_path.read_bytes()
+            except OSError as e:
+                messagebox.showerror(t("common.err_open_file_title"), str(e))
+                return
 
         self.file_log("=" * 60, "muted")
-        self.file_log(t("file.log.preview_title", target=TARGET_LABEL[target]), "patch")
-        for ch in result.changes:
+        if donor_data is not None:
+            result = apply_donor_identity(donor_data, self.file_dump)
+            self.file_log(t("file.log.donor_title", path=donor_path), "patch")
             self.file_log(
-                t("file.log.preview_change", offset=f"{ch.offset:06X}",
-                  old=ch.old.hex(' ').upper(), new=ch.new.hex(' ').upper(), desc=ch.description),
-                "patch"
-            )
-        self.file_log("")
-        if result.checksum_left_stale:
-            self.file_log(t("file.log.checksum_stale"), "warn")
+                t("common.log.base_used", name=donor_path.name,
+                  family=self.file_info.board_family or "?"), "ok")
         else:
-            self.file_log(t("file.log.checksum_resolved"), "ok")
-        self.file_log("=" * 60, "muted")
-        self.btn_file_save.configure(state="normal")
-
-    def on_file_use_donor(self):
-        if self.file_dump is None or self._file_donor_path is None:
-            return
-        donor_path = self._file_donor_path
-        try:
-            donor_data = donor_path.read_bytes()
-        except OSError as e:
-            messagebox.showerror(t("common.err_open_file_title"), str(e))
-            return
-
-        donor_info = parse_nor(donor_data)
-        proceed = messagebox.askyesno(
-            t("hw.donor_confirm_title"),
-            t("hw.donor_confirm_body", chip=donor_info.chip_name, family=donor_info.board_family or "?"),
-        )
-        if not proceed:
-            return
-
-        result = apply_donor_identity(donor_data, self.file_dump)
+            result = apply_patch(self.file_dump, target)
+            self.file_log(t("file.log.preview_title", target=TARGET_LABEL[target]), "patch")
+            if target == TARGET_NUVOTON:
+                self.file_log(t("common.log.base_missing"), "warn")
         self.file_patch = result
 
-        self.file_log("=" * 60, "muted")
-        self.file_log(t("file.log.donor_title", path=donor_path), "patch")
         for ch in result.changes:
             self.file_log(
                 t("file.log.preview_change", offset=f"{ch.offset:06X}",
                   old=ch.old.hex(' ').upper(), new=ch.new.hex(' ').upper(), desc=ch.description),
                 "patch"
             )
+        if donor_data is None:
+            self.file_log("")
+            if result.checksum_left_stale:
+                self.file_log(t("file.log.checksum_stale"), "warn")
+            else:
+                self.file_log(t("file.log.checksum_resolved"), "ok")
         self.file_log("=" * 60, "muted")
         self.btn_file_save.configure(state="normal")
 
@@ -2032,7 +2101,23 @@ class App(tk.Tk):
             messagebox.showinfo(t("hw.no_nor_title"), t("hw.no_nor_body"))
             return
         target = self.target_var.get()
-        result = apply_patch(self.last_dump, target)
+
+        # Alvo Nuvoton + familia com NOR base: grava as informacoes do console
+        # lido em cima da base. Senao, patch direto na NOR lida.
+        info = self.last_info
+        donor_path = None
+        donor_data = None
+        if target == TARGET_NUVOTON and info is not None and info.board_family:
+            donor_path = self.donor_files.get(info.board_family)
+        if donor_path is not None:
+            try:
+                donor_data = donor_path.read_bytes()
+            except OSError as e:
+                messagebox.showerror(t("common.err_open_file_title"), str(e))
+                return
+            result = apply_donor_identity(donor_data, self.last_dump)
+        else:
+            result = apply_patch(self.last_dump, target)
         self.last_patch = result
 
         converted_path = None
@@ -2044,17 +2129,23 @@ class App(tk.Tk):
 
         self.log("=" * 60, "muted")
         self.log(t("hw.log.preview_title", target=TARGET_LABEL[target]), "patch")
+        if donor_data is not None:
+            self.log(t("common.log.base_used", name=donor_path.name,
+                       family=info.board_family or "?"), "ok")
+        elif target == TARGET_NUVOTON:
+            self.log(t("common.log.base_missing"), "warn")
         for ch in result.changes:
             self.log(
                 t("hw.log.preview_change", offset=f"{ch.offset:06X}",
                   old=ch.old.hex(' ').upper(), new=ch.new.hex(' ').upper(), desc=ch.description),
                 "patch"
             )
-        self.log("")
-        if result.checksum_left_stale:
-            self.log(t("hw.log.checksum_stale"), "warn")
-        else:
-            self.log(t("hw.log.checksum_resolved"), "ok")
+        if donor_data is None:
+            self.log("")
+            if result.checksum_left_stale:
+                self.log(t("hw.log.checksum_stale"), "warn")
+            else:
+                self.log(t("hw.log.checksum_resolved"), "ok")
         if converted_path is not None:
             self.log(t("hw.log.converted_saved", path=converted_path), "muted")
         self.log("=" * 60, "muted")

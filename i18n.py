@@ -56,6 +56,9 @@ def t(key: str, **kwargs) -> str:
 STRINGS: dict[str, dict[str, str]] = {
     # -- App / cabecalho -----------------------------------------------------
     "app.title": {"pt": "PS5 HDMI Tool", "en": "PS5 HDMI Tool", "es": "PS5 HDMI Tool"},
+    "about.btn": {"pt": "Sobre", "en": "About", "es": "Acerca de"},
+    "about.title": {"pt": "Sobre o PS5 HDMI Tool", "en": "About PS5 HDMI Tool", "es": "Acerca de PS5 HDMI Tool"},
+    "about.close": {"pt": "Fechar", "en": "Close", "es": "Cerrar"},
     "app.lang_tooltip": {"pt": "Idioma", "en": "Language", "es": "Idioma"},
 
     # -- Abas ------------------------------------------------------------------
@@ -66,6 +69,13 @@ STRINGS: dict[str, dict[str, str]] = {
 
     # -- Textos/termos comuns ---------------------------------------------------
     "common.browse": {"pt": "Procurar...", "en": "Browse...", "es": "Buscar..."},
+    "common.btn_apply_patch": {"pt": "Aplicar patch (reaproveita as informacoes do seu console)", "en": "Apply patch (reuses your console's information)", "es": "Aplicar parche (reutiliza la informacion de su consola)"},
+    "common.log.base_used": {"pt": "NOR base {name} (familia {family}) usada como modelo. As informacoes do SEU console foram reaproveitadas: numeros de serie, MAC, MAC Wi-Fi, SKU/regiao e tipo de console.", "en": "Base NOR {name} (family {family}) used as the template. YOUR console's information was reused: serial numbers, MAC, Wi-Fi MAC, SKU/region and console type.", "es": "NOR base {name} (familia {family}) usada como modelo. Se reutilizo la informacion de SU consola: numeros de serie, MAC, MAC Wi-Fi, SKU/region y tipo de consola."},
+    "common.log.base_missing": {"pt": "Nao ha NOR base para esta familia/alvo -- aplicado o patch direto no arquivo do console (as informacoes do console tambem sao mantidas).", "en": "No base NOR for this family/target -- patch applied directly to the console's own file (the console's information is kept as well).", "es": "No hay NOR base para esta familia/objetivo -- parche aplicado directamente al archivo de la consola (la informacion de la consola tambien se mantiene)."},
+    "backend.patch.donor_sku": {"pt": "SKU/modelo e regiao -> reaproveitados do console lido", "en": "SKU/model and region -> reused from the read console", "es": "SKU/modelo y region -> reutilizados de la consola leida"},
+    "backend.patch.donor_sku_kept": {"pt": "SKU/modelo e regiao -> mantidos do arquivo-base (console lido nao tinha esse dado -- bloco em branco)", "en": "SKU/model and region -> kept from the donor file (read console had no data there -- blank block)", "es": "SKU/modelo y region -> mantenidos del archivo base (la consola leida no tenia ese dato -- bloque en blanco)"},
+    "backend.patch.donor_console_type": {"pt": "Tipo de console -> reaproveitado do console lido", "en": "Console type -> reused from the read console", "es": "Tipo de consola -> reutilizado de la consola leida"},
+    "backend.patch.donor_console_type_kept": {"pt": "Tipo de console -> mantido do arquivo-base (console lido nao tinha esse dado -- bloco em branco)", "en": "Console type -> kept from the donor file (read console had no data there -- blank block)", "es": "Tipo de consola -> mantenido del archivo base (la consola leida no tenia ese dato -- bloque en blanco)"},
     "common.btn_preview": {"pt": "Pre-visualizar alteracoes", "en": "Preview changes", "es": "Previsualizar cambios"},
     "common.warnings_label": {"pt": "AVISOS:", "en": "WARNINGS:", "es": "AVISOS:"},
     "common.size_ok_suffix": {"pt": " (OK)", "en": " (OK)", "es": " (OK)"},
@@ -268,7 +278,7 @@ STRINGS: dict[str, dict[str, str]] = {
     "file.donor_sep_label": {"pt": "-- ou --", "en": "-- or --", "es": "-- o --"},
     "file.btn_donor": {"pt": "Usar arquivo-base automatico", "en": "Use automatic donor file", "es": "Usar archivo base automatico"},
     "file.btn_donor_manual": {"pt": "Regenerar com arquivo-base...", "en": "Regenerate with donor file...", "es": "Regenerar con archivo base..."},
-    "file.log.donor_available": {"pt": "Arquivo-base disponivel para a familia {family}: {name}. Clique em 'Usar arquivo-base automatico' para gravar os dados deste console nele.", "en": "Donor file available for family {family}: {name}. Click 'Use automatic donor file' to write this console's data into it.", "es": "Archivo base disponible para la familia {family}: {name}. Haga clic en 'Usar archivo base automatico' para grabar los datos de esta consola en el."},
+    "file.log.donor_available": {"pt": "NOR base disponivel para a familia {family}: {name}. O botao 'Aplicar patch' vai usa-la como modelo, reaproveitando as informacoes do seu console.", "en": "Base NOR available for family {family}: {name}. The 'Apply patch' button will use it as the template, reusing your console's information.", "es": "NOR base disponible para la familia {family}: {name}. El boton 'Aplicar parche' la usara como modelo, reutilizando la informacion de su consola."},
     "file.log.donor_manual_hint": {"pt": "Familia da placa nao identificada (arquivo em branco/corrompido ou revisao ainda nao mapeada). Se voce sabe o modelo da placa pela etiqueta fisica, clique em 'Regenerar com arquivo-base...' e escolha o arquivo-base certo manualmente.", "en": "Board family not identified (blank/corrupted file, or a revision not mapped yet). If you know the board model from its physical label, click 'Regenerate with donor file...' and pick the right donor file manually.", "es": "Familia de la placa no identificada (archivo en blanco/corrupto o revision aun no mapeada). Si conoce el modelo de la placa por la etiqueta fisica, haga clic en 'Regenerar con archivo base...' y elija el archivo base correcto manualmente."},
     "file.log.donor_title": {"pt": "USANDO ARQUIVO-BASE: {path}", "en": "USING DONOR FILE: {path}", "es": "USANDO ARCHIVO BASE: {path}"},
 

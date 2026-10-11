@@ -29,6 +29,8 @@ from nor_parser import (
     MAC_LEN,
     OFFSET_WIFI_MAC,
     WIFI_MAC_LEN,
+    OFFSET_SKU,
+    SKU_LEN,
     OFFSET_MOBO_SERIAL,
     MOBO_SERIAL_LEN,
     OFFSET_BOARD_SERIAL,
@@ -172,8 +174,8 @@ def apply_donor_identity(donor: bytes, customer: bytes) -> PatchResult:
     os campos de identidade. Confira o chip/familia detectados no
     arquivo-base (parse_nor) antes de gravar numa placa de cliente.
 
-    So carrega de volta o MAC/MAC Wi-Fi do cliente (alem do numero de
-    serie) pra evitar que varios consoles convertidos com o mesmo
+    Tambem reaproveita o SKU/regiao e o tipo de console do cliente. Carrega
+    de volta o MAC/MAC Wi-Fi do cliente (alem do numero de serie) pra evitar que varios consoles convertidos com o mesmo
     arquivo-base saiam com o mesmo endereco MAC -- o que causaria conflito
     de rede se dois desses consoles acabarem na mesma rede.
 
@@ -196,6 +198,12 @@ def apply_donor_identity(donor: bytes, customer: bytes) -> PatchResult:
          t("backend.patch.donor_mac"), t("backend.patch.donor_mac_kept")),
         (OFFSET_WIFI_MAC, WIFI_MAC_LEN,
          t("backend.patch.donor_wifi_mac"), t("backend.patch.donor_wifi_mac_kept")),
+        # SKU/modelo (ja inclui o codigo de regiao, 0x1C7236) e tipo de console
+        # (Disco/Digital/Slim): continuam sendo os do console do usuario.
+        (OFFSET_SKU, SKU_LEN,
+         t("backend.patch.donor_sku"), t("backend.patch.donor_sku_kept")),
+        (OFFSET_CONSOLE_TYPE, CONSOLE_TYPE_LEN,
+         t("backend.patch.donor_console_type"), t("backend.patch.donor_console_type_kept")),
     ]
     for offset, length, description, kept_description in fields:
         old = bytes(buf[offset:offset + length])
