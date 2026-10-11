@@ -60,11 +60,20 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 ; toda vez que abre; em pasta, ele roda direto, sem esse passo.
 Source: "dist\PS5_HDMI_Tool\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 Source: "drives\*"; DestDir: "{app}\drives"; Flags: ignoreversion recursesubdirs
+; Icone dos atalhos num arquivo com nome proprio: o Windows guarda cache de
+; icone por caminho, entao trocar o desenho do .exe sozinho nao atualiza o
+; atalho. Ao mudar o icone no futuro, troque o sufixo (r2 -> r3...).
+Source: "images\icon.ico"; DestDir: "{app}"; DestName: "ps5_hdmi_tool_icon_r2.ico"; Flags: ignoreversion
+
+[InstallDelete]
+; Apaga os atalhos antigos pra serem recriados do zero com o icone novo.
+Type: files; Name: "{autodesktop}\{#MyAppName}.lnk"
+Type: files; Name: "{group}\{#MyAppName}.lnk"
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\ps5_hdmi_tool_icon_r2.ico"
 Name: "{group}\Desinstalar {#MyAppName}"; Filename: "{uninstallexe}"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\ps5_hdmi_tool_icon_r2.ico"
 
 [Run]
 ; Instala o driver do leitor CH341A direto no sistema (driver store do
