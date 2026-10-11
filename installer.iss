@@ -13,7 +13,7 @@
 ; Build: "C:\Users\O Honorio\AppData\Local\Programs\Inno Setup 6\ISCC.exe" installer.iss
 
 #define MyAppName "PS5 HDMI Tool"
-#define MyAppVersion "1.0.17"
+#define MyAppVersion "1.0.18"
 #define MyAppExeName "PS5_HDMI_Tool.exe"
 #define MyAppPublisher "DatZero Foundation"
 #define MyAppURL "https://datzerogames.com.br/"
@@ -40,9 +40,11 @@ SolidCompression=yes
 PrivilegesRequired=admin
 SetupIconFile=images\icon.ico
 WizardStyle=modern
+; Avisa o Explorer pra recarregar os icones (atalho da area de trabalho).
+ChangesAssociations=yes
 UninstallDisplayIcon={app}\{#MyAppExeName}
 ; Informacoes do proprio arquivo Setup.exe (aba Detalhes nas Propriedades dele).
-VersionInfoVersion=1.0.17.0
+VersionInfoVersion=1.0.18.0
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoDescription=Instalador do {#MyAppName}
 VersionInfoProductName={#MyAppName}
@@ -75,6 +77,10 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 ; bits de verdade). {sysnative} fura esse redirecionamento; em Windows de
 ; 32 bits ele automaticamente equivale a {sys} (documentado pelo Inno Setup).
 Filename: "{sysnative}\pnputil.exe"; Parameters: "/add-driver ""{app}\drives\CH341WDM.INF"" /install"; StatusMsg: "Instalando driver do leitor CH341A..."; Flags: runhidden waituntilterminated
+
+; Atualiza o cache de icones do Windows pra o atalho da area de trabalho
+; mostrar o icone novo logo apos atualizar.
+Filename: "{sys}\ie4uinit.exe"; Parameters: "-show"; Flags: runhidden
 
 Filename: "{app}\{#MyAppExeName}"; Description: "Abrir {#MyAppName}"; Flags: nowait postinstall skipifsilent
 

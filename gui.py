@@ -131,7 +131,9 @@ PROGRESS_COLOR = "#4edea3"  # mesma cor verde-menta da barra de progresso
 
 IMAGES_DIR = BUNDLE_DIR / "images"
 ICON_ICO = IMAGES_DIR / "icon.ico"
-LOGO_PNG = IMAGES_DIR / "logo.png"
+LOGO_PNG = IMAGES_DIR / "logo.png"  # logo do desenvolvedor (splash, Sobre)
+WINDOW_ICON = IMAGES_DIR / "window_icon.ico"  # icone no canto da janela (logo do desenvolvedor)
+HEADER_ART_PNG = IMAGES_DIR / "header_chip.png"  # arte do chip, cabecalho da janela
 AUTHOR_CREDIT = "Developed by MeoWDev MOD"
 SPLASH_MIN_MS = 2500  # tempo minimo da tela de carregamento
 FLAGS_DIR = IMAGES_DIR / "flags"
@@ -300,12 +302,18 @@ class App(tk.Tk):
         win.resizable(False, False)
         win.transient(self)
         try:
-            if ICON_ICO.exists():
-                win.iconbitmap(str(ICON_ICO))
+            if WINDOW_ICON.exists():
+                win.iconbitmap(str(WINDOW_ICON))
         except tk.TclError:
             pass
-        if getattr(self, "_logo_img", None) is not None:
-            tk.Label(win, image=self._logo_img, bg=BG).pack(padx=40, pady=(24, 8))
+        try:
+            win._logo = tk.PhotoImage(file=str(LOGO_PNG))
+            f = max(1, win._logo.width() // 96)
+            if f > 1:
+                win._logo = win._logo.subsample(f, f)
+            tk.Label(win, image=win._logo, bg=BG).pack(padx=40, pady=(24, 8))
+        except tk.TclError:
+            pass
         tk.Label(win, text=t("app.title"), bg=BG, fg=FG,
                  font=("Segoe UI", 14, "bold")).pack()
         tk.Label(win, text=f"v{APP_VERSION}", bg=BG, fg=FG_MUTED).pack()
@@ -376,8 +384,8 @@ class App(tk.Tk):
 
     def _set_icon(self):
         try:
-            if ICON_ICO.exists():
-                self.iconbitmap(default=str(ICON_ICO))
+            if WINDOW_ICON.exists():
+                self.iconbitmap(default=str(WINDOW_ICON))
         except tk.TclError:
             pass
 
@@ -419,8 +427,9 @@ class App(tk.Tk):
         header = ttk.Frame(self, padding=(10, 10, 10, 0))
         header.pack(fill="x")
         try:
-            if LOGO_PNG.exists():
-                self._logo_img = tk.PhotoImage(file=str(LOGO_PNG))
+            header_art = HEADER_ART_PNG if HEADER_ART_PNG.exists() else LOGO_PNG
+            if header_art.exists():
+                self._logo_img = tk.PhotoImage(file=str(header_art))
                 # reduz o logo se vier grande demais (subsample so aceita inteiros)
                 w = self._logo_img.width()
                 factor = max(1, w // 48)
