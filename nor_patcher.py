@@ -31,6 +31,8 @@ from nor_parser import (
     WIFI_MAC_LEN,
     OFFSET_SKU,
     SKU_LEN,
+    OFFSET_FW_CURRENT,
+    FW_LEN,
     OFFSET_MOBO_SERIAL,
     MOBO_SERIAL_LEN,
     OFFSET_BOARD_SERIAL,
@@ -174,10 +176,11 @@ def apply_donor_identity(donor: bytes, customer: bytes) -> PatchResult:
     os campos de identidade. Confira o chip/familia detectados no
     arquivo-base (parse_nor) antes de gravar numa placa de cliente.
 
-    Tambem reaproveita o SKU/regiao e o tipo de console do cliente. Carrega
-    de volta o MAC/MAC Wi-Fi do cliente (alem do numero de serie) pra evitar que varios consoles convertidos com o mesmo
-    arquivo-base saiam com o mesmo endereco MAC -- o que causaria conflito
-    de rede se dois desses consoles acabarem na mesma rede.
+    REGRA (definida apos relato de "3 bips" com NOR gerada por patch direto):
+    do console do usuario so sao reaproveitados o numero de serie do
+    console, o SKU (que ja inclui o codigo de regiao) e o firmware atual
+    (NVS). TODO o resto -- inclusive MAC, MAC Wi-Fi, identificador da
+    placa-mae e tipo de console -- vem do arquivo-base, sem alteracao.
 
     Se o campo correspondente no console lido estiver em branco (0xFF --
     NOR corrompida/leitura falhou, ver nor_parser.is_blank()), NAO
@@ -190,20 +193,13 @@ def apply_donor_identity(donor: bytes, customer: bytes) -> PatchResult:
     changes: list[PatchChange] = []
 
     fields = [
-        (OFFSET_MOBO_SERIAL, MOBO_SERIAL_LEN,
-         t("backend.patch.donor_mobo_serial"), t("backend.patch.donor_mobo_serial_kept")),
         (OFFSET_BOARD_SERIAL, BOARD_SERIAL_LEN,
          t("backend.patch.donor_board_serial"), t("backend.patch.donor_board_serial_kept")),
-        (OFFSET_MAC, MAC_LEN,
-         t("backend.patch.donor_mac"), t("backend.patch.donor_mac_kept")),
-        (OFFSET_WIFI_MAC, WIFI_MAC_LEN,
-         t("backend.patch.donor_wifi_mac"), t("backend.patch.donor_wifi_mac_kept")),
-        # SKU/modelo (ja inclui o codigo de regiao, 0x1C7236) e tipo de console
-        # (Disco/Digital/Slim): continuam sendo os do console do usuario.
+        # SKU/modelo ja inclui o codigo de regiao (0x1C7236, 2 digitos).
         (OFFSET_SKU, SKU_LEN,
          t("backend.patch.donor_sku"), t("backend.patch.donor_sku_kept")),
-        (OFFSET_CONSOLE_TYPE, CONSOLE_TYPE_LEN,
-         t("backend.patch.donor_console_type"), t("backend.patch.donor_console_type_kept")),
+        (OFFSET_FW_CURRENT, FW_LEN,
+         t("backend.patch.donor_fw"), t("backend.patch.donor_fw_kept")),
     ]
     for offset, length, description, kept_description in fields:
         old = bytes(buf[offset:offset + length])
