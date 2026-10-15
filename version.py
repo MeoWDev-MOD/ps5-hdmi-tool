@@ -9,4 +9,4 @@ FileVersion/ProductVersion e filevers/prodvers) e installer.iss
 sao 3 arquivos com o mesmo numero, nenhum le o outro automaticamente.
 """
 
-APP_VERSION = "1.0.18"
+APP_VERSION = "1.0.19"
