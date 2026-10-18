@@ -5,7 +5,7 @@
 Desenvolvido por **DatZero Foundation** — [datzerogames.com.br](https://datzerogames.com.br/)
 Técnico criador: **Jefferson Honorio**
 
-🔗 **[Site do projeto](https://vendashson-rgb.github.io/ps5-hdmi-tool/)**
+🔗 **[Site do projeto](https://meowdev-mod.github.io/ps5-hdmi-tool/)**
 
 ![Tela principal do PS5 HDMI Tool](docs/assets/screenshot.png)
 
@@ -39,7 +39,7 @@ projeto).
 
 ## ⬇️ Baixar
 
-**[Baixar o instalador (.exe) — última versão](https://github.com/vendashson-rgb/ps5-hdmi-tool/releases/latest)**
+**[Baixar o instalador (.exe) — última versão](https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest)**
 
 Baixe o `PS5_HDMI_Tool_Setup.exe` da página de releases acima e rode — ele
 instala o programa e o driver do leitor CH341A automaticamente (pede

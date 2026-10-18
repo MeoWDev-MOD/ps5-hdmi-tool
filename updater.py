@@ -17,7 +17,7 @@ from dataclasses import dataclass
 
 from version import APP_VERSION
 
-GITHUB_REPO = "vendashson-rgb/ps5-hdmi-tool"
+GITHUB_REPO = "MeoWDev-MOD/ps5-hdmi-tool"
 GITHUB_API_LATEST_RELEASE = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
 RELEASES_PAGE_URL = f"https://github.com/{GITHUB_REPO}/releases"
 ASSET_NAME = "PS5_HDMI_Tool_Setup.exe"

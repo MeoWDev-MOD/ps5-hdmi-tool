@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vendashson-rgb.github.io/ps5-hdmi-tool/sitemap.xml
+Sitemap: https://meowdev-mod.github.io/ps5-hdmi-tool/sitemap.xml

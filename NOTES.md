@@ -936,7 +936,7 @@ versão daqui pra frente** (3 arquivos, nenhum lê o outro automaticamente
 Novo `updater.py`, só biblioteca padrão (`urllib`, sem dependência nova
 pra empacotar):
 - `check_for_update() -> UpdateInfo | None`: consulta
-  `api.github.com/repos/vendashson-rgb/ps5-hdmi-tool/releases/latest`,
+  `api.github.com/repos/MeoWDev-MOD/ps5-hdmi-tool/releases/latest`,
   compara a tag (`vX.Y.Z`) com `APP_VERSION`, acha o asset
   `PS5_HDMI_Tool_Setup.exe` na release. Timeout de 6s. Qualquer erro (sem
   internet, API fora do ar, repositório sem releases, asset não encontrado)
