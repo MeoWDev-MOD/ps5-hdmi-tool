@@ -968,3 +968,35 @@ instalador -> fechar o programa) testado de ponta a ponta contra um
 servidor HTTP local fake, com `subprocess.Popen`/`sys.exit`
 mockados. Falha de rede (URL inválida) testada -> retorna `None` em
 silêncio, sem exceção.
+
+## Estudo 2026-10-28: comparação com o "Conversor HDMI PS5" e checksum resolvido
+
+Comparados byte a byte: uma NOR Realtek original (EDM-044, REV Wi-Fi 0x11) e
+as duas saídas do Conversor HDMI PS5 gerados a partir dela (pasta `tgt/`,
+fora do repositório — tem MAC/série de cliente).
+
+| Saída do conversor | Bytes alterados vs. o original |
+|---|---|
+| **Nuvoton** | só `0x1C4062` (`01`→`FF`) e `0x1C41FE-FF` (`45 86`→`47 85`) |
+| **Panasonic** | `0x1C4062` (`01`→`FF`), `0x1C40C6-D9` (20 bytes → `FF`), `0x1C4923` (`00`→`FF`), `0x1C49BF` (`A9`→`AA`, contador +1), `0x1C41FE-FF` (`45 86`→`E7 0E`) |
+
+- O que o nosso patch já fazia (seletor + zerar bloco + zerar flag + contador
+  +1 + checksum) é exatamente a saída **Panasonic**: idêntica byte a byte.
+  A saída **Nuvoton** é a variante leve (só seletor + checksum) e passou a ser
+  um alvo próprio (`TARGET_NUVOTON`); a completa virou `TARGET_PANASONIC`.
+- **Checksum `0x1C41FE-FF` resolvido (não é tabela).** Little-endian; a soma
+  das palavras de 16 bits (little-endian) de `0x1C4000` até `0x1C41FF`,
+  **incluindo o próprio checksum**, fecha em zero (mod 65536). Confere nos 15
+  arquivos válidos que temos (todas as REV Wi-Fi já vistas, antes e depois de
+  converter) e reproduz os 5 valores da antiga tabela. Substitui
+  `KNOWN_CHECKSUMS`: não existe mais "checksum não resolvido" — vale para
+  qualquer REV de Wi-Fi. Implementado em `nor_patcher.compute_checksum`.
+- Limite: só temos **uma** NOR de origem (REV 0x11) com as duas saídas do
+  conversor para comparar, então "Nuvoton = só seletor + checksum" vem de uma
+  amostra. A diferença de significado entre as duas variantes (por que o
+  conversor oferece as duas) não está documentada — não testado em console.
+- A conversão volta a ser feita **no próprio arquivo do cliente** (mantém todos
+  os dados dele). O uso automático da NOR base (v1.0.19) saiu do botão
+  "Aplicar patch"; o arquivo-base continua disponível manualmente
+  ("Usar arquivo-base..." / "Regenerar com arquivo-base...").
+- Testes: `python -m unittest discover -s tests -v`.

@@ -21,12 +21,8 @@ Fluxo:
     a mesma confirmacao da gravacao normal. Avisa se ainda nao houver nenhum
     backup feito.
 
-*** AVISO IMPORTANTE ***
-O campo 0x1C41FE-0x1C41FF e resolvido via tabela fixa (chip + REV Wi-Fi) --
-ver NOTES.md e nor_patcher.py.KNOWN_CHECKSUMS. Resolvido apenas para 3
-combinacoes ja vistas em amostras reais; pra qualquer outra combinacao o
-patch mantem o valor antigo e avisa (result.checksum_left_stale). Use a
-gravacao em placa de cliente SOMENTE quando o checksum foi resolvido.
+O campo 0x1C41FE-0x1C41FF (checksum) e recalculado a cada patch -- ver
+nor_patcher.compute_checksum e NOTES.md. Vale pra qualquer REV de Wi-Fi.
 """
 
 from __future__ import annotations
@@ -46,6 +42,7 @@ from tkinter import filedialog, messagebox, scrolledtext, simpledialog, ttk
 
 from PIL import Image, ImageTk
 
+import driver_check
 import updater
 from version import APP_VERSION
 from ch341_spi import CH341Error, CH341SPI, describe_jedec_id
@@ -54,9 +51,9 @@ from i18n import LANGUAGES, get_language, set_language, t
 from nor_parser import CHIP_SLUG, EXPECTED_SIZE, NorInfo, compare_dumps, has_valid_nor_magic, is_blank, parse_nor
 from nor_patcher import (
     PatchResult,
-    TARGET_BYTE,
     TARGET_LABEL,
     TARGET_NUVOTON,
+    TARGET_PANASONIC,
     TARGET_REALTEK,
     CONSOLE_TYPE_TARGET_KEY,
     CONSOLE_TYPE_DIGITAL_TARGET,
@@ -162,29 +159,6 @@ VERIFYING_FILE_SIZE = (260, 260)
 
 BACKUP_DIR = APP_DIR / "database" / "backups"
 
-DONOR_FILES_DIR = BUNDLE_DIR / "donor_files"
-
-
-def _load_donor_files() -> dict[str, pathlib.Path]:
-    """Mapeia familia de placa (ex. "EDM-05X") -> arquivo-base correspondente
-    em donor_files/, pra conversao automatica na aba de analise de arquivo.
-    Qualquer arquivo-base novo colocado em donor_files/ entra automaticamente
-    no mapeamento, sem precisar mexer no codigo."""
-    donors: dict[str, pathlib.Path] = {}
-    if not DONOR_FILES_DIR.is_dir():
-        return donors
-    for path in sorted(DONOR_FILES_DIR.glob("*.bin")):
-        try:
-            data = path.read_bytes()
-        except OSError:
-            continue
-        if len(data) != EXPECTED_SIZE:
-            continue
-        info = parse_nor(data)
-        if info.board_family:
-            donors.setdefault(info.board_family, path)
-    return donors
-
 CONFIRM_PHRASE = "GRAVAR"
 MIN_DETECT_DISPLAY_S = 1.2  # tempo minimo pra animacao de "detectando" aparecer na tela
 
@@ -268,8 +242,6 @@ class App(tk.Tk):
         self.file_dump: bytes | None = None
         self.file_info: NorInfo | None = None
         self.file_patch: PatchResult | None = None
-        self._file_donor_path: pathlib.Path | None = None
-        self.donor_files = _load_donor_files()
 
         self.uart: UartReader | None = None
         self.uart_connected = False
@@ -285,6 +257,7 @@ class App(tk.Tk):
         self._build_widgets()
         self.protocol("WM_DELETE_WINDOW", self.on_close)
         self.after(3000, self._start_update_check)
+        self.after(1500, self._check_drivers)
         elapsed_ms = int((time.monotonic() - self._splash_started) * 1000)
         self.after(max(0, SPLASH_MIN_MS - elapsed_ms), self._finish_splash)
 
@@ -504,7 +477,7 @@ class App(tk.Tk):
         self.target_var = tk.StringVar(value=TARGET_NUVOTON)
         self.combo_target = ttk.Combobox(
             patch_row1, textvariable=self.target_var, state="readonly", width=28,
-            values=[TARGET_REALTEK, TARGET_NUVOTON]
+            values=[TARGET_REALTEK, TARGET_NUVOTON, TARGET_PANASONIC]
         )
         self.combo_target.set(TARGET_NUVOTON)
         self.combo_target.pack(side="left", padx=8)
@@ -782,7 +755,7 @@ class App(tk.Tk):
         self.file_target_var = tk.StringVar(value=TARGET_NUVOTON)
         combo = ttk.Combobox(
             file_patch_row1, textvariable=self.file_target_var, state="readonly", width=28,
-            values=[TARGET_REALTEK, TARGET_NUVOTON]
+            values=[TARGET_REALTEK, TARGET_NUVOTON, TARGET_PANASONIC]
         )
         combo.set(TARGET_NUVOTON)
         combo.pack(side="left", padx=8)
@@ -897,8 +870,6 @@ class App(tk.Tk):
         self.file_patch = None
         self.btn_file_save.configure(state="disabled")
 
-        donor_path = self.donor_files.get(info.board_family) if info.board_family else None
-        self._file_donor_path = donor_path
         self.btn_file_donor_manual.configure(state="normal" if info.size_ok else "disabled")
         self.btn_file_console_type.configure(state="normal" if info.size_ok else "disabled")
 
@@ -942,10 +913,7 @@ class App(tk.Tk):
             for w in info.warnings:
                 self.file_log(f"  - {w}", "warn")
 
-        if donor_path is not None:
-            self.file_log("")
-            self.file_log(t("file.log.donor_available", family=info.board_family, name=donor_path.name), "info")
-        elif info.board_family is None and info.size_ok:
+        if info.board_family is None and info.size_ok:
             self.file_log("")
             self.file_log(t("file.log.donor_manual_hint"), "info")
 
@@ -962,47 +930,34 @@ class App(tk.Tk):
         if self.file_dump is None:
             return
         target = self.file_target_var.get()
-
-        # Alvo Nuvoton + familia com NOR base: grava as informacoes do console
-        # em cima da base. Senao, aplica o patch direto no arquivo do usuario
-        # (que tambem mantem todas as informacoes do console).
-        donor_path = self._file_donor_path if target == TARGET_NUVOTON else None
-        donor_data = None
-        if donor_path is not None:
-            try:
-                donor_data = donor_path.read_bytes()
-            except OSError as e:
-                messagebox.showerror(t("common.err_open_file_title"), str(e))
-                return
-
-        self.file_log("=" * 60, "muted")
-        if donor_data is not None:
-            result = apply_donor_identity(donor_data, self.file_dump)
-            self.file_log(t("file.log.donor_title", path=donor_path), "patch")
-            self.file_log(
-                t("common.log.base_used", name=donor_path.name,
-                  family=self.file_info.board_family or "?"), "ok")
-        else:
-            result = apply_patch(self.file_dump, target)
-            self.file_log(t("file.log.preview_title", target=TARGET_LABEL[target]), "patch")
-            if target == TARGET_NUVOTON:
-                self.file_log(t("common.log.base_missing"), "warn")
+        result = apply_patch(self.file_dump, target)
         self.file_patch = result
 
+        self.file_log("=" * 60, "muted")
+        self.file_log(t("file.log.preview_title", target=TARGET_LABEL[target]), "patch")
         for ch in result.changes:
             self.file_log(
                 t("file.log.preview_change", offset=f"{ch.offset:06X}",
                   old=ch.old.hex(' ').upper(), new=ch.new.hex(' ').upper(), desc=ch.description),
                 "patch"
             )
-        if donor_data is None:
-            self.file_log("")
-            if result.checksum_left_stale:
-                self.file_log(t("file.log.checksum_stale"), "warn")
-            else:
-                self.file_log(t("file.log.checksum_resolved"), "ok")
+        self.file_log("")
+        if result.checksum_left_stale:
+            self.file_log(t("file.log.checksum_stale"), "warn")
+        else:
+            self.file_log(t("file.log.checksum_resolved"), "ok")
         self.file_log("=" * 60, "muted")
         self.btn_file_save.configure(state="normal")
+
+        # Salva ao lado do arquivo lido, com o alvo no nome (o original nao e tocado).
+        current_path = pathlib.Path(self.file_path_var.get())
+        out_path = current_path.with_name(f"{current_path.stem}_{target.upper()}.bin")
+        try:
+            out_path.write_bytes(result.data)
+        except OSError as e:
+            messagebox.showerror(t("common.err_open_file_title"), str(e))
+            return
+        self.file_log(t("file.log.saved", path=out_path), "ok")
 
     def on_file_use_donor_manual(self):
         if self.file_dump is None:
@@ -2110,51 +2065,29 @@ class App(tk.Tk):
             messagebox.showinfo(t("hw.no_nor_title"), t("hw.no_nor_body"))
             return
         target = self.target_var.get()
-
-        # Alvo Nuvoton + familia com NOR base: grava as informacoes do console
-        # lido em cima da base. Senao, patch direto na NOR lida.
-        info = self.last_info
-        donor_path = None
-        donor_data = None
-        if target == TARGET_NUVOTON and info is not None and info.board_family:
-            donor_path = self.donor_files.get(info.board_family)
-        if donor_path is not None:
-            try:
-                donor_data = donor_path.read_bytes()
-            except OSError as e:
-                messagebox.showerror(t("common.err_open_file_title"), str(e))
-                return
-            result = apply_donor_identity(donor_data, self.last_dump)
-        else:
-            result = apply_patch(self.last_dump, target)
+        result = apply_patch(self.last_dump, target)
         self.last_patch = result
 
         converted_path = None
         if self.last_backup_path is not None:
             from_slug = CHIP_SLUG.get(self.last_info.chip_raw, f"CHIP0x{self.last_info.chip_raw:02X}")
-            to_slug = CHIP_SLUG.get(TARGET_BYTE[target], target.upper())
+            to_slug = target.upper()
             converted_path = self.last_backup_path.parent / f"{from_slug}_FOR_{to_slug}.bin"
             converted_path.write_bytes(result.data)
 
         self.log("=" * 60, "muted")
         self.log(t("hw.log.preview_title", target=TARGET_LABEL[target]), "patch")
-        if donor_data is not None:
-            self.log(t("common.log.base_used", name=donor_path.name,
-                       family=info.board_family or "?"), "ok")
-        elif target == TARGET_NUVOTON:
-            self.log(t("common.log.base_missing"), "warn")
         for ch in result.changes:
             self.log(
                 t("hw.log.preview_change", offset=f"{ch.offset:06X}",
                   old=ch.old.hex(' ').upper(), new=ch.new.hex(' ').upper(), desc=ch.description),
                 "patch"
             )
-        if donor_data is None:
-            self.log("")
-            if result.checksum_left_stale:
-                self.log(t("hw.log.checksum_stale"), "warn")
-            else:
-                self.log(t("hw.log.checksum_resolved"), "ok")
+        self.log("")
+        if result.checksum_left_stale:
+            self.log(t("hw.log.checksum_stale"), "warn")
+        else:
+            self.log(t("hw.log.checksum_resolved"), "ok")
         if converted_path is not None:
             self.log(t("hw.log.converted_saved", path=converted_path), "muted")
         self.log("=" * 60, "muted")
@@ -2547,6 +2480,38 @@ class App(tk.Tk):
             context="restore",
         )
 
+    # -- Driver do leitor CH341A ---------------------------------------------
+    def _check_drivers(self):
+        """Confere se o driver do CH341A esta no Windows; se faltar, avisa e
+        oferece instalar (a checagem roda numa thread pra nao travar)."""
+        def worker():
+            if driver_check.ch341_driver_installed() is False:
+                self.after(0, self._driver_missing)
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _driver_missing(self):
+        inf = _bundle_dir() / "drives" / "CH341WDM.INF"
+        if not inf.exists():
+            self.log(t("driver.log.inf_missing"), "warn")
+            return
+        if not messagebox.askyesno(t("driver.missing_title"), t("driver.missing_body")):
+            self.log(t("driver.log.declined"), "warn")
+            return
+        self.log(t("driver.log.installing"), "muted")
+
+        def worker():
+            ok = driver_check.install_ch341_driver(str(inf))
+            self.after(0, lambda: self._driver_install_done(ok))
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _driver_install_done(self, ok: bool):
+        if ok:
+            self.log(t("driver.log.ok"), "ok")
+            messagebox.showinfo(t("driver.ok_title"), t("driver.ok_body"))
+        else:
+            self.log(t("driver.log.fail"), "warn")
+            messagebox.showwarning(t("driver.fail_title"), t("driver.fail_body"))
+
     # -- Atualizacao automatica (GitHub Releases) ----------------------------
     def _start_update_check(self):
         """Checa se tem versao nova no GitHub, numa thread separada -- so
@@ -2590,7 +2555,15 @@ class App(tk.Tk):
         y = self.winfo_rooty() + (self.winfo_height() - dialog.winfo_height()) // 2
         dialog.geometry(f"+{x}+{y}")
 
-        dest_path = pathlib.Path(tempfile.gettempdir()) / "PS5_HDMI_Tool_Setup_update.exe"
+        if info.download_url.lower().endswith("_setup.exe"):
+            dest_path = pathlib.Path(tempfile.gettempdir()) / "PS5_HDMI_Tool_Setup_update.exe"
+        else:
+            # .exe unico: baixa ao lado do atual, com a versao no nome.
+            if getattr(sys, "frozen", False):
+                folder = pathlib.Path(sys.executable).parent
+            else:
+                folder = pathlib.Path(tempfile.gettempdir())
+            dest_path = folder / f"PS5_HDMI_Tool_{info.version.lstrip('vV')}.exe"
 
         def progress_cb(done, total):
             self.after(0, lambda: self._update_progress(bar, status_lbl, done, total))

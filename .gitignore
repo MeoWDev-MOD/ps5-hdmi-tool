@@ -16,3 +16,6 @@ __pycache__/
 .vscode/
 Thumbs.db
 desktop.ini
+dist_novo/
+dist_onefile/
+build_onefile/

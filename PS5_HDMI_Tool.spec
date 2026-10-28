@@ -1,11 +1,11 @@
-# -*- mode: python ; coding: utf-8 -*-
+﻿# -*- mode: python ; coding: utf-8 -*-
 
 
 a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('images', 'images'), ('drives', 'drives'), ('donor_files', 'donor_files')],
+    datas=[('images', 'images'), ('drives', 'drives')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

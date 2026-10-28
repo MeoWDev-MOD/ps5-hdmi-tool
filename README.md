@@ -39,17 +39,17 @@ projeto).
 
 ## ⬇️ Baixar
 
-**[Baixar o instalador (.exe) — última versão](https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest)**
+**[Baixar o programa (.exe) — última versão](https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest)**
 
-Baixe o `PS5_HDMI_Tool_Setup.exe` da página de releases acima e rode — ele
-instala o programa e o driver do leitor CH341A automaticamente (pede
-permissão de administrador pra isso). Não precisa instalar Python nem nada
-além dele.
+Baixe o `PS5_HDMI_Tool.exe` da página de releases acima e abra — é um
+arquivo único, sem instalação. Se o driver do leitor CH341A não estiver no
+Windows, o programa avisa e instala (pede permissão de administrador). Não
+precisa instalar Python nem nada além dele.
 
 Depois de instalado, o próprio programa confere sozinho (alguns segundos
 depois de abrir) se há uma versão mais nova publicada no GitHub — se
 houver, mostra um aviso perguntando se quer baixar e instalar agora; se
-aceitar, ele baixa o instalador novo, abre ele e fecha sozinho, sem
+aceitar, ele baixa o programa novo, abre ele e fecha sozinho, sem
 precisar baixar nada manualmente de novo. Falha de internet nessa checagem
 é ignorada em silêncio (não atrapalha o uso normal do programa).
 

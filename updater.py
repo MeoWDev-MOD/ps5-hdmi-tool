@@ -20,7 +20,8 @@ from version import APP_VERSION
 GITHUB_REPO = "MeoWDev-MOD/ps5-hdmi-tool"
 GITHUB_API_LATEST_RELEASE = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
 RELEASES_PAGE_URL = f"https://github.com/{GITHUB_REPO}/releases"
-ASSET_NAME = "PS5_HDMI_Tool_Setup.exe"
+# .exe unico primeiro; o Setup continua so para versoes antigas.
+ASSET_NAMES = ("PS5_HDMI_Tool.exe", "PS5_HDMI_Tool_Setup.exe")
 REQUEST_TIMEOUT_S = 6
 DOWNLOAD_TIMEOUT_S = 30
 DOWNLOAD_CHUNK = 256 * 1024
@@ -72,10 +73,11 @@ def check_for_update() -> UpdateInfo | None:
 
     asset_url = None
     asset_size = 0
-    for asset in data.get("assets", []) or []:
-        if asset.get("name") == ASSET_NAME:
-            asset_url = asset.get("browser_download_url")
-            asset_size = asset.get("size") or 0
+    assets = {a.get("name"): a for a in data.get("assets", []) or []}
+    for name in ASSET_NAMES:
+        if name in assets:
+            asset_url = assets[name].get("browser_download_url")
+            asset_size = assets[name].get("size") or 0
             break
     if not asset_url:
         return None

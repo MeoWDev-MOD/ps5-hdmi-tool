@@ -1,4 +1,4 @@
-"""Fonte unica da versao do programa em tempo de execucao (ex.: usada pela
+﻿"""Fonte unica da versao do programa em tempo de execucao (ex.: usada pela
 checagem de atualizacao em updater.py, pra comparar com a versao mais
 recente publicada no GitHub).
 
@@ -9,4 +9,4 @@ FileVersion/ProductVersion e filevers/prodvers) e installer.iss
 sao 3 arquivos com o mesmo numero, nenhum le o outro automaticamente.
 """
 
-APP_VERSION = "1.0.19"
+APP_VERSION = "1.0.20"

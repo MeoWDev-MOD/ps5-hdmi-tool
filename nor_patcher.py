@@ -1,20 +1,20 @@
 """
 Aplicacao do patch de conversao de chip HDMI (Realtek <-> Nuvoton/Panasonic).
 
-*** LEIA ANTES DE USAR EM QUALQUER PLACA DE CLIENTE ***
+O arquivo da conversao e o PROPRIO arquivo lido do console (todos os dados do
+cliente -- serie, MAC, SKU, regiao, firmware -- ficam como estao). Dois
+alvos de saida pro chip Nuvoton/Panasonic, iguais aos gerados pelo
+"Conversor HDMI PS5" (comparado byte a byte em 2026-10-28, ver NOTES.md):
 
-O campo 0x1C41FE-0x1C41FF e uma tabela fixa que depende so de (chip HDMI em
-0x1C4062, byte de revisao do Wi-Fi em 0x1C4068) -- NAO depende do MAC.
-Descoberto em 2026-10-02 comparando dumps reais com mesmo chip+REV Wi-Fi mas
-MAC diferente (ver NOTES.md). So temos o valor certo pra 3 combinacoes
-confirmadas (KNOWN_CHECKSUMS abaixo); pra qualquer outra combinacao ainda nao
-vista, o patch deixa o valor ANTIGO (desatualizado) e avisa. Ha relato de
-terceiros de que um bloco inconsistente nessa area causa o sintoma "sai da
-tela de checagem azul, vai pra tela branca, conecta controle, mas sem
-imagem" -- ou seja, deixar o valor antigo pode nao funcionar de verdade.
+- TARGET_NUVOTON: so o seletor do chip (0x1C4062) e o checksum.
+- TARGET_PANASONIC: seletor do chip + zera o bloco de pareamento
+  (0x1C40C6) + zera a flag (0x1C4923) + contador de gravacao +1
+  (0x1C49BE) + checksum.
 
-Use em placa de cliente SOMENTE quando o checksum foi resolvido (ver
-PatchResult.checksum_left_stale) -- senao, bancada/teste apenas.
+O checksum em 0x1C41FE-0x1C41FF e calculado (ver compute_checksum): a soma
+das palavras de 16 bits (little-endian) de 0x1C4000 a 0x1C41FF, incluindo o
+proprio checksum, fecha em zero. Vale pra qualquer REV de Wi-Fi -- a antiga
+tabela de valores fixos nao e mais necessaria.
 """
 
 from __future__ import annotations
@@ -24,7 +24,6 @@ from dataclasses import dataclass
 from i18n import t
 from nor_parser import (
     OFFSET_CHIP_SELECT,
-    OFFSET_WIFI_REV_HINT,
     OFFSET_MAC,
     MAC_LEN,
     OFFSET_WIFI_MAC,
@@ -53,30 +52,27 @@ OFFSET_ZERO_BYTE = 0x1C4923
 
 OFFSET_COUNTER = 0x1C49BE  # 2 bytes, big-endian, incrementa +1 a cada conversao
 
-OFFSET_CHECKSUM_UNKNOWN = 0x1C41FE  # 2 bytes -- tabela fixa, ver KNOWN_CHECKSUMS
-
-# Tabela confirmada em 2026-10-02 (ver NOTES.md): (chip_destino, byte REV
-# Wi-Fi ja existente na placa) -> valor correto do checksum. Cada entrada foi
-# validada em pelo menos 2 amostras reais com MAC diferente batendo igual.
-KNOWN_CHECKSUMS: dict[tuple[int, int], bytes] = {
-    (CHIP_REALTEK, 0x11): bytes.fromhex("4586"),
-    (CHIP_REALTEK, 0x21): bytes.fromhex("3290"),
-    (CHIP_NUVOTON_PANASONIC, 0x21): bytes.fromhex("348f"),
-    (CHIP_NUVOTON_PANASONIC, 0x12): bytes.fromhex("ada0"),
-    (CHIP_NUVOTON_PANASONIC, 0x11): bytes.fromhex("e70e"),
-}
+OFFSET_CHECKSUM = 0x1C41FE  # 2 bytes, little-endian, ver compute_checksum
+OFFSET_CHECKSUM_BLOCK = 0x1C4000  # inicio do bloco coberto pelo checksum (ate 0x1C41FF)
 
 TARGET_REALTEK = "realtek"
 TARGET_NUVOTON = "nuvoton"
+TARGET_PANASONIC = "panasonic"
 
 TARGET_BYTE = {
     TARGET_REALTEK: CHIP_REALTEK,
     TARGET_NUVOTON: CHIP_NUVOTON_PANASONIC,
+    TARGET_PANASONIC: CHIP_NUVOTON_PANASONIC,
 }
 TARGET_LABEL = {
     TARGET_REALTEK: "Realtek RTD2175P",
-    TARGET_NUVOTON: "Nuvoton/Panasonic MN864739",
+    TARGET_NUVOTON: "Nuvoton MN864739",
+    TARGET_PANASONIC: "Panasonic MN864739",
 }
+
+# Alvos que tambem zeram o bloco de pareamento/flag e incrementam o contador.
+# O alvo Nuvoton muda so o seletor do chip e o checksum.
+_FULL_PATCH_TARGETS = (TARGET_REALTEK, TARGET_PANASONIC)
 
 
 @dataclass
@@ -94,12 +90,24 @@ class PatchResult:
     checksum_left_stale: bool
 
 
+def compute_checksum(buf: bytes | bytearray) -> bytes:
+    """Checksum de 2 bytes (little-endian) de 0x1C41FE: o valor que faz a soma
+    das palavras de 16 bits (little-endian) de 0x1C4000-0x1C41FF fechar em
+    zero (mod 65536). Confere em todas as NORs reais que temos (15 arquivos)."""
+    total = 0
+    for i in range(OFFSET_CHECKSUM_BLOCK, OFFSET_CHECKSUM, 2):
+        total += buf[i] | (buf[i + 1] << 8)
+    value = (-total) & 0xFFFF
+    return bytes([value & 0xFF, value >> 8])
+
+
 def apply_patch(original: bytes, target: str) -> PatchResult:
     if target not in TARGET_BYTE:
         raise ValueError(f"Alvo invalido: {target!r} (use {list(TARGET_BYTE)})")
 
     buf = bytearray(original)
     changes: list[PatchChange] = []
+    full = target in _FULL_PATCH_TARGETS
 
     # 1. Seletor do chip HDMI
     old = bytes([buf[OFFSET_CHIP_SELECT]])
@@ -110,59 +118,46 @@ def apply_patch(original: bytes, target: str) -> PatchResult:
         t("backend.patch.chip_selector", target=TARGET_LABEL[target])
     ))
 
-    # 2. Zerar bloco de 20 bytes
-    old = bytes(buf[OFFSET_ZERO_BLOCK_1:OFFSET_ZERO_BLOCK_1 + ZERO_BLOCK_1_LEN])
-    for i in range(ZERO_BLOCK_1_LEN):
-        buf[OFFSET_ZERO_BLOCK_1 + i] = 0xFF
-    changes.append(PatchChange(
-        OFFSET_ZERO_BLOCK_1, old, b"\xFF" * ZERO_BLOCK_1_LEN,
-        t("backend.patch.zero_block")
-    ))
-
-    # 3. Zerar byte isolado
-    old = bytes([buf[OFFSET_ZERO_BYTE]])
-    buf[OFFSET_ZERO_BYTE] = 0xFF
-    changes.append(PatchChange(
-        OFFSET_ZERO_BYTE, old, b"\xFF",
-        t("backend.patch.zero_flag")
-    ))
-
-    # 4. Incrementar contador de 2 bytes (big-endian), com carry
-    old_counter = bytes(buf[OFFSET_COUNTER:OFFSET_COUNTER + 2])
-    val = (old_counter[0] << 8) | old_counter[1]
-    val = (val + 1) & 0xFFFF
-    new_counter = bytes([(val >> 8) & 0xFF, val & 0xFF])
-    buf[OFFSET_COUNTER] = new_counter[0]
-    buf[OFFSET_COUNTER + 1] = new_counter[1]
-    changes.append(PatchChange(
-        OFFSET_COUNTER, old_counter, new_counter,
-        t("backend.patch.counter")
-    ))
-
-    # 5. Checksum: consulta a tabela fixa (chip_destino, REV Wi-Fi atual da placa).
-    # O byte de REV Wi-Fi nao e alterado pela conversao, entao le o valor que
-    # ja esta no arquivo original.
-    wifi_rev_byte = buf[OFFSET_WIFI_REV_HINT]
-    old_checksum = bytes(buf[OFFSET_CHECKSUM_UNKNOWN:OFFSET_CHECKSUM_UNKNOWN + 2])
-    new_checksum = KNOWN_CHECKSUMS.get((new_val, wifi_rev_byte))
-
-    if new_checksum is not None:
-        buf[OFFSET_CHECKSUM_UNKNOWN] = new_checksum[0]
-        buf[OFFSET_CHECKSUM_UNKNOWN + 1] = new_checksum[1]
+    if full:
+        # 2. Zerar bloco de 20 bytes
+        old = bytes(buf[OFFSET_ZERO_BLOCK_1:OFFSET_ZERO_BLOCK_1 + ZERO_BLOCK_1_LEN])
+        for i in range(ZERO_BLOCK_1_LEN):
+            buf[OFFSET_ZERO_BLOCK_1 + i] = 0xFF
         changes.append(PatchChange(
-            OFFSET_CHECKSUM_UNKNOWN, old_checksum, new_checksum,
-            t("backend.patch.checksum_known", target=TARGET_LABEL[target],
-              wifi_rev=f"{wifi_rev_byte:02X}")
+            OFFSET_ZERO_BLOCK_1, old, b"\xFF" * ZERO_BLOCK_1_LEN,
+            t("backend.patch.zero_block")
         ))
-        checksum_left_stale = False
-    else:
-        changes.append(PatchChange(
-            OFFSET_CHECKSUM_UNKNOWN, old_checksum, old_checksum,
-            t("backend.patch.checksum_unknown", wifi_rev=f"{wifi_rev_byte:02X}")
-        ))
-        checksum_left_stale = True
 
-    return PatchResult(data=bytes(buf), changes=changes, checksum_left_stale=checksum_left_stale)
+        # 3. Zerar byte isolado
+        old = bytes([buf[OFFSET_ZERO_BYTE]])
+        buf[OFFSET_ZERO_BYTE] = 0xFF
+        changes.append(PatchChange(
+            OFFSET_ZERO_BYTE, old, b"\xFF",
+            t("backend.patch.zero_flag")
+        ))
+
+        # 4. Incrementar contador de 2 bytes (big-endian), com carry
+        old_counter = bytes(buf[OFFSET_COUNTER:OFFSET_COUNTER + 2])
+        val = (old_counter[0] << 8) | old_counter[1]
+        val = (val + 1) & 0xFFFF
+        new_counter = bytes([(val >> 8) & 0xFF, val & 0xFF])
+        buf[OFFSET_COUNTER] = new_counter[0]
+        buf[OFFSET_COUNTER + 1] = new_counter[1]
+        changes.append(PatchChange(
+            OFFSET_COUNTER, old_counter, new_counter,
+            t("backend.patch.counter")
+        ))
+
+    # 5. Checksum recalculado sobre o bloco ja alterado (sempre por ultimo).
+    old_checksum = bytes(buf[OFFSET_CHECKSUM:OFFSET_CHECKSUM + 2])
+    new_checksum = compute_checksum(buf)
+    buf[OFFSET_CHECKSUM:OFFSET_CHECKSUM + 2] = new_checksum
+    changes.append(PatchChange(
+        OFFSET_CHECKSUM, old_checksum, new_checksum,
+        t("backend.patch.checksum_computed")
+    ))
+
+    return PatchResult(data=bytes(buf), changes=changes, checksum_left_stale=False)
 
 
 def apply_donor_identity(donor: bytes, customer: bytes) -> PatchResult:
