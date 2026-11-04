@@ -93,13 +93,11 @@ function watchView(el, onSeen) {
 }
 
 // Desenha um anúncio em um espaço. Sem anúncio, o espaço fica escondido. Repetir o mesmo anúncio não recomeça o vídeo.
+// O arquivo só é baixado quando o espaço chega perto da tela: mais espaços na página não gastam mais cota do Supabase.
 function slotView(slot, box, onFail, onSeen) {
-  let shown = null;
+  let shown = null, waiting = null, near = !("IntersectionObserver" in window);
   let stopWatching = () => {};
-  return (b) => {
-    if (!b) { stopWatching(); slot.classList.add("hidden"); shown = null; return; }
-    slot.classList.remove("hidden");
-    if (shown === b.media) return;
+  const draw = (b) => {
     shown = b.media;
     stopWatching();
     stopWatching = watchView(slot, () => onSeen(b));
@@ -114,10 +112,23 @@ function slotView(slot, box, onFail, onSeen) {
     if (b.link) { const a = document.createElement("a"); a.href = currentClickLink(b.link); a.onclick = () => { a.href = currentClickLink(b.link); }; a.target = "_blank"; a.rel = "noopener sponsored"; a.append(m); node = a; }
     box.replaceChildren(node);
   };
+  if (!near) {
+    new IntersectionObserver(([e]) => {
+      near = e.isIntersecting;
+      if (near && waiting) { const b = waiting; waiting = null; draw(b); }
+    }, { rootMargin: "500px 0px" }).observe(slot);
+  }
+  return (b) => {
+    waiting = null;
+    if (!b) { stopWatching(); slot.classList.add("hidden"); shown = null; return; }
+    slot.classList.remove("hidden");
+    if (shown === b.media) return;
+    if (near) draw(b); else waiting = b;
+  };
 }
 
 // Liga um ou mais espaços ao mesmo lugar do CRM: busca, mostra, troca a cada 20 s e atualiza a cada 10 min.
-// Com dois espaços, o segundo mostra o anúncio seguinte ao do primeiro.
+// Cada espaço mostra o anúncio seguinte ao do espaço anterior; com poucos anúncios, eles se repetem.
 function runAds(pairs, local) {
   const key = `hdmi-ad-${local}`;
   let ads = [], i = 0, rotate = 0;

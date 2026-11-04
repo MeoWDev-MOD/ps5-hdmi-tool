@@ -16,7 +16,8 @@ const isDark = () => (root.dataset.theme ? root.dataset.theme === "dark" : match
 
 initUI();
 mountConsent();
-mountAdPairs([[$("adSlot"), $("adMedia")], [$("adSlot2"), $("adMedia2")]], "hdmi-site");
+// Na ordem da página: depois do topo, da explicação do reparo, da peça, do programa e das perguntas.
+mountAdPairs(["", "Como", "2", "Programa", "Faq"].map((n) => [$(`adSlot${n}`), $(`adMedia${n}`)]), "hdmi-site");
 mountSideAds([[$("adL"), $("adLMedia")], [$("adR"), $("adRMedia")]], "hdmi-site-lado", "(min-width: 1580px) and (min-height: 720px)");
 
 $("themeBtn").onclick = (e) => themeSwitch(e, () => {
