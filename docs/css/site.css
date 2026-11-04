@@ -199,6 +199,7 @@ details p{margin:9px 0 0;color:var(--muted);font-size:15px}
 .l3d.vm{color:#ff8a94;border-color:rgba(255,87,102,.6)}
 .l3d.am{color:#ffc75a;border-color:rgba(255,176,31,.6)}
 .l3d.ro{color:#cfc0ff;border-color:rgba(167,139,250,.65)}
+.l3d.az{color:#9ad6ff;border-color:rgba(79,184,255,.65)}
 .passos{display:grid}
 .passo{margin:0 0 14vh;opacity:.42;transition:opacity .3s,border-color .3s,transform .3s}
 .passo:last-child{margin-bottom:6vh}

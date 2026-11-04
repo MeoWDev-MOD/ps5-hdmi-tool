@@ -69,6 +69,9 @@ def textura(origem, destino):
     print(destino, t.size, os.path.getsize(os.path.join(SAIDA, "3d", destino)) // 1024, "KB")
 
 
+# Topo do Realtek usado no modelo 3D: recorte da foto do chip.
+Image.open(REPO + "/docs/assets/chips/rtd2175p.png").convert("RGB").crop((268, 134, 586, 452)).resize((640, 640), Image.LANCZOS).save(os.path.join(SAIDA, "3d", "chip-realtek.webp"), "WEBP", quality=86, method=6)
+
 textura("INTERPOSER TOP BUTTON 1.png", "flex-topo.webp")
 textura("INTERPOSER DOWN BUTTON.png", "flex-base.webp")
 # Vídeo e arquivos antigos continuam em docs/assets: o README e o guia em Markdown apontam para lá.
