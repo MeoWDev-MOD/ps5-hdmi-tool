@@ -135,6 +135,7 @@ h1{font-size:clamp(33px,5vw,54px);line-height:1.07;letter-spacing:-.03em;font-we
 h2{font-size:clamp(26px,3.6vw,38px);line-height:1.14;letter-spacing:-.02em;font-weight:800;margin:6px 0 8px}
 .sec .h p{color:var(--muted);margin:0}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow);min-width:0;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.card.projeto+.card.projeto{margin-top:14px}
 .card.projeto{padding:18px 22px;border-color:color-mix(in srgb,var(--accent2) 45%,transparent);background:linear-gradient(110deg,color-mix(in srgb,var(--accent2) 22%,transparent),var(--surface));box-shadow:0 14px 44px var(--glow)}
 .spot{position:relative;isolation:isolate}
 .spot::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;opacity:0;transition:opacity .3s;background:radial-gradient(340px circle at var(--mx,-999px) var(--my,-999px),color-mix(in srgb,var(--accent2) 18%,transparent),transparent 62%)}
