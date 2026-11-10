@@ -2,10 +2,10 @@
 
 🌐 **[Ler em português](README.md)**
 
-Developed by **DatZero Foundation** — [datzerogames.com.br](https://datzerogames.com.br/)
+Developed by **Tech MeoW** — [techmeow.app](https://techmeow.app/)
 Lead technician: **Jefferson Honorio**
 
-🔗 **[Project website](https://meowdev-mod.github.io/ps5-hdmi-tool/)**
+🔗 **[Project website](https://techmeow.app/ps5-hdmi-tool/)**
 
 ![PS5 HDMI Tool main screen](docs/assets/screenshot.png)
 
@@ -21,7 +21,7 @@ replacement-parts market.
 
 This tool is the **software** side of the process. The physical side (the
 actual chip swap via rework/microsoldering) is done with the
-**[DatZero Interposer](docs/GUIA_INSTALACAO_INTERPOSER.md)** — see the full
+**[Tech MeoW Interposer](docs/GUIA_INSTALACAO_INTERPOSER.md)** — see the full
 physical installation guide, with tool list and step-by-step photos
 (currently Portuguese only). The program and the Interposer are
 complementary: the Interposer handles the electrical/physical side of the
@@ -60,7 +60,7 @@ HDMI chip, MAC, identification data) and apply the HDMI chip conversion
 patch (Realtek ⇄ Nuvoton/Panasonic).
 
 This tool is the **software** side of the HDMI chip conversion. To do the
-physical chip swap on a real board using the **DatZero Interposer**, see
+physical chip swap on a real board using the **Tech MeoW Interposer**, see
 **[docs/GUIA_INSTALACAO_INTERPOSER.md](docs/GUIA_INSTALACAO_INTERPOSER.md)**
 (Portuguese only for now) — a guide for advanced bench/microsoldering
 technicians, with the tool list, chip-location photos and the full
@@ -389,7 +389,7 @@ Program code (at the root):
 - `NOTES.md` — map of confirmed offsets and open items.
 - `PS5_HDMI_Tool.spec` — PyInstaller recipe to generate `dist/PS5_HDMI_Tool/` (onedir).
 - `installer.iss` — Inno Setup recipe to generate the final installer (`installer_output/PS5_HDMI_Tool_Setup.exe`), from the already-built `.exe`.
-- `docs/GUIA_INSTALACAO_INTERPOSER.md` — DatZero Interposer physical installation guide (hardware rework, not about the program; Portuguese only for now). `docs/assets/` has the images used in it (tools, interposer, chip location on the board).
+- `docs/GUIA_INSTALACAO_INTERPOSER.md` — Tech MeoW Interposer physical installation guide (hardware rework, not about the program; Portuguese only for now). `docs/assets/` has the images used in it (tools, interposer, chip location on the board).
 
 Support folders (everything the program needs to run on the user's machine):
 - `images/` — logo, icon and all the animations (`.gif`) shown in the interface.

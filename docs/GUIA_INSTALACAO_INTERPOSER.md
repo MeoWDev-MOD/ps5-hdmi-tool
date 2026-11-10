@@ -1,6 +1,6 @@
-# Guia de instalação do Interposer DatZero (Realtek RTD2175P → Nuvoton/Panasonic MN864739)
+# Guia de instalação do Interposer Tech MeoW (Realtek RTD2175P → Nuvoton/Panasonic MN864739)
 
-**DatZero Foundation** — [datzerogames.com.br](https://datzerogames.com.br/)
+**Tech MeoW** — [techmeow.app](https://techmeow.app/)
 Técnico criador: **Jefferson Honorio**
 
 ---
@@ -20,7 +20,7 @@ Pré-requisitos obrigatórios para seguir este guia com segurança:
 - **Conhecimento em gravação/leitura de BIOS/NOR SPI** (uso de
   programadores tipo CH341A, interpretação de dumps, backup antes de
   gravar). Se você nunca gravou uma NOR SPI antes, não comece por aqui.
-- **Posse física do Interposer DatZero** para a conversão
+- **Posse física do Interposer Tech MeoW** para a conversão
   RTD2175P → MN864739. Este guia não funciona sem a peça — o interposer é
   uma placa intermediária fabricada especificamente para este encaixe, não
   é possível improvisar a ligação direto no CI.
@@ -28,14 +28,14 @@ Pré-requisitos obrigatórios para seguir este guia com segurança:
   magnificação (microscópio ou lupa binocular).
 
 Executar este procedimento sem o preparo acima tem alto risco de **perda
-total da placa-mãe**. A DatZero Foundation não se responsabiliza por danos
+total da placa-mãe**. A Tech MeoW não se responsabiliza por danos
 decorrentes de execução por pessoa sem a qualificação necessária.
 
 ---
 
 ## O que esse interposer faz
 
-O Interposer DatZero substitui o CI HDMI **Realtek RTD2175P** original da
+O Interposer Tech MeoW substitui o CI HDMI **Realtek RTD2175P** original da
 placa por um **Nuvoton/Panasonic MN864739**, sem precisar redesenhar a
 trilha da placa-mãe: ele tem o footprint do RTD2175P na face de baixo (solda
 nos mesmos pads onde o Realtek estava) e o footprint do MN864739 na face de
@@ -57,7 +57,7 @@ sentido de montagem do chip novo.
 O MN864739 precisa de **duas tensões** pra funcionar: 0,9V e 1,8V. O
 RTD2175P que ele substitui também precisa de duas tensões — 0,9V e **3,3V**
 — e essa trilha de 3,3V já existe na placa, alimentando o footprint
-original. O Interposer DatZero vem com o regulador **U1 (TI
+original. O Interposer Tech MeoW vem com o regulador **U1 (TI
 TLV71318PDBVR)** já soldado de fábrica, que aproveita esse 3,3V já existente
 e abaixa localmente para os 1,8V que o Nuvoton precisa.
 
@@ -104,7 +104,7 @@ pra ligar o regulador de 1,8V.
 | | Ferramenta/Insumo | Função no processo |
 |---|---|---|
 | <img src="assets/tools/ch341a.png" width="110"> | **Programador CH341A** | Leitura/backup e gravação da NOR SPI da placa-mãe, antes e depois da troca física do CI. |
-| — | **Interposer DatZero** (RTD2175P → MN864739) | A peça em si — ver seção acima. |
+| — | **Interposer Tech MeoW** (RTD2175P → MN864739) | A peça em si — ver seção acima. |
 | — | **Computador com o PS5 HDMI Tool instalado** | Software que lê, converte (Realtek ⇄ Nuvoton) e grava a NOR via CH341A — ver `README.md` deste repositório para instalação. |
 | <img src="assets/tools/flux-amtech-nc559.png" width="110"> | **Fluxo de solda Amtech NC-559** | Fluxo para remoção do RTD2175P e para a reflow do interposer/MN864739. |
 | <img src="assets/tools/pasta-solda-183c.png" width="110"> | **Pasta de solda 183°C** | Liga de baixa temperatura para fixar o interposer na placa e o MN864739 no interposer sem estressar termicamente os componentes vizinhos. |
@@ -156,7 +156,7 @@ errada é a causa mais comum de "tela azul sem vídeo" depois da conversão.
    backup — é esse arquivo que você vai gravar na placa **depois** da troca
    física do chip (passo 5). Confira no log se o checksum saiu como
    "resolvido" (ver `NOTES.md` deste repositório) — se saiu como "NÃO
-   resolvido", pare e consulte o suporte da DatZero antes de prosseguir em
+   resolvido", pare e consulte o suporte da Tech MeoW antes de prosseguir em
    placa de cliente.
 3. **Não clique em "Gravar na NOR" ainda.**
 
@@ -228,7 +228,7 @@ errada é a causa mais comum de "tela azul sem vídeo" depois da conversão.
 
 Este guia descreve um procedimento de modificação de hardware que anula
 qualquer garantia de fábrica do console e envolve risco real de dano
-permanente à placa-mãe se executado incorretamente. A DatZero Foundation
+permanente à placa-mãe se executado incorretamente. A Tech MeoW
 fornece o interposer e esta documentação "como estão", sem garantia de
 resultado, e não se responsabiliza por danos ao equipamento do cliente
 final decorrentes da execução deste procedimento.

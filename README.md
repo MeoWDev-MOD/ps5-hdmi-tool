@@ -2,10 +2,10 @@
 
 🌐 **[Read in English](README.en.md)**
 
-Desenvolvido por **DatZero Foundation** — [datzerogames.com.br](https://datzerogames.com.br/)
+Desenvolvido por **Tech MeoW** — [techmeow.app](https://techmeow.app/)
 Técnico criador: **Jefferson Honorio**
 
-🔗 **[Site do projeto](https://meowdev-mod.github.io/ps5-hdmi-tool/)**
+🔗 **[Site do projeto](https://techmeow.app/ps5-hdmi-tool/)**
 
 ![Tela principal do PS5 HDMI Tool](docs/assets/screenshot.png)
 
@@ -21,7 +21,7 @@ mercado de reposição.
 
 Esta ferramenta é a parte **software** do processo. A parte física (a troca
 do chip em si, via retrabalho/microssoldagem) é feita com o
-**[Interposer DatZero](docs/GUIA_INSTALACAO_INTERPOSER.md)** — veja o guia
+**[Interposer Tech MeoW](docs/GUIA_INSTALACAO_INTERPOSER.md)** — veja o guia
 completo de instalação física, com lista de ferramentas e fotos passo a
 passo. O programa e o Interposer são complementares: o Interposer resolve a
 parte elétrica/física do CI HDMI (incluindo regulador de tensão dedicado, ver
@@ -59,7 +59,7 @@ instalado, MAC, dados de identificação) e aplicar o patch de conversão de
 chip HDMI (Realtek ⇄ Nuvoton/Panasonic).
 
 Esta ferramenta é o lado **software** da conversão de CI HDMI. Pra fazer a
-troca física do chip numa placa real usando o **Interposer DatZero**, veja
+troca física do chip numa placa real usando o **Interposer Tech MeoW**, veja
 **[docs/GUIA_INSTALACAO_INTERPOSER.md](docs/GUIA_INSTALACAO_INTERPOSER.md)**
 — guia destinado a técnicos avançados em bancada/microssoldagem, com a lista
 de ferramentas, fotos de localização do chip e o procedimento completo.
@@ -376,7 +376,7 @@ Código do programa (ficam na raiz):
 - `NOTES.md` — mapa de offsets confirmados e pendências.
 - `PS5_HDMI_Tool.spec` — receita do PyInstaller pra gerar `dist/PS5_HDMI_Tool/` (onedir).
 - `installer.iss` — receita do Inno Setup pra gerar o instalador final (`installer_output/PS5_HDMI_Tool_Setup.exe`), a partir do `.exe` já gerado.
-- `docs/GUIA_INSTALACAO_INTERPOSER.md` — guia de instalação física do Interposer DatZero (retrabalho de hardware, não é sobre o programa). `docs/assets/` tem as imagens usadas nele (ferramentas, interposer, localização do chip na placa).
+- `docs/GUIA_INSTALACAO_INTERPOSER.md` — guia de instalação física do Interposer Tech MeoW (retrabalho de hardware, não é sobre o programa). `docs/assets/` tem as imagens usadas nele (ferramentas, interposer, localização do chip na placa).
 
 Pastas de apoio (tudo que o programa precisa para rodar na máquina do usuário):
 - `images/` — logo, ícone e todas as animações (`.gif`) mostradas na interface.
