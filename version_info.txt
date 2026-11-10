@@ -18,11 +18,11 @@ VSVersionInfo(
       [
         StringTable(
           u'040904B0',
-          [StringStruct(u'CompanyName', u'DatZero Foundation'),
+          [StringStruct(u'CompanyName', u'Tech MeoW Foundation'),
           StringStruct(u'FileDescription', u'PS5 HDMI Tool'),
           StringStruct(u'FileVersion', u'1.0.20.0'),
           StringStruct(u'InternalName', u'PS5_HDMI_Tool'),
-          StringStruct(u'LegalCopyright', u'Copyright (C) 2026 DatZero Foundation'),
+          StringStruct(u'LegalCopyright', u'Copyright (C) 2026 Tech MeoW Foundation'),
           StringStruct(u'OriginalFilename', u'PS5_HDMI_Tool.exe'),
           StringStruct(u'ProductName', u'PS5 HDMI Tool'),
           StringStruct(u'ProductVersion', u'1.0.20.0')])

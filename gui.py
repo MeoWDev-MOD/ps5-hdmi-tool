@@ -132,6 +132,7 @@ LOGO_PNG = IMAGES_DIR / "logo.png"  # logo do desenvolvedor (splash, Sobre)
 WINDOW_ICON = IMAGES_DIR / "window_icon.ico"  # icone no canto da janela (logo do desenvolvedor)
 HEADER_ART_PNG = IMAGES_DIR / "header_chip.png"  # arte do chip, cabecalho da janela
 AUTHOR_CREDIT = "Developed by MeoWDev MOD"
+SITE_URL = "https://techmeow.app/"
 SPLASH_MIN_MS = 2500  # tempo minimo da tela de carregamento
 FLAGS_DIR = IMAGES_DIR / "flags"
 IDLE_GIF = IMAGES_DIR / "idle.gif"
@@ -292,6 +293,10 @@ class App(tk.Tk):
         tk.Label(win, text=f"v{APP_VERSION}", bg=BG, fg=FG_MUTED).pack()
         tk.Label(win, text=AUTHOR_CREDIT, bg=BG, fg=PROGRESS_COLOR,
                  font=("Segoe UI", 11, "bold")).pack(pady=(14, 4))
+        site = tk.Label(win, text="techmeow.app", bg=BG, fg=PROGRESS_COLOR, cursor="hand2",
+                        font=("Segoe UI", 10, "underline"))
+        site.pack()
+        site.bind("<Button-1>", lambda _e: webbrowser.open(SITE_URL))
         ttk.Button(win, text=t("about.close"), command=win.destroy).pack(pady=(10, 20))
         win.update_idletasks()
         x = self.winfo_rootx() + (self.winfo_width() - win.winfo_width()) // 2

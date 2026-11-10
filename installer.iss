@@ -15,8 +15,8 @@
 #define MyAppName "PS5 HDMI Tool"
 #define MyAppVersion "1.0.20"
 #define MyAppExeName "PS5_HDMI_Tool.exe"
-#define MyAppPublisher "DatZero Foundation"
-#define MyAppURL "https://datzerogames.com.br/"
+#define MyAppPublisher "Tech MeoW Foundation"
+#define MyAppURL "https://techmeow.app/"
 
 [Setup]
 AppId={{7B6C9B6A-6B1A-4C3E-9C2D-PS5HDMITOOL01}}
