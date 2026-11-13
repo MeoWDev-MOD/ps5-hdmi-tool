@@ -263,7 +263,22 @@ def textos_da_pagina(src):
                 out.extend(normal(t) for t in textos_jsonld(json.loads(u[3])))
             except json.JSONDecodeError:
                 pass
+    out.extend(normal(t) for t in textos_wa(src))
     return out
+
+
+# Mensagem pronta dos links de WhatsApp (wa.me/<número>?text=...): traduzida como texto e codificada de novo.
+RX_WA = re.compile(r"""(https://(?:wa\.me/\d+|api\.whatsapp\.com/send)\?(?:[^"'\s<>]*?&(?:amp;)?)?text=)([^"'&\s<>]+)""")
+
+
+def textos_wa(src):
+    from urllib.parse import unquote
+    return [unquote(m.group(2)) for m in RX_WA.finditer(src)]
+
+
+def troca_wa(html, t):
+    from urllib.parse import quote, unquote
+    return RX_WA.sub(lambda m: m.group(1) + quote(t(unquote(m.group(2))), safe="-_.!~*'()"), html)
 
 
 # ---------------------------------------------------------------- caminhos
@@ -296,12 +311,40 @@ def eh_pagina(destino):
     return d in PAG_DIRS or (d == "." and "" in PAG_DIRS)
 
 
-def reescreve_caminhos(html, pag):
-    """Página movida para <idioma>/: recurso ganha ../, link para outra página traduzida continua igual."""
+RAIZ = CFG.get("raiz")  # caminho do site no domínio ("/" ou "/ps5-hdmi-tool/"): links que começam com ele vão para o idioma
+DOMINIO = CFG.get("dominio", "https://techmeow.app")
+OUTROS = CFG.get("outros_traduzidos", [])  # outros sites do domínio que já têm en/, es/ e ru/ (ex.: "/ps5-hdmi-tool/")
+
+
+def ajusta_raiz(caminho, idioma):
+    """Link com caminho a partir do domínio (/projetos/, /ps5-hdmi-tool/guia/): aponta para a mesma página no idioma."""
+    m = re.match(r"^([^#?]*)(.*)$", caminho, re.S)
+    p, resto = m.group(1), m.group(2)
+    if RAIZ and p.startswith(RAIZ):
+        rel = p[len(RAIZ):]
+        if not re.match(r"^(en|es|ru)/", rel) and eh_pagina((rel.rstrip("/") or ".") + "/"):
+            return RAIZ + idioma + "/" + rel + resto
+    for o in OUTROS:
+        if p.startswith(o):
+            rel = p[len(o):]
+            if (rel == "" or rel.endswith("/")) and not re.match(r"^(en|es|ru)/", rel):
+                return o + idioma + "/" + rel + resto
+    return caminho
+
+
+def reescreve_caminhos(html, pag, idioma):
+    """Página movida para <idioma>/: recurso ganha ../, link para outra página traduzida continua igual.
+    Link a partir do domínio (/... ou https://techmeow.app/...) para página traduzida ganha o idioma."""
     base_dir = posixpath.dirname(pag)
 
     def ajusta(url):
-        if not url or re.match(r"^([a-z][a-z0-9+.-]*:|//|#|/|\{|\$)", url, re.I):
+        if not url:
+            return url
+        if url.startswith(DOMINIO + "/"):
+            return DOMINIO + ajusta_raiz(url[len(DOMINIO):], idioma)
+        if url.startswith("/") and not url.startswith("//"):
+            return ajusta_raiz(url, idioma)
+        if re.match(r"^([a-z][a-z0-9+.-]*:|//|#|\{|\$)", url, re.I):
             return url
         alvo = posixpath.normpath(posixpath.join(base_dir, url.split("#")[0].split("?")[0] or "."))
         if eh_pagina(alvo if not url.endswith("/") else alvo + "/"):
@@ -452,7 +495,7 @@ def traduz_pagina(src, pag, idioma, dic, faltas):
     out = src
     for ini, fim, novo in trocas:
         out = out[:ini] + novo + out[fim:]
-    return out
+    return troca_wa(out, t)
 
 
 def ajusta_jsonld(obj, pag, idioma):
@@ -538,7 +581,7 @@ def gerar():
         for pag in PAGINAS:
             src = limpa_blocos(open(os.path.join(DOCS, pag), encoding="utf-8").read())
             html = traduz_pagina(src, pag, idioma, dic, faltas)
-            html = reescreve_caminhos(html, pag)
+            html = reescreve_caminhos(html, pag, idioma)
             html = troca_imagens(html, idioma)
             saidas[pag] = finaliza(html, pag, idioma)
         if faltas:
