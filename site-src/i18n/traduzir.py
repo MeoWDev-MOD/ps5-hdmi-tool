@@ -314,6 +314,8 @@ def eh_pagina(destino):
 RAIZ = CFG.get("raiz")  # caminho do site no domínio ("/" ou "/ps5-hdmi-tool/"): links que começam com ele vão para o idioma
 DOMINIO = CFG.get("dominio", "https://techmeow.app")
 OUTROS = CFG.get("outros_traduzidos", [])  # outros sites do domínio que já têm en/, es/ e ru/ (ex.: "/ps5-hdmi-tool/")
+# páginas soltas de outro site do domínio que têm versão em /<idioma>/<caminho> (ex.: "/", "/projetos/" do site principal)
+EXATAS = set(CFG.get("paginas_exatas", []))
 
 
 def ajusta_raiz(caminho, idioma):
@@ -324,6 +326,8 @@ def ajusta_raiz(caminho, idioma):
         rel = p[len(RAIZ):]
         if not re.match(r"^(en|es|ru)/", rel) and eh_pagina((rel.rstrip("/") or ".") + "/"):
             return RAIZ + idioma + "/" + rel + resto
+    if p in EXATAS:
+        return "/" + idioma + p + resto
     for o in OUTROS:
         if p.startswith(o):
             rel = p[len(o):]
