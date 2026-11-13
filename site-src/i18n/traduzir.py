@@ -350,10 +350,15 @@ def reescreve_caminhos(html, pag, idioma):
             return ajusta_raiz(url, idioma)
         if re.match(r"^([a-z][a-z0-9+.-]*:|//|#|\{|\$)", url, re.I):
             return url
-        alvo = posixpath.normpath(posixpath.join(base_dir, url.split("#")[0].split("?")[0] or "."))
+        limpo = url.split("#")[0].split("?")[0]
+        alvo = posixpath.normpath(posixpath.join(base_dir, limpo or "."))
         if eh_pagina(alvo if not url.endswith("/") else alvo + "/"):
             return url
-        return "../" + url
+        # A página traduzida mora em <idioma>/<pasta da página>/: sobe até a raiz e desce ao recurso
+        # (vale para recurso na mesma pasta, como MeoWGuard/index.css, e para ../css/ de guia/).
+        sobe = "../" * (1 + (base_dir.count("/") + 1 if base_dir else 0))
+        fim = "/" if limpo.endswith("/") and not alvo.endswith("/") else ""
+        return sobe + (alvo if alvo != "." else "") + fim + url[len(limpo):]
 
     def attr(m):
         nome, aspas, valor = m.group(1), m.group(2), m.group(3)
