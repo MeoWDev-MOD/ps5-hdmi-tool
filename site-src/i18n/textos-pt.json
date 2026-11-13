@@ -1,0 +1,1842 @@
+[
+ {
+  "k": "15670013b7",
+  "pagina": "index.html",
+  "pt": "Interposer PS5 para CI HDMI Realtek RTD2175P | PS5 HDMI Tool"
+ },
+ {
+  "k": "ef678d76c4",
+  "pagina": "index.html",
+  "pt": "Reparo do CI HDMI do PS5 Slim sem pagar R$ 1.700 no Realtek RTD2175P. A Interposer Tech MeoW adapta o Nuvoton MN864739 e o PS5 HDMI Tool converte a NOR de graça."
+ },
+ {
+  "k": "b5671477fc",
+  "pagina": "index.html",
+  "pt": "interposer PS5, interposer HDMI PS5 Slim, CI HDMI PS5, chip HDMI PS5, Realtek RTD2175P, Nuvoton MN864739, Panasonic MN864739, PS5 sem vídeo, conserto HDMI PS5, conversão NOR PS5, CH341A PS5"
+ },
+ {
+  "k": "8f094f2bb8",
+  "pagina": "index.html",
+  "pt": "Interposer PS5: troque o CI HDMI de R$ 1.700 por um de R$ 80"
+ },
+ {
+  "k": "29315f800a",
+  "pagina": "index.html",
+  "pt": "Interposer flex transparente, com regulador de 1,8 V já soldado e sem fio na placa. O programa para converter a NOR é grátis."
+ },
+ {
+  "k": "a89fc4c1e7",
+  "pagina": "index.html",
+  "pt": "Programa gratuito que lê, grava e converte a NOR de placas PS5 Slim para trocar o CI HDMI Realtek RTD2175P pelo Nuvoton/Panasonic MN864739, com leitor CH341A."
+ },
+ {
+  "k": "fa2c391cf3",
+  "pagina": "index.html",
+  "pt": "O que é uma interposer de PS5?"
+ },
+ {
+  "k": "9d7c0562eb",
+  "pagina": "index.html",
+  "pt": "É uma placa adaptadora fina que fica entre a placa-mãe e o CI HDMI. A Interposer Tech MeoW solda nos pads do Realtek RTD2175P pela face de baixo e recebe o Nuvoton/Panasonic MN864739 na face de cima."
+ },
+ {
+  "k": "5095973f3b",
+  "pagina": "index.html",
+  "pt": "Como saber se o meu PS5 usa o CI HDMI Realtek?"
+ },
+ {
+  "k": "2415071b65",
+  "pagina": "index.html",
+  "pt": "Olhe a marcação do chip entre a APU e o conector HDMI: precisa estar escrito RTD2175P. Não confie só na posição, principalmente em placa que já passou por retrabalho. O PS5 HDMI Tool também mostra o chip HDMI configurado na NOR."
+ },
+ {
+  "k": "8c4983cf4a",
+  "pagina": "index.html",
+  "pt": "Em qual PS5 a interposer funciona?"
+ },
+ {
+  "k": "fc52994ba2",
+  "pagina": "index.html",
+  "pt": "A peça e o programa foram feitos para placas de PS5 Slim que usam o CI HDMI Realtek RTD2175P."
+ },
+ {
+  "k": "bf049ef494",
+  "pagina": "index.html",
+  "pt": "Precisa mexer na NOR depois de trocar o chip?"
+ },
+ {
+  "k": "9236e9a1ff",
+  "pagina": "index.html",
+  "pt": "Sim. A placa que sai de fábrica com Realtek só conversa com o Realtek. O PS5 HDMI Tool altera a NOR pelo leitor CH341A para o console reconhecer o Nuvoton ou Panasonic."
+ },
+ {
+  "k": "c472313867",
+  "pagina": "index.html",
+  "pt": "Serve chip Nuvoton e Panasonic?"
+ },
+ {
+  "k": "45248aacd5",
+  "pagina": "index.html",
+  "pt": "Sim. Os dois são o mesmo MN864739, com as duas marcas no mercado de reposição."
+ },
+ {
+  "k": "3642a96c78",
+  "pagina": "index.html",
+  "pt": "Quanto custa o CI HDMI do PS5?"
+ },
+ {
+  "k": "4b72df7e80",
+  "pagina": "index.html",
+  "pt": "Como referência, o Realtek RTD2175P sai por cerca de R$ 1.700 só a peça, e o MN864739 por cerca de R$ 80 em média. Os valores mudam conforme o mercado. O preço da interposer está nas lojas do Mercado Livre e da Shopee."
+ },
+ {
+  "k": "90fe8946d3",
+  "pagina": "index.html",
+  "pt": "Precisa soldar fio na placa?"
+ },
+ {
+  "k": "d1eb635ee3",
+  "pagina": "index.html",
+  "pt": "Não. O regulador U1, já soldado na peça, aproveita os 3,3 V do ponto do Realtek e entrega os 1,8 V do MN864739."
+ },
+ {
+  "k": "92b4bd7e9e",
+  "pagina": "index.html",
+  "pt": "Que equipamento eu preciso?"
+ },
+ {
+  "k": "d9e383a4d8",
+  "pagina": "index.html",
+  "pt": "Leitor CH341A, estação de ar quente, ferro de precisão, fluxo, pasta de solda de baixa temperatura, multímetro e microscópio ou lupa."
+ },
+ {
+  "k": "9141c57363",
+  "pagina": "index.html",
+  "pt": "Dá para fazer sem experiência em microssolda?"
+ },
+ {
+  "k": "37f44000e4",
+  "pagina": "index.html",
+  "pt": "Não recomendamos. O serviço é para técnicos com experiência em microssoldagem e gravação de NOR. Feito sem preparo, pode causar perda total da placa-mãe."
+ },
+ {
+  "k": "1289ab15b8",
+  "pagina": "index.html",
+  "pt": "O PS5 ficou sem vídeo depois da troca. O que olhar?"
+ },
+ {
+  "k": "cdc4dca78b",
+  "pagina": "index.html",
+  "pt": "Se o console liga normalmente, suspeite primeiro da solda: pino frio, ponte ou chip deslocado. Se trava na tela azul de checagem, confira se o checksum da conversão saiu como resolvido no programa."
+ },
+ {
+  "k": "9c17140691",
+  "pagina": "index.html",
+  "pt": "PS5 HDMI Tool"
+ },
+ {
+  "k": "cec5a35096",
+  "pagina": "index.html",
+  "pt": "Seções"
+ },
+ {
+  "k": "a9ecb16e1c",
+  "pagina": "index.html",
+  "pt": "Interposer"
+ },
+ {
+  "k": "a3a7b250b2",
+  "pagina": "index.html",
+  "pt": "Como funciona"
+ },
+ {
+  "k": "be62ddc902",
+  "pagina": "index.html",
+  "pt": "Programa"
+ },
+ {
+  "k": "a28d8447f6",
+  "pagina": "index.html",
+  "pt": "Instalação"
+ },
+ {
+  "k": "f8aad3ba6f",
+  "pagina": "index.html",
+  "pt": "Comprar"
+ },
+ {
+  "k": "f4c0260715",
+  "pagina": "index.html",
+  "pt": "Dúvidas"
+ },
+ {
+  "k": "750c79e9b6",
+  "pagina": "index.html",
+  "pt": "Mudar entre claro e escuro"
+ },
+ {
+  "k": "59b7adb81b",
+  "pagina": "index.html",
+  "pt": "Publicidade"
+ },
+ {
+  "k": "de8ff0cc07",
+  "pagina": "index.html",
+  "pt": "Programa grátis"
+ },
+ {
+  "k": "e802994bab",
+  "pagina": "index.html",
+  "pt": "Grátis, sem instalar nada"
+ },
+ {
+  "k": "be152ae03a",
+  "pagina": "index.html",
+  "pt": "Converta a NOR com o PS5 HDMI Tool"
+ },
+ {
+  "k": "9de0aad3eb",
+  "pagina": "index.html",
+  "pt": "Lê, faz backup e converte a NOR do PS5 Slim pelo leitor CH341A."
+ },
+ {
+  "k": "3101bec4ba",
+  "pagina": "index.html",
+  "pt": "Baixar para Windows"
+ },
+ {
+  "k": "660b370646",
+  "pagina": "index.html",
+  "pt": "Para técnicos de PS5 Slim"
+ },
+ {
+  "k": "a804198f08",
+  "pagina": "index.html",
+  "pt": "Interposer PS5: troque o <span class=\"grad\">CI HDMI de R$ 1.700</span> por um de R$ 80."
+ },
+ {
+  "k": "182bc8a343",
+  "pagina": "index.html",
+  "pt": "A Interposer Tech MeoW coloca o Nuvoton/Panasonic MN864739 na placa que exige o Realtek RTD2175P. Flex transparente, regulador de 1,8 V já soldado e nenhum fio na placa. A NOR você converte de graça com o nosso programa."
+ },
+ {
+  "k": "32732ce184",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-cart\"/></svg>Comprar no Mercado Livre"
+ },
+ {
+  "k": "0509d6d27a",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-cart\"/></svg>Comprar na Shopee"
+ },
+ {
+  "k": "f61267df02",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Flex transparente"
+ },
+ {
+  "k": "8fe7b7eb82",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Regulador de 1,8 V soldado"
+ },
+ {
+  "k": "f0ce48f94c",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Sem fio na placa"
+ },
+ {
+  "k": "07649b1fab",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Programa grátis"
+ },
+ {
+  "k": "60457522a3",
+  "pagina": "index.html",
+  "pt": "Interposer Tech MeoW para PS5 Slim: placa flexível âmbar com encaixe para o chip MN864739 e regulador U1 soldado"
+ },
+ {
+  "k": "1582452af2",
+  "pagina": "index.html",
+  "pt": "Modelo 3D da interposer. Arraste para girar."
+ },
+ {
+  "k": "cfca566a0e",
+  "pagina": "index.html",
+  "pt": "Modelo 3D feito do desenho real da peça. Arraste para girar e ver as duas faces."
+ },
+ {
+  "k": "0bbf1a8fde",
+  "pagina": "index.html",
+  "pt": "A conta do reparo"
+ },
+ {
+  "k": "293e97417b",
+  "pagina": "index.html",
+  "pt": "Por que o conserto do CI HDMI do PS5 ficava inviável"
+ },
+ {
+  "k": "1c6ff7fa69",
+  "pagina": "index.html",
+  "pt": "Algumas placas do PS5 Slim saem de fábrica com o CI HDMI Realtek RTD2175P. Quando ele dá defeito, o console fica sem vídeo e a peça de reposição pesa demais no orçamento."
+ },
+ {
+  "k": "bf74712f6e",
+  "pagina": "index.html",
+  "pt": "Só a peça, sem contar a mão de obra"
+ },
+ {
+  "k": "0da5b04069",
+  "pagina": "index.html",
+  "pt": "Realtek RTD2175P <b class=\"vm\">R$ 1.700</b>"
+ },
+ {
+  "k": "8d5d6c327a",
+  "pagina": "index.html",
+  "pt": "Nuvoton/Panasonic MN864739, em média <b class=\"am\">R$ 80</b>"
+ },
+ {
+  "k": "bbe4547b0e",
+  "pagina": "index.html",
+  "pt": "Com a mão de obra, o reparo com o Realtek chega perto de <strong style=\"color:var(--text)\">R$ 3.000</strong> para o cliente, e muita gente desiste. A interposer é o que permite usar o chip mais barato nessa placa. Valores de referência: mudam conforme o mercado."
+ },
+ {
+  "k": "41c6dd4e16",
+  "pagina": "index.html",
+  "pt": "Chip Realtek RTD2175P vendido ainda preso a um pedaço cortado de outra placa de PS5"
+ },
+ {
+  "k": "a26f63a7cc",
+  "pagina": "index.html",
+  "pt": "E o Realtek ainda costuma chegar assim: cortado de outra placa."
+ },
+ {
+  "k": "3c7f40dab4",
+  "pagina": "index.html",
+  "pt": "Do chip queimado ao vídeo de volta, camada por camada"
+ },
+ {
+  "k": "bf09106bab",
+  "pagina": "index.html",
+  "pt": "Role a página e acompanhe a troca do CI HDMI na placa. O modelo 3D segue fotos da placa e o desenho real da interposer."
+ },
+ {
+  "k": "5bda006d98",
+  "pagina": "index.html",
+  "pt": "Modelo 3D da placa do PS5 mostrando a troca do chip HDMI passo a passo"
+ },
+ {
+  "k": "53bfbfc3da",
+  "pagina": "index.html",
+  "pt": "Carregando o modelo 3D"
+ },
+ {
+  "k": "44adb1b336",
+  "pagina": "index.html",
+  "pt": "O Realtek RTD2175P sai da placa"
+ },
+ {
+  "k": "f0e5417bea",
+  "pagina": "index.html",
+  "pt": "Antes de tudo, faça o backup da NOR. Depois remova o CI HDMI original e limpe os pads. É aqui que o reparo costumava travar: a peça nova sai por R$ 1.700."
+ },
+ {
+  "k": "e8a3655081",
+  "pagina": "index.html",
+  "pt": "Realtek RTD2175P na placa do PS5 Slim, entre a APU e o conector HDMI"
+ },
+ {
+  "k": "82da1875aa",
+  "pagina": "index.html",
+  "pt": "A interposer entra no lugar"
+ },
+ {
+  "k": "926989c670",
+  "pagina": "index.html",
+  "pt": "O flex transparente deixa ver os pads da placa por baixo: você alinha olhando, sem adivinhar. A face de baixo tem a pinagem do RTD2175P, e os furinhos permitem soldar por capilaridade com o ferro."
+ },
+ {
+  "k": "e43b07e392",
+  "pagina": "index.html",
+  "pt": "Foto real da interposer flex sobre a placa do PS5, com a placa visível através dela"
+ },
+ {
+  "k": "eb085bb794",
+  "pagina": "index.html",
+  "pt": "O MN864739 vai por cima"
+ },
+ {
+  "k": "38d0ace4ee",
+  "pagina": "index.html",
+  "pt": "O chip Nuvoton ou Panasonic, de R$ 80 em média, é soldado na face de cima. A seta e o triângulo da serigrafia mostram o sentido e o pino 1."
+ },
+ {
+  "k": "a7be581de3",
+  "pagina": "index.html",
+  "pt": "Foto real do CI HDMI Nuvoton MN864739 soldado sobre a interposer na placa do PS5"
+ },
+ {
+  "k": "1843abc0f8",
+  "pagina": "index.html",
+  "pt": "O regulador resolve a tensão"
+ },
+ {
+  "k": "f42cc663d4",
+  "pagina": "index.html",
+  "pt": "O PMIC do Realtek, o quadradinho ao lado do chip, libera 3,3 V e 0,9 V. O Nuvoton usa 0,9 V e 1,8 V. A interposer pega os 3,3 V em um pino do Realtek e leva ao pino 1 do regulador U1, já soldado na peça. O pino 2 é o GND, o pino 3 (EN) recebe os 0,9 V, e a saída de 1,8 V alimenta o chip novo. Sem puxar fio do PMIC do CXD e sem sobrecarregar esse circuito."
+ },
+ {
+  "k": "1424ae7269",
+  "pagina": "index.html",
+  "pt": "Interposer com o regulador de 1,8 V U1 soldado no canto"
+ },
+ {
+  "k": "494a8808c0",
+  "pagina": "index.html",
+  "pt": "O PS5 HDMI Tool converte a NOR"
+ },
+ {
+  "k": "d578259f0a",
+  "pagina": "index.html",
+  "pt": "A placa só conversa com o chip que a NOR manda. O programa, grátis, altera a NOR pelo leitor CH341A para o PS5 reconhecer o chip novo. Grave, ligue e o vídeo volta."
+ },
+ {
+  "k": "a359821a9e",
+  "pagina": "index.html",
+  "pt": "Tela do PS5 HDMI Tool com a opção de gravar a NOR configurada para Nuvoton"
+ },
+ {
+  "k": "2dc4f25046",
+  "pagina": "index.html",
+  "pt": "A peça"
+ },
+ {
+  "k": "a0beacd1f3",
+  "pagina": "index.html",
+  "pt": "O que vem na Interposer Tech MeoW"
+ },
+ {
+  "k": "8932883d03",
+  "pagina": "index.html",
+  "pt": "Uma placa adaptadora flexível feita para simplificar o reparo de bancada: o técnico solda a peça na placa, solda o chip em cima e pronto."
+ },
+ {
+  "k": "34d46ce517",
+  "pagina": "index.html",
+  "pt": "Flex transparente"
+ },
+ {
+  "k": "11f938938a",
+  "pagina": "index.html",
+  "pt": "Dá para ver o outro lado durante o encaixe. Alinhar os pads da interposer com os da placa fica muito mais fácil."
+ },
+ {
+  "k": "28eb290e8c",
+  "pagina": "index.html",
+  "pt": "Regulador de 1,8 V já soldado"
+ },
+ {
+  "k": "e52698bbe1",
+  "pagina": "index.html",
+  "pt": "O U1 é um TI TLV71318, em SOT-23-5. Aproveita os 3,3 V que já existem no ponto do Realtek e entrega os 1,8 V do MN864739."
+ },
+ {
+  "k": "bf178ef106",
+  "pagina": "index.html",
+  "pt": "Nenhum fio na placa"
+ },
+ {
+  "k": "21225a4cbf",
+  "pagina": "index.html",
+  "pt": "O 1,8 V não sai de outro ponto da placa. Uma sobrecarga no setor de vídeo fica contida na própria peça."
+ },
+ {
+  "k": "a51bae5188",
+  "pagina": "index.html",
+  "pt": "Sequência de energia"
+ },
+ {
+  "k": "60167192ae",
+  "pagina": "index.html",
+  "pt": "O pino EN do regulador vai na trilha de 0,9 V: o 1,8 V só sobe quando o 0,9 V já está lá."
+ },
+ {
+  "k": "41e3e89225",
+  "pagina": "index.html",
+  "pt": "Passivos montados"
+ },
+ {
+  "k": "6749421448",
+  "pagina": "index.html",
+  "pt": "Os capacitores C1 a C7 já vêm na peça. É soldar e seguir."
+ },
+ {
+  "k": "29dd30a646",
+  "pagina": "index.html",
+  "pt": "Duas faces, dois chips"
+ },
+ {
+  "k": "f56732de47",
+  "pagina": "index.html",
+  "pt": "Embaixo, a pinagem do Realtek RTD2175P. Em cima, a do Nuvoton/Panasonic MN864739. Sem remapear trilha por trilha."
+ },
+ {
+  "k": "39c3fcd1da",
+  "pagina": "index.html",
+  "pt": "Pino 1 marcado"
+ },
+ {
+  "k": "059ca27d3a",
+  "pagina": "index.html",
+  "pt": "Triângulo nas duas faces e seta para o chip novo, para reduzir o risco de montar invertido."
+ },
+ {
+  "k": "2be5ccc794",
+  "pagina": "index.html",
+  "pt": "Interposer flex transparente sobre a placa do PS5 Slim, com o cobre e o furo da placa aparecendo através dela"
+ },
+ {
+  "k": "f55fbbb6c1",
+  "pagina": "index.html",
+  "pt": "Foto real: a placa aparece através do flex."
+ },
+ {
+  "k": "7a08c38ad0",
+  "pagina": "index.html",
+  "pt": "CI HDMI Nuvoton MN864739 soldado na interposer, já instalada na placa do PS5 Slim"
+ },
+ {
+  "k": "362f85cee4",
+  "pagina": "index.html",
+  "pt": "Foto real: MN864739 soldado, já na placa."
+ },
+ {
+  "k": "5b486628ed",
+  "pagina": "index.html",
+  "pt": "Várias interposers de PS5 mostrando a frente com pinagem MN864739 e o verso com pinagem RTD2175P"
+ },
+ {
+  "k": "3417fc63ea",
+  "pagina": "index.html",
+  "pt": "Foto real: a peça, frente e verso."
+ },
+ {
+  "k": "1182ee046c",
+  "pagina": "index.html",
+  "pt": "Comparação"
+ },
+ {
+  "k": "d165548ef1",
+  "pagina": "index.html",
+  "pt": "Interposer com regulador, solução com fio ou Realtek novo?"
+ },
+ {
+  "k": "eb7853bc61",
+  "pagina": "index.html",
+  "pt": "As três formas de devolver o vídeo a uma placa que exige o RTD2175P."
+ },
+ {
+  "k": "e81f744b17",
+  "pagina": "index.html",
+  "pt": "O que muda"
+ },
+ {
+  "k": "ca102f4db9",
+  "pagina": "index.html",
+  "pt": "Interposer Tech MeoW"
+ },
+ {
+  "k": "482e4299f0",
+  "pagina": "index.html",
+  "pt": "Interposer com fio"
+ },
+ {
+  "k": "58303d9946",
+  "pagina": "index.html",
+  "pt": "Realtek novo"
+ },
+ {
+  "k": "40f78b5ac0",
+  "pagina": "index.html",
+  "pt": "CI usado"
+ },
+ {
+  "k": "bacd3e3e9a",
+  "pagina": "index.html",
+  "pt": "MN864739"
+ },
+ {
+  "k": "e506f6ca40",
+  "pagina": "index.html",
+  "pt": "RTD2175P"
+ },
+ {
+  "k": "d7719324c1",
+  "pagina": "index.html",
+  "pt": "Custo do CI"
+ },
+ {
+  "k": "3c872c909a",
+  "pagina": "index.html",
+  "pt": "R$ 80 em média"
+ },
+ {
+  "k": "be260f092c",
+  "pagina": "index.html",
+  "pt": "Cerca de R$ 1.700"
+ },
+ {
+  "k": "6bcd836274",
+  "pagina": "index.html",
+  "pt": "Fio na placa"
+ },
+ {
+  "k": "72534bbb0c",
+  "pagina": "index.html",
+  "pt": "Não"
+ },
+ {
+  "k": "84fb9bfc81",
+  "pagina": "index.html",
+  "pt": "Sim"
+ },
+ {
+  "k": "f89daf80e6",
+  "pagina": "index.html",
+  "pt": "De onde vem o 1,8 V"
+ },
+ {
+  "k": "70f3be5b24",
+  "pagina": "index.html",
+  "pt": "Regulador U1, na própria peça"
+ },
+ {
+  "k": "8311c7e772",
+  "pagina": "index.html",
+  "pt": "Outro ponto da placa, como o PMIC do CXD"
+ },
+ {
+  "k": "65fe0e84d0",
+  "pagina": "index.html",
+  "pt": "Não usa: o Realtek pede 3,3 V"
+ },
+ {
+  "k": "864b145247",
+  "pagina": "index.html",
+  "pt": "Sobrecarga no setor de vídeo"
+ },
+ {
+  "k": "b515e2b94e",
+  "pagina": "index.html",
+  "pt": "Fica contida na peça"
+ },
+ {
+  "k": "cced1f4d32",
+  "pagina": "index.html",
+  "pt": "Pode chegar ao ponto de onde o fio sai"
+ },
+ {
+  "k": "2eaeeec1f4",
+  "pagina": "index.html",
+  "pt": "Como na placa original"
+ },
+ {
+  "k": "5693ac6532",
+  "pagina": "index.html",
+  "pt": "Alterar a NOR"
+ },
+ {
+  "k": "f391aee5ad",
+  "pagina": "index.html",
+  "pt": "Sim, grátis com o PS5 HDMI Tool"
+ },
+ {
+  "k": "e76fe88c6e",
+  "pagina": "index.html",
+  "pt": "Não precisa"
+ },
+ {
+  "k": "8d02d09406",
+  "pagina": "index.html",
+  "pt": "O programa"
+ },
+ {
+  "k": "226bcff6e0",
+  "pagina": "index.html",
+  "pt": "PS5 HDMI Tool: a NOR convertida de graça"
+ },
+ {
+  "k": "e2fd2dfc8c",
+  "pagina": "index.html",
+  "pt": "A interposer resolve a parte física. A parte da NOR é com o nosso programa, gratuito e de código aberto, feito para a bancada."
+ },
+ {
+  "k": "e455b4c53f",
+  "pagina": "index.html",
+  "pt": "Tela do PS5 HDMI Tool: detectar leitor CH341A, ler a NOR, aplicar patch para Nuvoton e gravar na NOR"
+ },
+ {
+  "k": "98b75dc4f8",
+  "pagina": "index.html",
+  "pt": "<b>Lê e confere.</b> Lê a NOR duas vezes, compara byte a byte e só salva o backup se bater."
+ },
+ {
+  "k": "3c31e197eb",
+  "pagina": "index.html",
+  "pt": "<b>Converte nos dois sentidos.</b> Realtek ⇄ Nuvoton/Panasonic, com pré-visualização antes de gravar."
+ },
+ {
+  "k": "02a552e352",
+  "pagina": "index.html",
+  "pt": "<b>Grava com confirmação.</b> Confere, apaga, grava e verifica, com o progresso na tela."
+ },
+ {
+  "k": "10ebb3e76a",
+  "pagina": "index.html",
+  "pt": "<b>Analisa arquivo .bin.</b> Mostra o chip HDMI, o MAC e os dados da placa, mesmo sem placa conectada."
+ },
+ {
+  "k": "869931b5e6",
+  "pagina": "index.html",
+  "pt": "<b>Ainda vem com</b> leitor UART, teste de controle e interface em português, inglês e espanhol."
+ },
+ {
+  "k": "a3d9f7b05d",
+  "pagina": "index.html",
+  "pt": "<b>Um arquivo só.</b> É abrir no Windows. Se faltar o driver do CH341A, o programa avisa e instala."
+ },
+ {
+  "k": "d653750222",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-down\"/></svg>Baixar o programa (.exe)"
+ },
+ {
+  "k": "fcab6fa86f",
+  "pagina": "index.html",
+  "pt": "Ver o código no GitHub"
+ },
+ {
+  "k": "2ef811700f",
+  "pagina": "index.html",
+  "pt": "<b>Antes de gravar em placa de cliente:</b> confira no log se o checksum da conversão saiu como resolvido. Se o programa avisar que não resolveu, use só em placa de bancada."
+ },
+ {
+  "k": "44ed32420d",
+  "pagina": "index.html",
+  "pt": "Como instalar a interposer no PS5 Slim"
+ },
+ {
+  "k": "7a3ae9fc76",
+  "pagina": "index.html",
+  "pt": "O resumo do processo. O passo a passo completo, com fotos e a localização do CI HDMI, está no guia."
+ },
+ {
+  "k": "c43768eddf",
+  "pagina": "index.html",
+  "pt": "Backup da NOR"
+ },
+ {
+  "k": "fb9ed782a8",
+  "pagina": "index.html",
+  "pt": "Com o CH341A, leia a NOR antes de encostar o ferro."
+ },
+ {
+  "k": "8c06a522f7",
+  "pagina": "index.html",
+  "pt": "Gere a conversão"
+ },
+ {
+  "k": "5649d26b12",
+  "pagina": "index.html",
+  "pt": "No programa, escolha nuvoton e pré-visualize. Ainda não grave."
+ },
+ {
+  "k": "0efe32709c",
+  "pagina": "index.html",
+  "pt": "Remova o RTD2175P"
+ },
+ {
+  "k": "dbc7231c8b",
+  "pagina": "index.html",
+  "pt": "Com fluxo e ar quente, tire o chip e limpe os pads."
+ },
+ {
+  "k": "bab80fc5c5",
+  "pagina": "index.html",
+  "pt": "Solde a interposer"
+ },
+ {
+  "k": "cf4bd50b1e",
+  "pagina": "index.html",
+  "pt": "Pasta de 183 °C, alinhe o pino 1 olhando pelo flex e faça a refusão."
+ },
+ {
+  "k": "ce6bd74df2",
+  "pagina": "index.html",
+  "pt": "Solde o MN864739"
+ },
+ {
+  "k": "7fefdaff8e",
+  "pagina": "index.html",
+  "pt": "Na face de cima, respeitando a seta da serigrafia."
+ },
+ {
+  "k": "e1a4864486",
+  "pagina": "index.html",
+  "pt": "Inspecione"
+ },
+ {
+  "k": "2c5b8bf79e",
+  "pagina": "index.html",
+  "pt": "Lupa ou microscópio e multímetro, antes de energizar."
+ },
+ {
+  "k": "a6afc743d2",
+  "pagina": "index.html",
+  "pt": "Grave e teste"
+ },
+ {
+  "k": "2bf20405f8",
+  "pagina": "index.html",
+  "pt": "Grave o arquivo convertido, ligue e teste o vídeo."
+ },
+ {
+  "k": "589cec0fb8",
+  "pagina": "index.html",
+  "pt": "Quer o passo a passo?"
+ },
+ {
+  "k": "022712f063",
+  "pagina": "index.html",
+  "pt": "Abrir o guia completo"
+ },
+ {
+  "k": "1287141ccf",
+  "pagina": "index.html",
+  "pt": "<img src=\"img/ferramentas/programador-ch341a.webp\" width=\"84\" height=\"84\" loading=\"lazy\" alt=\"Programador CH341A\">Programador CH341A"
+ },
+ {
+  "k": "6af3c39c52",
+  "pagina": "index.html",
+  "pt": "<img src=\"img/ferramentas/estacao-sugon-2020d.webp\" width=\"84\" height=\"84\" loading=\"lazy\" alt=\"Estação de ar quente Sugon 2020D\">Estação de ar quente"
+ },
+ {
+  "k": "23c3c01bc8",
+  "pagina": "index.html",
+  "pt": "<img src=\"img/ferramentas/ferro-aifen-a9-pro.webp\" width=\"84\" height=\"84\" loading=\"lazy\" alt=\"Ferro de solda Aifen A9 Pro\">Ferro de precisão"
+ },
+ {
+  "k": "beb95f4681",
+  "pagina": "index.html",
+  "pt": "<img src=\"img/ferramentas/fluxo-amtech-nc559.webp\" width=\"84\" height=\"84\" loading=\"lazy\" alt=\"Fluxo de solda Amtech NC-559\">Fluxo de solda"
+ },
+ {
+  "k": "87c985ab95",
+  "pagina": "index.html",
+  "pt": "<img src=\"img/ferramentas/pasta-de-solda-183c.webp\" width=\"84\" height=\"84\" loading=\"lazy\" alt=\"Pasta de solda de 183 graus\">Pasta de solda 183 °C"
+ },
+ {
+  "k": "b90c366841",
+  "pagina": "index.html",
+  "pt": "<b>Para técnicos.</b> Exige experiência em microssoldagem SMD/QFN e em gravação de NOR SPI. Feito sem preparo, pode causar perda total da placa-mãe, e a modificação anula a garantia de fábrica do console."
+ },
+ {
+  "k": "26fc7f0336",
+  "pagina": "index.html",
+  "pt": "A peça nas lojas, o programa de graça"
+ },
+ {
+  "k": "37548945be",
+  "pagina": "index.html",
+  "pt": "Veja o preço <small>nas lojas</small>"
+ },
+ {
+  "k": "de8a60ab38",
+  "pagina": "index.html",
+  "pt": "Venda pelo Mercado Livre e pela Shopee."
+ },
+ {
+  "k": "3c7d128764",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Flex transparente, com as duas pinagens"
+ },
+ {
+  "k": "2db00881fc",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Regulador de 1,8 V e capacitores montados"
+ },
+ {
+  "k": "c347eb6d51",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Para o MN864739, Nuvoton ou Panasonic"
+ },
+ {
+  "k": "be3b8fdd6f",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Confira na loja se o chip vem junto"
+ },
+ {
+  "k": "5f04fcca3d",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-cart\"/></svg>Mercado Livre"
+ },
+ {
+  "k": "23b4a98285",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-cart\"/></svg>Shopee"
+ },
+ {
+  "k": "26f630caad",
+  "pagina": "index.html",
+  "pt": "Grátis"
+ },
+ {
+  "k": "425c704b68",
+  "pagina": "index.html",
+  "pt": "Sem cadastro e sem instalação."
+ },
+ {
+  "k": "437bd4cae8",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Leitura, backup, conversão e gravação da NOR"
+ },
+ {
+  "k": "f5374adc9e",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Funciona com leitor CH341A, no Windows"
+ },
+ {
+  "k": "7a609d8ab5",
+  "pagina": "index.html",
+  "pt": "<svg class=\"i\"><use href=\"#i-check\"/></svg>Avisa quando sai versão nova"
+ },
+ {
+  "k": "624468d03b",
+  "pagina": "index.html",
+  "pt": "Baixar o programa"
+ },
+ {
+  "k": "493b748940",
+  "pagina": "index.html",
+  "pt": "Perguntas frequentes sobre o CI HDMI do PS5"
+ },
+ {
+  "k": "8bd4e7ff49",
+  "pagina": "index.html",
+  "pt": "Tem PS5 sem vídeo parado na bancada?"
+ },
+ {
+  "k": "93710149af",
+  "pagina": "index.html",
+  "pt": "Compre a interposer, baixe o programa grátis e feche o reparo. Tem assistência, loja ou canal? Fale com a gente sobre parcerias."
+ },
+ {
+  "k": "2f1ff30d73",
+  "pagina": "index.html",
+  "pt": "WhatsApp · parcerias"
+ },
+ {
+  "k": "a21abebb0e",
+  "pagina": "index.html",
+  "pt": "Outros projetos"
+ },
+ {
+  "k": "b633e4cdf0",
+  "pagina": "index.html",
+  "pt": "Outro projeto nosso"
+ },
+ {
+  "k": "52c52e5712",
+  "pagina": "index.html",
+  "pt": "Conheça o PS-5 Controle Test"
+ },
+ {
+  "k": "6e372056f1",
+  "pagina": "index.html",
+  "pt": "Teste e calibre o controle do PS5: botões, analógicos, drift, gatilhos e vibração. Grátis no navegador do computador. No celular, o app para Android tem 2 dias grátis."
+ },
+ {
+  "k": "8c1e534a70",
+  "pagina": "index.html",
+  "pt": "Conhecer o projeto PS-5 Controle Test"
+ },
+ {
+  "k": "ea736292ed",
+  "pagina": "index.html",
+  "pt": "Conhecer o projeto"
+ },
+ {
+  "k": "1d795d9352",
+  "pagina": "index.html",
+  "pt": "Controle de PS5 no Nintendo Switch"
+ },
+ {
+  "k": "3a15332d02",
+  "pagina": "index.html",
+  "pt": "O Control PS-5 é um app grátis para Nintendo Switch desbloqueado: conecta o DualSense por Bluetooth, sem adaptador, com gatilhos adaptáveis, barra de luz e perfil por jogo."
+ },
+ {
+  "k": "be8b4751e3",
+  "pagina": "index.html",
+  "pt": "Ver como conectar o controle de PS5 no Nintendo Switch"
+ },
+ {
+  "k": "28cfb6dfbd",
+  "pagina": "index.html",
+  "pt": "Ver como conectar"
+ },
+ {
+  "k": "81660bc726",
+  "pagina": "index.html",
+  "pt": "<b>Developed by MeoWDeV MOD</b><br>Técnico criador: Jefferson Honorio. Peça vendida como Interposer Tech MeoW.<br><br>PS5 e PlayStation são marcas da Sony Interactive Entertainment. Realtek, Nuvoton e Panasonic pertencem aos respectivos donos. Este projeto não é afiliado a essas empresas."
+ },
+ {
+  "k": "313a7561dd",
+  "pagina": "index.html",
+  "pt": "Contato e parcerias"
+ },
+ {
+  "k": "09f29abe0d",
+  "pagina": "index.html",
+  "pt": "Instagram da Tech MeoW"
+ },
+ {
+  "k": "775c6a45e3",
+  "pagina": "index.html",
+  "pt": "YouTube da Tech MeoW"
+ },
+ {
+  "k": "3ef23e0114",
+  "pagina": "index.html",
+  "pt": "WhatsApp para parcerias"
+ },
+ {
+  "k": "9873e9a96e",
+  "pagina": "index.html",
+  "pt": "Código no GitHub"
+ },
+ {
+  "k": "a40c2e3964",
+  "pagina": "index.html",
+  "pt": "WhatsApp: <a href=\"https://wa.me/5521966547296\" target=\"_blank\" rel=\"noopener\">(21) 96654-7296</a><br>Instagram: <a href=\"https://www.instagram.com/tech_meow.oficial\" target=\"_blank\" rel=\"noopener\">@tech_meow.oficial</a>"
+ },
+ {
+  "k": "a5691165f7",
+  "pagina": "index.html",
+  "pt": "Guia de instalação"
+ },
+ {
+  "k": "86a910bed2",
+  "pagina": "index.html",
+  "pt": "Versões do programa"
+ },
+ {
+  "k": "8526a9a8fc",
+  "pagina": "index.html",
+  "pt": "PS-5 Controle Test"
+ },
+ {
+  "k": "a5e9d6aac4",
+  "pagina": "index.html",
+  "pt": "Control PS-5"
+ },
+ {
+  "k": "42237dd3e6",
+  "pagina": "index.html",
+  "pt": "Termos de uso"
+ },
+ {
+  "k": "00998dcd68",
+  "pagina": "index.html",
+  "pt": "Privacidade e cookies"
+ },
+ {
+  "k": "68bf44c0db",
+  "pagina": "index.html",
+  "pt": "Gerenciar cookies"
+ },
+ {
+  "k": "5d44e28604",
+  "pagina": "index.html",
+  "pt": "Mercado Livre"
+ },
+ {
+  "k": "25b7ed8097",
+  "pagina": "index.html",
+  "pt": "Shopee"
+ },
+ {
+  "k": "2ef091af39",
+  "pagina": "guia/index.html",
+  "pt": "Como instalar a interposer no PS5 Slim: guia do CI HDMI RTD2175P"
+ },
+ {
+  "k": "57eae29e2a",
+  "pagina": "guia/index.html",
+  "pt": "Guia para técnicos: localização do CI HDMI do PS5 Slim, ferramentas, backup da NOR, remoção do Realtek RTD2175P, solda da interposer e do MN864739 e problemas comuns."
+ },
+ {
+  "k": "b0f31aa0a7",
+  "pagina": "guia/index.html",
+  "pt": "Passo a passo para trocar o CI HDMI Realtek RTD2175P pelo MN864739 com a Interposer Tech MeoW."
+ },
+ {
+  "k": "8d0c13d576",
+  "pagina": "guia/index.html",
+  "pt": "Guia para técnicos"
+ },
+ {
+  "k": "61a73ae3d7",
+  "pagina": "guia/index.html",
+  "pt": "Passo a passo para trocar o CI HDMI <strong>Realtek RTD2175P</strong> pelo <strong>Nuvoton/Panasonic MN864739</strong> com a Interposer Tech MeoW e o PS5 HDMI Tool."
+ },
+ {
+  "k": "a094ca18d2",
+  "pagina": "guia/index.html",
+  "pt": "<b>Para quem é este guia.</b> Técnicos de nível avançado em bancada e microssoldagem. Ele não ensina técnica de retrabalho e não é um tutorial de introdução à solda. Sem o preparo abaixo, o risco de <strong>perda total da placa-mãe</strong> é alto."
+ },
+ {
+  "k": "5c28d63b81",
+  "pagina": "guia/index.html",
+  "pt": "Experiência em microssoldagem SMD/QFN, com ar quente e ferro de precisão."
+ },
+ {
+  "k": "d26c4161ee",
+  "pagina": "guia/index.html",
+  "pt": "Conhecimento em leitura e gravação de NOR SPI: programador CH341A, dumps e backup antes de gravar."
+ },
+ {
+  "k": "4e6d3fe040",
+  "pagina": "guia/index.html",
+  "pt": "Bancada com proteção ESD, boa iluminação e microscópio ou lupa."
+ },
+ {
+  "k": "3c550d7813",
+  "pagina": "guia/index.html",
+  "pt": "A própria Interposer Tech MeoW: ela é feita para este encaixe, e não dá para improvisar a ligação direto no CI."
+ },
+ {
+  "k": "c17cefa548",
+  "pagina": "guia/index.html",
+  "pt": "O que a interposer faz"
+ },
+ {
+  "k": "be8a3eb948",
+  "pagina": "guia/index.html",
+  "pt": "Ela substitui o Realtek RTD2175P original por um MN864739 sem redesenhar as trilhas da placa-mãe. A face de baixo tem o footprint do RTD2175P e solda nos mesmos pads onde o Realtek estava. A face de cima tem o footprint do MN864739, onde o chip novo é soldado. Os capacitores C1 a C7 e o regulador U1 já vêm montados."
+ },
+ {
+  "k": "d8f0e907a5",
+  "pagina": "guia/index.html",
+  "pt": "Desenho da face de baixo da interposer, com a pinagem do Realtek RTD2175P"
+ },
+ {
+  "k": "32714082d9",
+  "pagina": "guia/index.html",
+  "pt": "Face de baixo: solda na placa-mãe."
+ },
+ {
+  "k": "cca9c2df2f",
+  "pagina": "guia/index.html",
+  "pt": "Desenho da face de cima da interposer, com a pinagem do MN864739 e o regulador U1"
+ },
+ {
+  "k": "774061aebe",
+  "pagina": "guia/index.html",
+  "pt": "Face de cima: recebe o MN864739."
+ },
+ {
+  "k": "6c22a77036",
+  "pagina": "guia/index.html",
+  "pt": "<strong>Pino 1:</strong> as duas faces têm uma marcação triangular no mesmo canto. Alinhe sempre com o indicador de pino 1 do footprint original e com o pino 1 do MN864739. A seta <code>MN864739 ---&gt;</code> indica o sentido de montagem do chip novo."
+ },
+ {
+  "k": "24563755c5",
+  "pagina": "guia/index.html",
+  "pt": "Por que o regulador de 1,8 V importa"
+ },
+ {
+  "k": "e8b70b707f",
+  "pagina": "guia/index.html",
+  "pt": "O MN864739 precisa de 0,9 V e 1,8 V. O RTD2175P que ele substitui precisa de 0,9 V e 3,3 V, e essa trilha de 3,3 V já existe na placa. O regulador <strong>U1 (TI TLV71318PDBVR)</strong> aproveita esses 3,3 V e baixa localmente para 1,8 V."
+ },
+ {
+  "k": "4da7cbb08d",
+  "pagina": "guia/index.html",
+  "pt": "Assim, a interposer não precisa puxar 1,8 V de outro ponto da placa-mãe. O CI HDMI é uma das peças que mais dão defeito no setor de vídeo do PS5: se o 1,8 V viesse de outro ponto, como o PMIC da APU (CXD), uma sobrecarga teria caminho livre para atingir também esse circuito. Com o regulador na própria peça, esse caminho de falha fica contido ali."
+ },
+ {
+  "k": "ec51d86670",
+  "pagina": "guia/index.html",
+  "pt": "O pino <strong>EN</strong> do regulador está na trilha de 0,9 V: a saída de 1,8 V só sobe quando o 0,9 V já está presente, sem componente externo. Isso bate com o <a href=\"https://www.ti.com/lit/gpn/TLV713\" target=\"_blank\" rel=\"noopener\">datasheet da TI</a>: o EN liga a partir de 0,9 V e desliga abaixo de 0,4 V."
+ },
+ {
+  "k": "b705d8bbfa",
+  "pagina": "guia/index.html",
+  "pt": "TLV71318PDBVR (SOT-23-5)"
+ },
+ {
+  "k": "4271eb8ae4",
+  "pagina": "guia/index.html",
+  "pt": "Valor"
+ },
+ {
+  "k": "2b1f6e548b",
+  "pagina": "guia/index.html",
+  "pt": "Tensão de saída"
+ },
+ {
+  "k": "894cf574d3",
+  "pagina": "guia/index.html",
+  "pt": "1,8 V fixo"
+ },
+ {
+  "k": "22ad083123",
+  "pagina": "guia/index.html",
+  "pt": "Faixa de entrada"
+ },
+ {
+  "k": "569ce73ff7",
+  "pagina": "guia/index.html",
+  "pt": "1,4 V a 5,5 V"
+ },
+ {
+  "k": "9a0a488fb8",
+  "pagina": "guia/index.html",
+  "pt": "Pino EN, liga (mínimo)"
+ },
+ {
+  "k": "ff2f275c4f",
+  "pagina": "guia/index.html",
+  "pt": "0,9 V"
+ },
+ {
+  "k": "1d517759a9",
+  "pagina": "guia/index.html",
+  "pt": "Pino EN, desliga (máximo)"
+ },
+ {
+  "k": "524f7b7510",
+  "pagina": "guia/index.html",
+  "pt": "0,4 V"
+ },
+ {
+  "k": "775c93a2b3",
+  "pagina": "guia/index.html",
+  "pt": "Ferramentas e insumos"
+ },
+ {
+  "k": "ecdda59aea",
+  "pagina": "guia/index.html",
+  "pt": "Item"
+ },
+ {
+  "k": "3227e4b3ea",
+  "pagina": "guia/index.html",
+  "pt": "Para quê"
+ },
+ {
+  "k": "05e312072b",
+  "pagina": "guia/index.html",
+  "pt": "Programador CH341A"
+ },
+ {
+  "k": "d3a3a80254",
+  "pagina": "guia/index.html",
+  "pt": "Backup e gravação da NOR SPI, antes e depois da troca."
+ },
+ {
+  "k": "5bd2ca4571",
+  "pagina": "guia/index.html",
+  "pt": "Fluxo de solda Amtech NC-559"
+ },
+ {
+  "k": "7f86d87fff",
+  "pagina": "guia/index.html",
+  "pt": "Fluxo Amtech NC-559"
+ },
+ {
+  "k": "4783b3bd88",
+  "pagina": "guia/index.html",
+  "pt": "Remoção do RTD2175P e refusão da interposer e do MN864739."
+ },
+ {
+  "k": "491378177a",
+  "pagina": "guia/index.html",
+  "pt": "Pasta de solda de 183 graus"
+ },
+ {
+  "k": "e51fa63e96",
+  "pagina": "guia/index.html",
+  "pt": "Pasta de solda 183 °C"
+ },
+ {
+  "k": "2da5dd24cd",
+  "pagina": "guia/index.html",
+  "pt": "Liga de baixa temperatura, para não estressar os componentes vizinhos."
+ },
+ {
+  "k": "4cf628fd75",
+  "pagina": "guia/index.html",
+  "pt": "Estação de ar quente Sugon 2020D"
+ },
+ {
+  "k": "d8b6f90598",
+  "pagina": "guia/index.html",
+  "pt": "Ar quente Sugon 2020D"
+ },
+ {
+  "k": "1f19cd4541",
+  "pagina": "guia/index.html",
+  "pt": "Remoção e refusão. Perfil conforme a calibração da sua bancada."
+ },
+ {
+  "k": "cbc66455d7",
+  "pagina": "guia/index.html",
+  "pt": "Ferro de solda Aifen A9 Pro"
+ },
+ {
+  "k": "3514a91f17",
+  "pagina": "guia/index.html",
+  "pt": "Ferro Aifen A9 Pro, ponta C210"
+ },
+ {
+  "k": "a1df808d6b",
+  "pagina": "guia/index.html",
+  "pt": "Retoques de precisão e limpeza de pad."
+ },
+ {
+  "k": "5c0ac47a14",
+  "pagina": "guia/index.html",
+  "pt": "Você também precisa da <a href=\"../#comprar\">Interposer Tech MeoW</a>, de um MN864739 e de um computador com o <a href=\"https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe\">PS5 HDMI Tool</a>."
+ },
+ {
+  "k": "f20e0eff15",
+  "pagina": "guia/index.html",
+  "pt": "Onde fica o CI HDMI na placa do PS5 Slim"
+ },
+ {
+  "k": "bfa9e6ec02",
+  "pagina": "guia/index.html",
+  "pt": "O RTD2175P fica entre a APU (<code>SIE CXD90069GS</code>) e o conector HDMI, numa área com bastante cobre exposto em volta."
+ },
+ {
+  "k": "a2b888fc60",
+  "pagina": "guia/index.html",
+  "pt": "Visão geral da placa do PS5 Slim mostrando a posição do CI HDMI"
+ },
+ {
+  "k": "d30838893a",
+  "pagina": "guia/index.html",
+  "pt": "Visão geral"
+ },
+ {
+  "k": "1edff958d2",
+  "pagina": "guia/index.html",
+  "pt": "CI HDMI do PS5 Slim perto do conector"
+ },
+ {
+  "k": "24c866701b",
+  "pagina": "guia/index.html",
+  "pt": "Perto do conector"
+ },
+ {
+  "k": "2982e2ca65",
+  "pagina": "guia/index.html",
+  "pt": "CI HDMI do PS5 Slim entre a APU e o conector HDMI"
+ },
+ {
+  "k": "849390f4e9",
+  "pagina": "guia/index.html",
+  "pt": "Entre APU e conector"
+ },
+ {
+  "k": "ee6a964fa4",
+  "pagina": "guia/index.html",
+  "pt": "Detalhe do chip Realtek RTD2175P na placa do PS5 Slim"
+ },
+ {
+  "k": "ab3e602f4e",
+  "pagina": "guia/index.html",
+  "pt": "Detalhe do Realtek"
+ },
+ {
+  "k": "a004ef91c5",
+  "pagina": "guia/index.html",
+  "pt": "Confirme a marcação <code>RTD2175P</code> no próprio chip antes de desoldar. Não confie só na posição, principalmente em placa que já passou por retrabalho."
+ },
+ {
+  "k": "34df82fa6c",
+  "pagina": "guia/index.html",
+  "pt": "Procedimento"
+ },
+ {
+  "k": "91f4d2fc2c",
+  "pagina": "guia/index.html",
+  "pt": "As etapas intercalam software e solda. Siga a ordem: gravar a NOR na hora errada é a causa mais comum de tela azul sem vídeo depois da conversão."
+ },
+ {
+  "k": "e9fcd9527e",
+  "pagina": "guia/index.html",
+  "pt": "1. Backup da NOR, antes de tudo"
+ },
+ {
+  "k": "abe0f9c416",
+  "pagina": "guia/index.html",
+  "pt": "Conecte o CH341A na NOR, ainda com o RTD2175P original, e abra o PS5 HDMI Tool na aba <strong>Leitor CH341A</strong>."
+ },
+ {
+  "k": "4ed6148f74",
+  "pagina": "guia/index.html",
+  "pt": "Clique em <strong>1. Detectar leitor CH341A</strong> e depois em <strong>2. Ler NOR</strong>. O programa lê duas vezes, compara e salva <code>DUMP1.bin</code> e <code>DUMP2.bin</code>."
+ },
+ {
+  "k": "e21b2afa90",
+  "pagina": "guia/index.html",
+  "pt": "Se a leitura não bater, o programa avisa e não salva nada: refaça o contato do leitor antes de seguir."
+ },
+ {
+  "k": "3d16e66aee",
+  "pagina": "guia/index.html",
+  "pt": "2. Gere a conversão, ainda sem solda"
+ },
+ {
+  "k": "77ba9f1a65",
+  "pagina": "guia/index.html",
+  "pt": "Em <strong>3. Aplicar patch (chip HDMI)</strong>, escolha <strong>nuvoton</strong> e clique em <strong>Aplicar patch</strong>. Esse botão só prepara o arquivo: ainda não grava nada na placa."
+ },
+ {
+  "k": "43519d173f",
+  "pagina": "guia/index.html",
+  "pt": "O programa salva <code>REALTEK_FOR_NUVOTON.bin</code> junto do backup. É esse arquivo que você grava depois da troca física."
+ },
+ {
+  "k": "f5d5a6efdc",
+  "pagina": "guia/index.html",
+  "pt": "Confira no log se o checksum saiu como resolvido. Se saiu como não resolvido, pare e <a href=\"https://wa.me/5521966547296\" target=\"_blank\" rel=\"noopener\">fale com a gente</a> antes de seguir em placa de cliente."
+ },
+ {
+  "k": "c51a7863f0",
+  "pagina": "guia/index.html",
+  "pt": "Não clique em Gravar na NOR ainda."
+ },
+ {
+  "k": "dfc27be885",
+  "pagina": "guia/index.html",
+  "pt": "3. Remova o RTD2175P"
+ },
+ {
+  "k": "7fcf7d3296",
+  "pagina": "guia/index.html",
+  "pt": "Proteja os componentes vizinhos com fita Kapton."
+ },
+ {
+  "k": "271e68c1f8",
+  "pagina": "guia/index.html",
+  "pt": "Aplique bastante fluxo sobre o chip e remova com ar quente, no perfil da sua bancada para QFN de passo fino."
+ },
+ {
+  "k": "ed6d5c2a1a",
+  "pagina": "guia/index.html",
+  "pt": "Limpe os pads com o ferro até ficarem planos e sem excesso de solda."
+ },
+ {
+  "k": "e0b04b4394",
+  "pagina": "guia/index.html",
+  "pt": "4. Instale a interposer"
+ },
+ {
+  "k": "d56869ba9f",
+  "pagina": "guia/index.html",
+  "pt": "Aplique uma camada fina de pasta de 183 °C nos pads limpos."
+ },
+ {
+  "k": "684689a2fe",
+  "pagina": "guia/index.html",
+  "pt": "Posicione a peça com a face <strong>RTD2175P</strong> para baixo. O flex é transparente: alinhe olhando os pads por baixo e confira a marcação de pino 1."
+ },
+ {
+  "k": "f2ce90cff7",
+  "pagina": "guia/index.html",
+  "pt": "Faça a refusão até molhar todos os pinos. Os furinhos do flex também permitem soldar por capilaridade com o ferro. Inspecione: sem ponte e sem pino levantado."
+ },
+ {
+  "k": "f97a7b39ba",
+  "pagina": "guia/index.html",
+  "pt": "Deixe esfriar antes de manusear."
+ },
+ {
+  "k": "45bf6ce703",
+  "pagina": "guia/index.html",
+  "pt": "Interposer flex posicionada sobre a placa do PS5, com a placa visível através dela"
+ },
+ {
+  "k": "a7778748cf",
+  "pagina": "guia/index.html",
+  "pt": "Foto real: o flex deixa ver a placa."
+ },
+ {
+  "k": "c7ff7a3bf0",
+  "pagina": "guia/index.html",
+  "pt": "MN864739 soldado sobre a interposer na placa do PS5"
+ },
+ {
+  "k": "b4dbfffec6",
+  "pagina": "guia/index.html",
+  "pt": "Foto real: resultado com o MN864739."
+ },
+ {
+  "k": "118049de3d",
+  "pagina": "guia/index.html",
+  "pt": "5. Solde o MN864739 na interposer"
+ },
+ {
+  "k": "acdd5ab302",
+  "pagina": "guia/index.html",
+  "pt": "Aplique fluxo e pasta de 183 °C na face de cima."
+ },
+ {
+  "k": "92bfd0c6be",
+  "pagina": "guia/index.html",
+  "pt": "Posicione o chip respeitando a seta e a marcação de pino 1."
+ },
+ {
+  "k": "921b260f8d",
+  "pagina": "guia/index.html",
+  "pt": "Faça a refusão com temperatura e vazão mais contidas, para não deslocar a peça já fixada."
+ },
+ {
+  "k": "61e8589a24",
+  "pagina": "guia/index.html",
+  "pt": "Retoque pinos individuais com o ferro, se precisar."
+ },
+ {
+  "k": "e9d99f0de3",
+  "pagina": "guia/index.html",
+  "pt": "6. Inspecione antes de energizar"
+ },
+ {
+  "k": "39fb9e802a",
+  "pagina": "guia/index.html",
+  "pt": "Olhe as duas camadas de solda com aumento: placa com interposer e interposer com MN864739."
+ },
+ {
+  "k": "28e863402c",
+  "pagina": "guia/index.html",
+  "pt": "Teste continuidade e curto com o multímetro entre trilhas vizinhas e contra o terra."
+ },
+ {
+  "k": "a51eb411b4",
+  "pagina": "guia/index.html",
+  "pt": "7. Grave a NOR convertida e teste"
+ },
+ {
+  "k": "ff84bbf73c",
+  "pagina": "guia/index.html",
+  "pt": "Conecte o CH341A na NOR novamente."
+ },
+ {
+  "k": "49824e7fa0",
+  "pagina": "guia/index.html",
+  "pt": "No programa, use <strong>Carregar arquivo .bin para gravar...</strong> e selecione o <code>REALTEK_FOR_NUVOTON.bin</code> do passo 2. É esse o arquivo certo, não um backup antigo."
+ },
+ {
+  "k": "76b936270c",
+  "pagina": "guia/index.html",
+  "pt": "Confirme a gravação (o programa pede confirmação dupla e a palavra <code>GRAVAR</code>) e aguarde as 4 etapas: conferir, apagar, gravar e verificar."
+ },
+ {
+  "k": "d8a7dc858f",
+  "pagina": "guia/index.html",
+  "pt": "Ligue a placa e teste a saída HDMI."
+ },
+ {
+  "k": "81887ef854",
+  "pagina": "guia/index.html",
+  "pt": "Problemas comuns"
+ },
+ {
+  "k": "c213a303af",
+  "pagina": "guia/index.html",
+  "pt": "<strong>Sem vídeo, mas o console liga normal:</strong> suspeite primeiro da solda (pino frio, ponte ou chip deslocado) antes de mexer na NOR de novo."
+ },
+ {
+  "k": "914f6f1bd7",
+  "pagina": "guia/index.html",
+  "pt": "<strong>Trava na tela azul de checagem:</strong> confira se o checksum da conversão saiu como resolvido para a revisão de Wi-Fi dessa placa."
+ },
+ {
+  "k": "f882644d53",
+  "pagina": "guia/index.html",
+  "pt": "<strong>O CH341A não detecta a NOR depois da solda:</strong> procure curto ou solda fria nos pads da interposer antes de suspeitar do programador. Resíduo de fluxo ali pode afetar outras linhas da placa."
+ },
+ {
+  "k": "20e22c4f32",
+  "pagina": "guia/index.html",
+  "pt": "Aviso legal"
+ },
+ {
+  "k": "f5d9050db5",
+  "pagina": "guia/index.html",
+  "pt": "Este procedimento modifica o hardware, anula a garantia de fábrica do console e envolve risco real de dano permanente à placa-mãe se feito de forma incorreta. A peça e esta documentação são oferecidas sem garantia de resultado do serviço, e quem executa responde pelo próprio trabalho. Isso não retira direitos que a lei garante ao consumidor."
+ },
+ {
+  "k": "cf6451f288",
+  "pagina": "guia/index.html",
+  "pt": "Comprar no Mercado Livre"
+ },
+ {
+  "k": "dc2148ec24",
+  "pagina": "guia/index.html",
+  "pt": "Comprar na Shopee"
+ },
+ {
+  "k": "8fbb10ca27",
+  "pagina": "guia/index.html",
+  "pt": "Voltar para a página inicial"
+ },
+ {
+  "k": "9363325410",
+  "pagina": "guia/index.html",
+  "pt": "<b>Developed by MeoWDeV MOD</b><br>PS5 e PlayStation são marcas da Sony Interactive Entertainment. Realtek, Nuvoton, Panasonic e Texas Instruments pertencem aos respectivos donos. Este projeto não é afiliado a essas empresas."
+ },
+ {
+  "k": "b01e1c8cfb",
+  "pagina": "guia/index.html",
+  "pt": "Página inicial"
+ },
+ {
+  "k": "5721bbef40",
+  "pagina": "guia/index.html",
+  "pt": "Instagram"
+ },
+ {
+  "k": "558865a16f",
+  "pagina": "guia/index.html",
+  "pt": "YouTube"
+ },
+ {
+  "k": "c76ebb75fa",
+  "pagina": "termos/index.html",
+  "pt": "Termos de uso | PS5 HDMI Tool"
+ },
+ {
+  "k": "e9a1d39c2c",
+  "pagina": "termos/index.html",
+  "pt": "Termos de uso do site e do programa PS5 HDMI Tool: riscos da gravação da NOR e do retrabalho, compras nas lojas, anúncios e contato."
+ },
+ {
+  "k": "d659a8e09a",
+  "pagina": "termos/index.html",
+  "pt": "Atualizado em 4 de novembro de 2026."
+ },
+ {
+  "k": "ba4498228a",
+  "pagina": "termos/index.html",
+  "pt": "O que é"
+ },
+ {
+  "k": "06ff399fff",
+  "pagina": "termos/index.html",
+  "pt": "O PS5 HDMI Tool é um programa gratuito para ler, gravar e converter a NOR de placas de PS5 Slim. Este site também divulga a Interposer Tech MeoW, peça física vendida à parte. O projeto é mantido por MeoWDeV MOD (Jefferson Honorio)."
+ },
+ {
+  "k": "61395e754f",
+  "pagina": "termos/index.html",
+  "pt": "Aceite"
+ },
+ {
+  "k": "9928976b30",
+  "pagina": "termos/index.html",
+  "pt": "Ao usar o site ou o programa, você concorda com estes termos. Se não concordar, não use."
+ },
+ {
+  "k": "057ae887b2",
+  "pagina": "termos/index.html",
+  "pt": "Gravação da NOR e retrabalho"
+ },
+ {
+  "k": "f65f5bb0e9",
+  "pagina": "termos/index.html",
+  "pt": "O programa grava dados na memória da placa, e a troca do chip exige microssoldagem. O serviço é para técnicos com experiência. Faça o backup, use só em placa sua ou com autorização do dono e confira o resultado antes de gravar. Executado de forma errada, pode causar dano permanente à placa-mãe. A modificação anula a garantia de fábrica do console."
+ },
+ {
+  "k": "a4afb302e5",
+  "pagina": "termos/index.html",
+  "pt": "Sem garantia do programa"
+ },
+ {
+  "k": "088304d1c1",
+  "pagina": "termos/index.html",
+  "pt": "O programa é oferecido como está, sem garantia de funcionar em toda placa, leitor ou computador. Na medida permitida pela lei, não respondemos por perda de dados ou outros danos causados pelo uso. Isso não retira direitos que a lei garante ao consumidor."
+ },
+ {
+  "k": "bd0f2a171b",
+  "pagina": "termos/index.html",
+  "pt": "Compra da interposer"
+ },
+ {
+  "k": "779650882c",
+  "pagina": "termos/index.html",
+  "pt": "A venda acontece no Mercado Livre e na Shopee, com as regras e as proteções de cada loja. Preço, prazo e troca aparecem no anúncio."
+ },
+ {
+  "k": "c57f3f41f6",
+  "pagina": "termos/index.html",
+  "pt": "Anúncios e links"
+ },
+ {
+  "k": "e751d565e8",
+  "pagina": "termos/index.html",
+  "pt": "O site mostra anúncios e links de terceiros. O que você comprar ou contratar nesses sites é de responsabilidade deles."
+ },
+ {
+  "k": "eed9cb6195",
+  "pagina": "termos/index.html",
+  "pt": "Uso permitido"
+ },
+ {
+  "k": "fbc37515e5",
+  "pagina": "termos/index.html",
+  "pt": "Não use o site ou o programa para atacar o site, burlar direitos de terceiros ou desrespeitar a lei."
+ },
+ {
+  "k": "28cef50e5e",
+  "pagina": "termos/index.html",
+  "pt": "Marcas"
+ },
+ {
+  "k": "e4abea34c9",
+  "pagina": "termos/index.html",
+  "pt": "PS5 e PlayStation são marcas da Sony Interactive Entertainment. Realtek, Nuvoton e Panasonic pertencem aos respectivos donos. Este projeto não é afiliado a essas empresas."
+ },
+ {
+  "k": "f1d6c86fc8",
+  "pagina": "termos/index.html",
+  "pt": "Mudanças"
+ },
+ {
+  "k": "a2b8ac25dd",
+  "pagina": "termos/index.html",
+  "pt": "Podemos atualizar estes termos. Quando isso acontecer, o site pedirá um novo aceite."
+ },
+ {
+  "k": "831d8659ea",
+  "pagina": "termos/index.html",
+  "pt": "Lei e contato"
+ },
+ {
+  "k": "26fb6e1002",
+  "pagina": "termos/index.html",
+  "pt": "Estes termos seguem as leis do Brasil. Para falar com a gente: <a href=\"https://wa.me/5521966547296\" target=\"_blank\" rel=\"noopener\">WhatsApp +55 21 96654-7296</a>."
+ },
+ {
+  "k": "7a0b9ea6f1",
+  "pagina": "privacidade/index.html",
+  "pt": "Privacidade e cookies | PS5 HDMI Tool"
+ },
+ {
+  "k": "0273dadf2d",
+  "pagina": "privacidade/index.html",
+  "pt": "Este site não usa cookies de rastreamento nem análise de terceiros. Veja o que fica salvo no seu navegador e como os anúncios são contados."
+ },
+ {
+  "k": "ef8d51ef99",
+  "pagina": "privacidade/index.html",
+  "pt": "Resumo"
+ },
+ {
+  "k": "b5147d6288",
+  "pagina": "privacidade/index.html",
+  "pt": "Este site não usa cookies de rastreamento nem ferramentas de análise de terceiros, como o Google Analytics. O que chamamos de cookies aqui é, na prática, o armazenamento do seu navegador: pequenas informações que ficam no seu aparelho."
+ },
+ {
+  "k": "c7073faaaa",
+  "pagina": "privacidade/index.html",
+  "pt": "Sempre ativos (necessários)"
+ },
+ {
+  "k": "cbdb8c0695",
+  "pagina": "privacidade/index.html",
+  "pt": "Sua escolha de termos e cookies (<code>hdmi.consent</code>)."
+ },
+ {
+  "k": "3603fd7437",
+  "pagina": "privacidade/index.html",
+  "pt": "Tema claro ou escuro (<code>hdmi.theme</code>)."
+ },
+ {
+  "k": "9984f3d7da",
+  "pagina": "privacidade/index.html",
+  "pt": "Idioma escolhido (<code>techmeow.lang</code>), que vale para todos os sites de techmeow.app."
+ },
+ {
+  "k": "08fec51c84",
+  "pagina": "privacidade/index.html",
+  "pt": "Efeito de transição entre páginas (<code>hdmi.pt</code>), que some ao fechar a aba."
+ },
+ {
+  "k": "c8e5c4405c",
+  "pagina": "privacidade/index.html",
+  "pt": "Opcionais (só com Aceitar tudo)"
+ },
+ {
+  "k": "1995af18bf",
+  "pagina": "privacidade/index.html",
+  "pt": "Último anúncio visto, para mostrar outro na próxima visita, e quais anúncios este navegador já viu (<code>hdmi-ad-*</code>)."
+ },
+ {
+  "k": "e0e0382de4",
+  "pagina": "privacidade/index.html",
+  "pt": "Site de onde você veio (<code>hdmi-de</code>), que some ao fechar a aba."
+ },
+ {
+  "k": "bb98f0ecb4",
+  "pagina": "privacidade/index.html",
+  "pt": "Contagem dos anúncios, explicada abaixo."
+ },
+ {
+  "k": "88b53f8eee",
+  "pagina": "privacidade/index.html",
+  "pt": "Se você escolher só o necessário"
+ },
+ {
+  "k": "c04a072141",
+  "pagina": "privacidade/index.html",
+  "pt": "Os anúncios continuam aparecendo, mas exibições e cliques não são contados, e os itens opcionais não ficam salvos. Mudar a escolha apaga os opcionais deste navegador."
+ },
+ {
+  "k": "d68b84efbc",
+  "pagina": "privacidade/index.html",
+  "pt": "Contagem dos anúncios"
+ },
+ {
+  "k": "e25d33038b",
+  "pagina": "privacidade/index.html",
+  "pt": "Com a sua autorização, avisamos ao nosso servidor quando um anúncio aparece ou é clicado, em qual lugar do site e de qual site você veio. O servidor soma esses avisos por dia, com cidade e país aproximados e tipo de aparelho. Não guardamos seu IP nem criamos um identificador seu."
+ },
+ {
+  "k": "dad570a840",
+  "pagina": "privacidade/index.html",
+  "pt": "O PS5 HDMI Tool roda no seu computador. Os backups da NOR ficam na sua máquina e não são enviados para nós. O programa só consulta o GitHub para saber se existe uma versão nova."
+ },
+ {
+  "k": "4a4098c42d",
+  "pagina": "privacidade/index.html",
+  "pt": "Serviços usados"
+ },
+ {
+  "k": "36bafc98e5",
+  "pagina": "privacidade/index.html",
+  "pt": "O site é hospedado no GitHub Pages. A lista e os arquivos dos anúncios vêm da Vercel e do Supabase. Como em qualquer site, esses serviços recebem seu IP e dados técnicos para entregar o conteúdo. Mercado Livre, Shopee, WhatsApp, Instagram e YouTube só recebem dados se você clicar nos links deles."
+ },
+ {
+  "k": "8ea8d5b876",
+  "pagina": "privacidade/index.html",
+  "pt": "Seus direitos"
+ },
+ {
+  "k": "3be64ec2d7",
+  "pagina": "privacidade/index.html",
+  "pt": "Você pode mudar sua escolha a qualquer momento em Gerenciar cookies, no fim das páginas, e pedir informações pela LGPD. Responsável: MeoWDeV MOD (Jefferson Honorio). Contato: <a href=\"https://wa.me/5521966547296\" target=\"_blank\" rel=\"noopener\">WhatsApp +55 21 96654-7296</a>."
+ }
+]

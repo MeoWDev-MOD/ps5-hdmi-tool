@@ -67,10 +67,25 @@ const CSS = `
 let rootPath = "";
 let bar = null;
 
+// Textos da barra no idioma da página (<html lang>); as páginas em en/, es/ e ru/ são geradas por site-src/i18n.
+const A = 'target="_blank" rel="noopener"';
+const TXT = {
+  pt: { t: "Termos de uso e cookies", no: "Aceitar só o necessário", yes: "Aceitar tudo",
+    p: (r) => `Ao usar este site, você aceita os <a href="${r}termos/" ${A}>Termos de uso</a>. Os cookies opcionais lembram o último anúncio visto e contam, sem identificar você, as exibições e os cliques dos anúncios. Veja <a href="${r}privacidade/" ${A}>Privacidade e cookies</a>.` },
+  en: { t: "Terms of use and cookies", no: "Accept only the necessary", yes: "Accept all",
+    p: (r) => `By using this website, you accept the <a href="${r}termos/" ${A}>Terms of use</a>. Optional cookies remember the last ad you saw and count ad views and clicks without identifying you. See <a href="${r}privacidade/" ${A}>Privacy and cookies</a>.` },
+  es: { t: "Términos de uso y cookies", no: "Aceptar solo lo necesario", yes: "Aceptar todo",
+    p: (r) => `Al usar este sitio, aceptas los <a href="${r}termos/" ${A}>Términos de uso</a>. Las cookies opcionales recuerdan el último anuncio que viste y cuentan, sin identificarte, las vistas y los clics de los anuncios. Consulta <a href="${r}privacidade/" ${A}>Privacidad y cookies</a>.` },
+  ru: { t: "Условия использования и cookie", no: "Только необходимые", yes: "Принять все",
+    p: (r) => `Пользуясь этим сайтом, вы принимаете <a href="${r}termos/" ${A}>Условия использования</a>. Необязательные cookie запоминают последнюю показанную рекламу и считают показы и клики по рекламе, не идентифицируя вас. Подробнее: <a href="${r}privacidade/" ${A}>Конфиденциальность и cookie</a>.` },
+};
+const txt = () => TXT[(document.documentElement.lang || "pt").slice(0, 2).toLowerCase()] ?? TXT.pt;
+
 function draw() {
-  bar.innerHTML = `<b>Termos de uso e cookies</b>
-    <p>Ao usar este site, você aceita os <a href="${rootPath}termos/" target="_blank" rel="noopener">Termos de uso</a>. Os cookies opcionais lembram o último anúncio visto e contam, sem identificar você, as exibições e os cliques dos anúncios. Veja <a href="${rootPath}privacidade/" target="_blank" rel="noopener">Privacidade e cookies</a>.</p>
-    <div class="ck-btns"><button type="button" class="ck-no">Aceitar só o necessário</button><button type="button" class="ck-yes">Aceitar tudo</button></div>`;
+  const x = txt();
+  bar.innerHTML = `<b>${x.t}</b>
+    <p>${x.p(rootPath)}</p>
+    <div class="ck-btns"><button type="button" class="ck-no">${x.no}</button><button type="button" class="ck-yes">${x.yes}</button></div>`;
   bar.querySelector(".ck-no").onclick = () => choose(false);
   bar.querySelector(".ck-yes").onclick = () => choose(true);
 }
@@ -87,7 +102,7 @@ function showBar() {
     bar.className = "ck";
     document.body.append(bar);
   }
-  bar.setAttribute("aria-label", "Termos de uso e cookies");
+  bar.setAttribute("aria-label", txt().t);
   draw();
 }
 

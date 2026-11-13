@@ -1,0 +1,17 @@
+{
+  "base": "https://techmeow.app/ps5-hdmi-tool/",
+  "docs": "docs",
+  "paginas": ["index.html", "guia/index.html", "termos/index.html", "privacidade/index.html"],
+  "idiomas": ["en", "es", "ru"],
+  "origem": "pt-BR",
+  "chave_idioma": "techmeow.lang",
+  "sitemap": ["index.html", "guia/index.html"],
+  "imagens": {
+    "img/og.jpg": {"en": "img/og-en.jpg", "es": "img/og-es.jpg", "ru": "img/og-ru.jpg"},
+    "img/ps5-hdmi-tool-tela-do-programa.webp": {
+      "en": "img/ps5-hdmi-tool-tela-do-programa-en.webp",
+      "es": "img/ps5-hdmi-tool-tela-do-programa-es.webp",
+      "ru": "img/ps5-hdmi-tool-tela-do-programa-en.webp"
+    }
+  }
+}

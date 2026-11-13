@@ -27,7 +27,7 @@ $("themeBtn").onclick = (e) => themeSwitch(e, () => {
 });
 
 startShader($("fxBg"), isDark).start();
-initPageFx("img/logo-gato-tech-meow.webp");
+initPageFx(new URL("../img/logo-gato-tech-meow.webp", import.meta.url).href); // vale também nas páginas de en/, es/ e ru/
 initFx();
 
 // Barra de compra no celular: aparece quando os botões principais saem da tela.

@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Интерпозер PS5 для HDMI-чипа Realtek RTD2175P | PS5 HDMI Tool</title>
+<meta name="description" content="Ремонт HDMI-чипа PS5 Slim без покупки Realtek RTD2175P за 1 700 R$ (бразильских реалов). Interposer Tech MeoW позволяет поставить Nuvoton MN864739, а PS5 HDMI Tool бесплатно конвертирует NOR.">
+<meta name="keywords" content="интерпозер PS5, HDMI интерпозер PS5 Slim, HDMI-чип PS5, микросхема HDMI PS5, Realtek RTD2175P, Nuvoton MN864739, Panasonic MN864739, PS5 нет изображения, ремонт HDMI PS5, конвертация NOR PS5, CH341A PS5">
+<meta name="author" content="MeoWDeV MOD">
+<meta name="theme-color" content="#0c0920">
+<link rel="canonical" href="https://techmeow.app/ps5-hdmi-tool/ru/">
+<link rel="icon" href="../img/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../img/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PS5 HDMI Tool">
+<meta property="og:title" content="Интерпозер PS5: замените HDMI-чип за 1 700 R$ на чип за 80 R$">
+<meta property="og:description" content="Прозрачный гибкий интерпозер с уже впаянным стабилизатором 1,8 В и без проводов на плате. Программа для конвертации NOR бесплатна.">
+<meta property="og:image" content="https://techmeow.app/ps5-hdmi-tool/img/og-ru.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://techmeow.app/ps5-hdmi-tool/ru/">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Интерпозер PS5: замените HDMI-чип за 1 700 R$ на чип за 80 R$">
+<meta name="twitter:description" content="Прозрачный гибкий интерпозер с уже впаянным стабилизатором 1,8 В и без проводов на плате. Программа для конвертации NOR бесплатна.">
+<meta name="twitter:image" content="https://techmeow.app/ps5-hdmi-tool/img/og-ru.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://techmeow.app/ps5-hdmi-tool/#org",
+      "name": "MeoWDeV MOD",
+      "url": "https://techmeow.app/ps5-hdmi-tool/ru/",
+      "logo": "https://techmeow.app/ps5-hdmi-tool/img/icon-192.png",
+      "sameAs": [
+        "https://www.instagram.com/tech_meow.oficial",
+        "https://www.youtube.com/@techmeow",
+        "https://github.com/MeoWDev-MOD"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "PS5 HDMI Tool",
+      "url": "https://techmeow.app/ps5-hdmi-tool/ru/",
+      "inLanguage": "ru",
+      "publisher": {
+        "@id": "https://techmeow.app/ps5-hdmi-tool/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "PS5 HDMI Tool",
+      "description": "Бесплатная программа, которая читает, записывает и конвертирует NOR плат PS5 Slim, чтобы заменить HDMI-чип Realtek RTD2175P на Nuvoton/Panasonic MN864739, с программатором CH341A.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows",
+      "softwareVersion": "1.0.20",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "author": {
+        "@id": "https://techmeow.app/ps5-hdmi-tool/#org"
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Jefferson Honorio"
+      },
+      "downloadUrl": "https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest",
+      "image": "https://techmeow.app/ps5-hdmi-tool/img/ps5-hdmi-tool-tela-do-programa-en.webp",
+      "inLanguage": [
+        "pt-BR",
+        "en",
+        "es"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое интерпозер для PS5?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это тонкая переходная плата, которая ставится между материнской платой и HDMI-чипом. Interposer Tech MeoW нижней стороной припаивается к площадкам Realtek RTD2175P, а на верхнюю сторону ставится Nuvoton/Panasonic MN864739."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как узнать, стоит ли в моей PS5 HDMI-чип Realtek?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Посмотрите маркировку чипа между APU и разъёмом HDMI: там должно быть написано RTD2175P. Не полагайтесь только на расположение, особенно если плата уже побывала в ремонте. PS5 HDMI Tool также показывает HDMI-чип, прописанный в NOR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "С какой PS5 работает интерпозер?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Деталь и программа сделаны для плат PS5 Slim с HDMI-чипом Realtek RTD2175P."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужно ли менять NOR после замены чипа?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Плата, которая с завода идёт с Realtek, работает только с Realtek. PS5 HDMI Tool изменяет NOR через программатор CH341A, чтобы консоль распознала Nuvoton или Panasonic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Подходят ли чипы Nuvoton и Panasonic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Оба — это один и тот же MN864739, который на рынке запчастей продаётся под двумя марками."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит HDMI-чип PS5?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для ориентира: в Бразилии Realtek RTD2175P стоит около 1 700 R$ только за деталь, а MN864739 — в среднем около 80 R$. Цены меняются вместе с рынком. Цена интерпозера указана в наших магазинах на Mercado Livre и Shopee (Бразилия)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужно ли паять провода на плату?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Стабилизатор U1, уже впаянный в деталь, берёт 3,3 В с площадки Realtek и выдаёт 1,8 В, нужные MN864739."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какое оборудование нужно?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Программатор CH341A, термовоздушная паяльная станция, прецизионный паяльник, флюс, низкотемпературная паяльная паста, мультиметр и микроскоп или лупа."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли сделать это без опыта микропайки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не рекомендуем. Эта работа для мастеров с опытом микропайки и прошивки NOR. Без подготовки можно полностью погубить материнскую плату."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "После замены PS5 осталась без изображения. Что проверить?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Если консоль включается нормально, сначала подозревайте пайку: непропай, перемычку припоя или смещённый чип. Если она зависает на синем экране проверки, убедитесь, что программа показала контрольную сумму конвертации как исправленную (resolved)."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script>
+  try { const t = localStorage.getItem("hdmi.theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  try { if (sessionStorage.getItem("hdmi.pt")) { sessionStorage.removeItem("hdmi.pt"); document.documentElement.classList.add("pt"); } } catch (e) {}
+</script>
+<style>:root{--pt-logo:url(../img/logo-gato-tech-meow.webp)}.webtit{display:block;font-size:clamp(20px,2.4vw,27px);line-height:1.14;letter-spacing:-.02em;font-weight:800;margin:2px 0}</style>
+<link rel="preload" as="image" href="../img/interposer-ps5-tech-meow.webp" fetchpriority="high">
+<link rel="stylesheet" href="../css/site.css">
+<!--i18n:head-->
+<link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/">
+<link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/">
+<link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/">
+<link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/">
+<link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/">
+<style>.i18n-menu{position:relative;display:inline-flex;flex:none}.i18n-btn{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border-radius:99px;border:1px solid var(--line,rgba(127,127,127,.35));background:var(--surface2,transparent);color:inherit;font:inherit;font-size:13px;font-weight:700;letter-spacing:.04em;cursor:pointer}.i18n-btn:hover{border-color:currentColor}.i18n-lista{position:absolute;right:0;top:calc(100% + 8px);z-index:200;list-style:none;margin:0;padding:6px;min-width:176px;border-radius:14px;border:1px solid var(--line,rgba(127,127,127,.35));background:var(--surface,#16122c);box-shadow:0 18px 40px rgba(0,0,0,.35)}.i18n-lista a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none;font-size:14px;font-weight:600}.i18n-lista a b{font-size:11px;letter-spacing:.06em;opacity:.65;width:22px}.i18n-lista a:hover,.i18n-lista a:focus-visible{background:var(--surface2,rgba(127,127,127,.15))}.i18n-lista a[aria-current]{color:var(--accent,#a78bfa)}.i18n-sug{position:absolute;right:0;top:calc(100% + 8px);z-index:199;display:flex;align-items:center;gap:8px;white-space:nowrap;padding:8px 8px 8px 14px;border-radius:99px;font-size:13px;font-weight:600;border:1px solid var(--line,rgba(127,127,127,.35));background:var(--surface,#16122c);box-shadow:0 14px 34px rgba(0,0,0,.35)}.i18n-sug a{padding:6px 12px;border-radius:99px;background:var(--accent,#7c5cff);color:#fff;text-decoration:none}.i18n-sug button{border:0;background:none;color:inherit;font:inherit;font-size:16px;line-height:1;padding:4px 6px;cursor:pointer;opacity:.7}.i18n-sug.m{position:fixed;left:12px;right:12px;top:calc(76px + env(safe-area-inset-top));z-index:60;justify-content:space-between;white-space:normal}</style>
+<script>(function(){var A="ru",M={"pt": "../", "en": "../en/", "es": "../es/", "ru": "./"},S={"pt": ["Ler esta página em português?", "Abrir"], "en": ["Read this page in English?", "Open"], "es": ["¿Leer esta página en español?", "Abrir"], "ru": ["Открыть эту страницу на русском?", "Открыть"]},K="techmeow.lang";
+function salva(l){try{localStorage.setItem(K,l)}catch(e){}}
+var p=null;try{p=localStorage.getItem(K)}catch(e){}
+if(p&&p!==A&&M[p]){location.replace(M[p]+location.search+location.hash);return}
+document.addEventListener("DOMContentLoaded",function(){var m=document.querySelector("[data-i18n-menu]");if(!m)return;
+var b=m.querySelector(".i18n-btn"),l=m.querySelector(".i18n-lista");
+function abre(v){l.hidden=!v;b.setAttribute("aria-expanded",v?"true":"false")}
+b.addEventListener("click",function(e){e.stopPropagation();var s=document.querySelector(".i18n-sug");if(s)s.remove();abre(l.hidden)});
+document.addEventListener("click",function(e){if(!m.contains(e.target))abre(false)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){abre(false);b.focus()}});
+m.querySelectorAll("a[data-lang]").forEach(function(a){a.addEventListener("click",function(e){salva(a.dataset.lang);
+e.preventDefault();location.href=a.getAttribute("href")+location.hash})});
+if(p)return;var n=((navigator.languages&&navigator.languages[0])||navigator.language||"").toLowerCase().slice(0,2);
+var q=M[n]?n:(n&&n!=="pt"?"en":null);if(!q||q===A||!M[q])return;
+var s=document.createElement("div");s.className="i18n-sug";s.setAttribute("role","status");s.lang=q;
+s.innerHTML='<span></span><a></a><button type="button" aria-label="×">×</button>';
+s.querySelector("span").textContent=S[q][0];var a=s.querySelector("a");a.textContent=S[q][1];a.href=M[q];
+a.addEventListener("click",function(){salva(q)});
+s.querySelector("button").addEventListener("click",function(){salva(A);s.remove()});
+if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.appendChild(s)}else m.appendChild(s)})})();</script>
+<!--/i18n:head-->
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="s-ig" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></symbol>
+  <symbol id="s-yt" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6z"/></symbol>
+  <symbol id="s-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 5 5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1-.8-.3-2.3-1.1-3.3-3-.2-.3 0-.5.1-.6l.4-.5.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.2 1.7.7 2.3.6 2.8.5.6-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0-.1-.2-.2-.4-.3z"/></symbol>
+  <symbol id="s-gh" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.2a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.2L21 7H6"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-nowire" viewBox="0 0 24 24"><path d="M2 2l20 20M4 19c3-1 4-3 5-6M20 5c-3 1-4 3-5 6"/></symbol>
+  <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v9M6.3 6.3a8 8 0 1 0 11.4 0"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></symbol>
+</svg>
+
+<canvas id="fxBg" aria-hidden="true"></canvas>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><img src="../img/icon-192.png" width="38" height="38" alt=""><span>PS5 HDMI Tool</span></a>
+  <nav class="links" aria-label="Разделы"><a href="#interposer">Интерпозер</a><a href="#como-funciona">Как это работает</a><a href="#programa">Программа</a><a href="#instalacao">Установка</a><a href="#comprar">Купить</a><a href="#faq">Вопросы</a></nav>
+  <!--i18n:menu--><div class="i18n-menu" data-i18n-menu><button type="button" class="i18n-btn" aria-haspopup="true" aria-expanded="false" aria-label="Язык: Русский" title="Язык"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 3.9 5.8 3.9 9s-1.3 6.2-3.9 9c-2.6-2.8-3.9-5.8-3.9-9s1.3-6.2 3.9-9z"/></svg><span>RU</span></button><ul class="i18n-lista" hidden><li><a href="../" hreflang="pt-BR" lang="pt-BR" data-lang="pt"><b>PT</b>Português</a></li><li><a href="../en/" hreflang="en" lang="en" data-lang="en"><b>EN</b>English</a></li><li><a href="../es/" hreflang="es" lang="es" data-lang="es"><b>ES</b>Español</a></li><li><a href="./" hreflang="ru" lang="ru" data-lang="ru" aria-current="true"><b>RU</b>Русский</a></li></ul></div><!--/i18n:menu-->
+  <button class="iconbtn" id="themeBtn" aria-label="Переключить светлую и тёмную тему" title="Переключить светлую и тёмную тему">
+    <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+  </button>
+  <a class="b p dl" style="min-height:42px;padding:8px 16px;font-size:14px" href="#comprar">Купить</a>
+</div><i id="scrollBar" aria-hidden="true"></i></header>
+
+<aside class="ad adlado hidden" id="adL" aria-label="Реклама"><span class="adtag">Реклама</span><div class="midia" id="adLMedia"></div></aside>
+<aside class="ad adlado hidden" id="adR" aria-label="Реклама"><span class="adtag">Реклама</span><div class="midia" id="adRMedia"></div></aside>
+
+<main class="wrap">
+  <section class="webcta" aria-label="Бесплатная программа">
+    <div class="selo" aria-hidden="true"><img src="../img/logo-gato-tech-meow.webp" width="487" height="504" alt=""></div>
+    <div><span class="kick">Бесплатно, ничего не нужно устанавливать</span><strong class="webtit">Конвертируйте NOR с PS5 HDMI Tool</strong><p>Читает, сохраняет резервную копию и конвертирует NOR PS5 Slim через программатор CH341A.</p></div>
+    <a class="b p magnetic" style="min-height:56px;font-size:17px;padding-inline:26px" href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe"><svg class="i"><use href="#i-down"/></svg><span>Скачать для Windows</span></a>
+  </section>
+
+  <section class="hero">
+    <div>
+      <span class="kick">Для мастеров PS5 Slim</span>
+      <h1>Интерпозер PS5: замените <span class="grad">HDMI-чип за 1 700 R$</span> на чип за 80 R$.</h1>
+      <p class="lead">Interposer Tech MeoW позволяет поставить Nuvoton/Panasonic MN864739 на плату, которая требует Realtek RTD2175P. Прозрачная гибкая плата, стабилизатор 1,8 В уже впаян, никаких проводов на плате. NOR вы конвертируете бесплатно нашей программой.</p>
+      <div class="cta">
+        <a class="b loja magnetic" style="min-height:54px;font-size:17px" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Купить на Mercado Livre</a>
+        <a class="b loja magnetic" style="min-height:54px;font-size:17px" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Купить на Shopee</a>
+      </div>
+      <ul class="chips">
+        <li><svg class="i"><use href="#i-check"/></svg>Прозрачная гибкая плата</li>
+        <li><svg class="i"><use href="#i-check"/></svg>Стабилизатор 1,8 В впаян</li>
+        <li><svg class="i"><use href="#i-check"/></svg>Без проводов на плате</li>
+        <li><svg class="i"><use href="#i-check"/></svg>Бесплатная программа</li>
+      </ul>
+    </div>
+    <div>
+      <div class="stage3d" id="heroStage"><span class="ribbon" aria-hidden="true"></span>
+        <img class="poster" src="../img/interposer-ps5-tech-meow.webp" width="773" height="1110" alt="Interposer Tech MeoW для PS5 Slim: янтарная гибкая плата с посадочным местом под чип MN864739 и впаянным стабилизатором U1" fetchpriority="high">
+        <canvas id="hero3d" aria-label="3D-модель интерпозера. Перетащите, чтобы повернуть."></canvas>
+      </div>
+      <p class="caption">3D-модель по реальному чертежу детали. Перетащите, чтобы повернуть и увидеть обе стороны.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="conta">
+    <div class="h"><span class="kick">Экономика ремонта</span><h2>Почему ремонт HDMI-чипа PS5 был невыгоден</h2><p>Некоторые платы PS5 Slim выходят с завода с HDMI-чипом Realtek RTD2175P. Когда он выходит из строя, у консоли пропадает изображение, а запчасть слишком дорого обходится. Цены указаны в бразильских реалах (R$).</p></div>
+    <div class="conta">
+      <div class="card spot">
+        <h3>Только деталь, без учёта работы</h3>
+        <div class="barra"><span>Realtek RTD2175P <b class="vm">1 700 R$</b></span><i class="r" style="width:100%"></i></div>
+        <div class="barra"><span>Nuvoton/Panasonic MN864739, в среднем <b class="am">80 R$</b></span><i class="a" style="width:4.7%"></i></div>
+        <p style="margin-top:16px">С учётом работы ремонт с Realtek обходится клиенту почти в <strong style="color:var(--text)">3 000 R$</strong>, и многие отказываются. Именно интерпозер позволяет поставить на эту плату более дешёвый чип. Цены ориентировочные и меняются вместе с рынком.</p>
+      </div>
+      <div class="card spot cortado">
+        <img src="../img/realtek-rtd2175p-cortado-de-placa.webp" width="566" height="596" loading="lazy" alt="Чип Realtek RTD2175P, который продаётся ещё на куске, вырезанном из другой платы PS5">
+        <p>К тому же Realtek часто приходит вот так: вырезанным из другой платы.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="como-funciona">
+    <div class="h"><span class="kick">Как это работает</span><h2>От сгоревшего чипа до вернувшегося изображения, слой за слоем</h2><p>Прокручивайте страницу и следите за заменой HDMI-чипа на плате. 3D-модель сделана по фотографиям платы и реальному чертежу интерпозера.</p></div>
+    <div class="story" id="montagem">
+      <div class="storypalco" id="storyStage"><canvas id="story3d" aria-label="3D-модель платы PS5, показывающая замену HDMI-чипа шаг за шагом"></canvas><div id="rotulos3d" aria-hidden="true"></div><div class="carrega">Загрузка 3D-модели</div></div>
+      <div class="passos">
+        <article class="card passo on"><span class="nro">1</span><h3>Realtek RTD2175P снимается с платы</h3><p>Прежде всего сделайте резервную копию NOR. Затем снимите оригинальный HDMI-чип и очистите площадки. Именно здесь ремонт раньше и останавливался: новая деталь стоит 1 700 R$.</p><img src="../img/placa/realtek-rtd2175p-detalhe-na-placa.webp" width="900" height="1200" loading="lazy" alt="Realtek RTD2175P на плате PS5 Slim, между APU и разъёмом HDMI"></article>
+        <article class="card passo"><span class="nro">2</span><h3>Интерпозер встаёт на его место</h3><p>Через прозрачную гибкую плату видны площадки платы снизу: вы выравниваете по ним, а не наугад. Нижняя сторона имеет распиновку RTD2175P, а маленькие отверстия позволяют пропаять паяльником капиллярным способом.</p><img src="../img/interposer-ps5-flex-transparente-na-placa.webp" width="1000" height="1333" loading="lazy" alt="Реальное фото гибкого интерпозера на плате PS5, плата видна сквозь него"></article>
+        <article class="card passo"><span class="nro">3</span><h3>MN864739 ставится сверху</h3><p>Чип Nuvoton или Panasonic, в среднем за 80 R$, паяется на верхнюю сторону. Стрелка и треугольник на шелкографии показывают ориентацию и первый вывод.</p><img src="../img/ci-hdmi-nuvoton-mn864739-soldado-na-interposer.webp" width="960" height="1280" loading="lazy" alt="Реальное фото HDMI-чипа Nuvoton MN864739, впаянного на интерпозер на плате PS5"></article>
+        <article class="card passo"><span class="nro">4</span><h3>Стабилизатор решает вопрос питания</h3><p>PMIC Realtek — маленький квадрат рядом с чипом — выдаёт 3,3 В и 0,9 В. Nuvoton использует 0,9 В и 1,8 В. Интерпозер берёт 3,3 В с вывода Realtek и подаёт их на вывод 1 стабилизатора U1, уже впаянного в деталь. Вывод 2 — GND, вывод 3 (EN) получает 0,9 В, а выход 1,8 В питает новый чип. Без проводов от PMIC CXD и без лишней нагрузки на эту цепь.</p><img src="../img/interposer-ps5-tech-meow.webp" width="773" height="1110" loading="lazy" alt="Интерпозер со стабилизатором 1,8 В U1, впаянным в углу"></article>
+        <article class="card passo"><span class="nro">5</span><h3>PS5 HDMI Tool конвертирует NOR</h3><p>Плата работает только с тем чипом, который указан в NOR. Бесплатная программа изменяет NOR через программатор CH341A, чтобы PS5 распознала новый чип. Запишите, включите — и изображение вернётся.</p><img src="../img/ps5-hdmi-tool-tela-do-programa-en.webp" width="1022" height="552" loading="lazy" alt="Экран PS5 HDMI Tool с вариантом записи NOR, настроенной под Nuvoton"></article>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad hidden" id="adSlotComo" aria-label="Реклама"><span class="adtag">Реклама</span><div class="midia" id="adMediaComo"></div></aside>
+
+  <section class="sec" id="interposer">
+    <div class="h"><span class="kick">Деталь</span><h2>Что входит в Interposer Tech MeoW</h2><p>Гибкая переходная плата, созданная, чтобы упростить ремонт на столе: мастер припаивает деталь к плате, сверху припаивает чип — и готово.</p></div>
+    <div class="bento">
+      <article class="card wide spot"><div class="ico"><svg class="i"><use href="#i-eye"/></svg></div><h3>Прозрачная гибкая плата</h3><p>Во время установки видна другая сторона. Совместить площадки интерпозера с площадками платы гораздо проще.</p></article>
+      <article class="card wide spot"><div class="ico"><svg class="i"><use href="#i-zap"/></svg></div><h3>Стабилизатор 1,8 В уже впаян</h3><p>U1 — это TI TLV71318 в корпусе SOT-23-5. Он использует 3,3 В, которые уже есть на площадке Realtek, и выдаёт 1,8 В для MN864739.</p></article>
+      <article class="card spot"><div class="ico"><svg class="i"><use href="#i-nowire"/></svg></div><h3>Никаких проводов на плате</h3><p>1,8 В не берётся с другой точки платы. Перегрузка в видеотракте остаётся внутри самой детали.</p></article>
+      <article class="card spot"><div class="ico"><svg class="i"><use href="#i-power"/></svg></div><h3>Последовательность питания</h3><p>Вывод EN стабилизатора подключён к дорожке 0,9 В: 1,8 В появляется только тогда, когда 0,9 В уже есть.</p></article>
+      <article class="card spot"><div class="ico"><svg class="i"><use href="#i-list"/></svg></div><h3>Пассивные компоненты установлены</h3><p>Конденсаторы C1–C7 уже стоят на детали. Остаётся только припаять.</p></article>
+      <article class="card wide spot"><div class="ico"><svg class="i"><use href="#i-layers"/></svg></div><h3>Две стороны, два чипа</h3><p>Снизу — распиновка Realtek RTD2175P. Сверху — Nuvoton/Panasonic MN864739. Без переразводки дорожек по одной.</p></article>
+      <article class="card wide spot"><div class="ico"><svg class="i"><use href="#i-target"/></svg></div><h3>Отмечен первый вывод</h3><p>Треугольник на обеих сторонах и стрелка для нового чипа, чтобы снизить риск установить его наоборот.</p></article>
+    </div>
+    <div class="fotos">
+      <figure class="foto"><img src="../img/interposer-ps5-flex-transparente-na-placa.webp" width="1000" height="1333" loading="lazy" alt="Прозрачный гибкий интерпозер на плате PS5 Slim, сквозь него видны медь и переходное отверстие платы"><figcaption>Реальное фото: плата видна сквозь гибкую плату.</figcaption></figure>
+      <figure class="foto"><img src="../img/ci-hdmi-nuvoton-mn864739-soldado-na-interposer.webp" width="960" height="1280" loading="lazy" alt="HDMI-чип Nuvoton MN864739, впаянный на интерпозер, уже установленный на плату PS5 Slim"><figcaption>Реальное фото: MN864739 впаян, уже на плате.</figcaption></figure>
+      <figure class="foto"><img src="../img/interposers-ps5-flex-frente-e-verso.webp" width="960" height="1280" loading="lazy" alt="Несколько интерпозеров PS5: лицевая сторона с распиновкой MN864739 и обратная с распиновкой RTD2175P"><figcaption>Реальное фото: деталь с обеих сторон.</figcaption></figure>
+    </div>
+    <div class="comprar">
+      <a class="b loja" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Купить на Mercado Livre</a>
+      <a class="b loja" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Купить на Shopee</a>
+    </div>
+  </section>
+
+  <aside class="ad hidden" id="adSlot2" aria-label="Реклама"><span class="adtag">Реклама</span><div class="midia" id="adMedia2"></div></aside>
+
+  <section class="sec" id="comparar">
+    <div class="h"><span class="kick">Сравнение</span><h2>Интерпозер со стабилизатором, решение с проводами или новый Realtek?</h2><p>Три способа вернуть изображение плате, которая требует RTD2175P.</p></div>
+    <div class="card tablewrap"><table>
+      <thead><tr><th>Что меняется</th><th class="me">Interposer Tech MeoW</th><th>Интерпозер с проводами</th><th>Новый Realtek</th></tr></thead>
+      <tbody>
+        <tr><td>Используемый чип</td><td class="me">MN864739</td><td>MN864739</td><td>RTD2175P</td></tr>
+        <tr><td>Цена чипа</td><td class="me y">В среднем 80 R$</td><td class="y">В среднем 80 R$</td><td class="n">Около 1 700 R$</td></tr>
+        <tr><td>Провода на плате</td><td class="me y">Нет</td><td class="l">Да</td><td class="y">Нет</td></tr>
+        <tr><td>Откуда берётся 1,8 В</td><td class="me">Стабилизатор U1 на самой детали</td><td>Другая точка платы, например PMIC CXD</td><td class="n">Не нужно: Realtek требует 3,3 В</td></tr>
+        <tr><td>Перегрузка в видеотракте</td><td class="me y">Остаётся внутри детали</td><td class="l">Может дойти до точки, откуда идёт провод</td><td class="n">Как на оригинальной плате</td></tr>
+        <tr><td>Изменение NOR</td><td class="me">Да, бесплатно с PS5 HDMI Tool</td><td>Да</td><td class="y">Не нужно</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="sec" id="programa">
+    <div class="h"><span class="kick">Программа</span><h2>PS5 HDMI Tool: NOR конвертируется бесплатно</h2><p>Интерпозер решает физическую часть. Часть с NOR берёт на себя наша программа — бесплатная, с открытым исходным кодом, сделанная для работы на столе.</p></div>
+    <div class="programa">
+      <img class="janela" src="../img/ps5-hdmi-tool-tela-do-programa-en.webp" width="1022" height="552" loading="lazy" alt="Экран PS5 HDMI Tool: обнаружение программатора CH341A, чтение NOR, применение патча под Nuvoton и запись NOR">
+      <ul class="lista">
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Читает и проверяет.</b> Читает NOR дважды, сравнивает побайтно и сохраняет резервную копию, только если чтения совпали.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Конвертирует в обе стороны.</b> Realtek ⇄ Nuvoton/Panasonic, с предварительным просмотром перед записью.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Записывает с подтверждением.</b> Проверяет, стирает, записывает и сверяет, показывая прогресс на экране.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Анализирует файлы .bin.</b> Показывает HDMI-чип, MAC и данные платы, даже без подключённой платы.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Также есть</b> UART-ридер, тест геймпада и интерфейс на португальском, английском и испанском.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Всего один файл.</b> Просто откройте его в Windows. Если не хватает драйвера CH341A, программа предупредит и установит его.</span></li>
+      </ul>
+    </div>
+    <div class="cta" style="margin-top:18px">
+      <a class="b p magnetic" href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe"><svg class="i"><use href="#i-down"/></svg>Скачать программу (.exe)</a>
+      <a class="b arrow" href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool" target="_blank" rel="noopener"><span>Исходный код на GitHub</span><span class="ar"><svg class="i"><use href="#i-arrow"/></svg></span></a>
+    </div>
+    <p class="aviso"><b>Прежде чем записывать плату клиента:</b> проверьте в журнале, что контрольная сумма конвертации исправлена (resolved). Если программа сообщает, что нет, используйте файл только на тестовой плате.</p>
+  </section>
+
+  <aside class="ad hidden" id="adSlotPrograma" aria-label="Реклама"><span class="adtag">Реклама</span><div class="midia" id="adMediaPrograma"></div></aside>
+
+  <section class="sec" id="instalacao">
+    <div class="h"><span class="kick">Установка</span><h2>Как установить интерпозер на PS5 Slim</h2><p>Краткое описание процесса. Полная пошаговая инструкция с фотографиями и расположением HDMI-чипа — в руководстве.</p></div>
+    <ol class="steps">
+      <li class="card"><h3>Резервная копия NOR</h3><p>Прочитайте NOR с помощью CH341A, прежде чем браться за паяльник.</p></li>
+      <li class="card"><h3>Создайте конвертацию</h3><p>В программе выберите nuvoton и примените патч, чтобы получить файл. Пока ничего не записывайте.</p></li>
+      <li class="card"><h3>Снимите RTD2175P</h3><p>Флюсом и горячим воздухом снимите чип и очистите площадки.</p></li>
+      <li class="card"><h3>Припаяйте интерпозер</h3><p>Паста 183 °C: совместите первый вывод, глядя сквозь гибкую плату, и выполните оплавление.</p></li>
+      <li class="card"><h3>Припаяйте MN864739</h3><p>На верхнюю сторону, соблюдая стрелку на шелкографии.</p></li>
+      <li class="card"><h3>Проверьте</h3><p>Лупа или микроскоп и мультиметр — до подачи питания.</p></li>
+      <li class="card"><h3>Запишите и проверьте</h3><p>Запишите конвертированный файл, включите консоль и проверьте изображение.</p></li>
+      <li class="card semnro" style="display:flex;flex-direction:column;justify-content:center;gap:10px"><h3 style="margin:0">Нужна пошаговая инструкция?</h3><a class="b arrow" href="guia/"><span>Открыть полное руководство</span><span class="ar"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+    </ol>
+    <div class="ferramentas">
+      <div class="card ferramenta"><img src="../img/ferramentas/programador-ch341a.webp" width="84" height="84" loading="lazy" alt="Программатор CH341A">Программатор CH341A</div>
+      <div class="card ferramenta"><img src="../img/ferramentas/estacao-sugon-2020d.webp" width="84" height="84" loading="lazy" alt="Термовоздушная станция Sugon 2020D">Термовоздушная станция</div>
+      <div class="card ferramenta"><img src="../img/ferramentas/ferro-aifen-a9-pro.webp" width="84" height="84" loading="lazy" alt="Паяльник Aifen A9 Pro">Прецизионный паяльник</div>
+      <div class="card ferramenta"><img src="../img/ferramentas/fluxo-amtech-nc559.webp" width="84" height="84" loading="lazy" alt="Флюс Amtech NC-559">Флюс для пайки</div>
+      <div class="card ferramenta"><img src="../img/ferramentas/pasta-de-solda-183c.webp" width="84" height="84" loading="lazy" alt="Паяльная паста 183 градуса">Паяльная паста 183 °C</div>
+    </div>
+    <p class="aviso"><b>Для мастеров.</b> Требуется опыт микропайки SMD/QFN и прошивки SPI NOR. Без подготовки можно полностью погубить материнскую плату, а модификация лишает консоль заводской гарантии.</p>
+  </section>
+
+  <section class="sec" id="comprar">
+    <div class="h"><span class="kick">Купить</span><h2>Деталь — в магазинах, программа — бесплатно</h2></div>
+    <div class="prices">
+      <article class="card price best spot"><span class="tag">Interposer Tech MeoW</span><div class="val">Цена <small>в магазинах</small></div><p>Продаётся на Mercado Livre и Shopee (Бразилия).</p>
+        <ul><li><svg class="i"><use href="#i-check"/></svg>Прозрачная гибкая плата с обеими распиновками</li><li><svg class="i"><use href="#i-check"/></svg>Стабилизатор 1,8 В и конденсаторы установлены</li><li><svg class="i"><use href="#i-check"/></svg>Для MN864739: Nuvoton или Panasonic</li><li><svg class="i"><use href="#i-check"/></svg>Уточните в магазине, входит ли чип в комплект</li></ul>
+        <div class="cta"><a class="b loja" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Mercado Livre</a><a class="b loja" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Shopee</a></div></article>
+      <article class="card price spot"><span class="tag alt">PS5 HDMI Tool</span><div class="val">Бесплатно</div><p>Без регистрации и без установки.</p>
+        <ul><li><svg class="i"><use href="#i-check"/></svg>Чтение, резервная копия, конвертация и запись NOR</li><li><svg class="i"><use href="#i-check"/></svg>Работает с программатором CH341A в Windows</li><li><svg class="i"><use href="#i-check"/></svg>Сообщает о выходе новой версии</li></ul>
+        <a class="b arrow" href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe"><span>Скачать программу</span><span class="ar"><svg class="i"><use href="#i-down"/></svg></span></a></article>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="h"><span class="kick">Вопросы</span><h2>Частые вопросы о HDMI-чипе PS5</h2></div>
+    <div class="faq">
+      <details><summary>Что такое интерпозер для PS5?</summary><p>Это тонкая переходная плата, которая ставится между материнской платой и HDMI-чипом. Interposer Tech MeoW нижней стороной припаивается к площадкам Realtek RTD2175P, а на верхнюю сторону ставится Nuvoton/Panasonic MN864739.</p></details>
+      <details><summary>Как узнать, стоит ли в моей PS5 HDMI-чип Realtek?</summary><p>Посмотрите маркировку чипа между APU и разъёмом HDMI: там должно быть написано RTD2175P. Не полагайтесь только на расположение, особенно если плата уже побывала в ремонте. PS5 HDMI Tool также показывает HDMI-чип, прописанный в NOR.</p></details>
+      <details><summary>С какой PS5 работает интерпозер?</summary><p>Деталь и программа сделаны для плат PS5 Slim с HDMI-чипом Realtek RTD2175P.</p></details>
+      <details><summary>Нужно ли менять NOR после замены чипа?</summary><p>Да. Плата, которая с завода идёт с Realtek, работает только с Realtek. PS5 HDMI Tool изменяет NOR через программатор CH341A, чтобы консоль распознала Nuvoton или Panasonic.</p></details>
+      <details><summary>Подходят ли чипы Nuvoton и Panasonic?</summary><p>Да. Оба — это один и тот же MN864739, который на рынке запчастей продаётся под двумя марками.</p></details>
+      <details><summary>Сколько стоит HDMI-чип PS5?</summary><p>Для ориентира: в Бразилии Realtek RTD2175P стоит около 1 700 R$ только за деталь, а MN864739 — в среднем около 80 R$. Цены меняются вместе с рынком. Цена интерпозера указана в наших магазинах на Mercado Livre и Shopee (Бразилия).</p></details>
+      <details><summary>Нужно ли паять провода на плату?</summary><p>Нет. Стабилизатор U1, уже впаянный в деталь, берёт 3,3 В с площадки Realtek и выдаёт 1,8 В, нужные MN864739.</p></details>
+      <details><summary>Какое оборудование нужно?</summary><p>Программатор CH341A, термовоздушная паяльная станция, прецизионный паяльник, флюс, низкотемпературная паяльная паста, мультиметр и микроскоп или лупа.</p></details>
+      <details><summary>Можно ли сделать это без опыта микропайки?</summary><p>Не рекомендуем. Эта работа для мастеров с опытом микропайки и прошивки NOR. Без подготовки можно полностью погубить материнскую плату.</p></details>
+      <details><summary>После замены PS5 осталась без изображения. Что проверить?</summary><p>Если консоль включается нормально, сначала подозревайте пайку: непропай, перемычку припоя или смещённый чип. Если она зависает на синем экране проверки, убедитесь, что программа показала контрольную сумму конвертации как исправленную (resolved).</p></details>
+    </div>
+  </section>
+
+  <aside class="ad hidden" id="adSlotFaq" aria-label="Реклама"><span class="adtag">Реклама</span><div class="midia" id="adMediaFaq"></div></aside>
+
+  <section class="sec"><div class="card final spot">
+    <h2>У вас на столе лежит PS5 без изображения?</h2>
+    <p style="margin-bottom:18px">Купите интерпозер, скачайте бесплатную программу и закройте ремонт. У вас сервисный центр, магазин или канал? Напишите нам о партнёрстве.</p>
+    <div class="cta">
+      <a class="b loja magnetic" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Mercado Livre</a>
+      <a class="b loja magnetic" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Shopee</a>
+      <a class="b wa" href="https://wa.me/5521966547296?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20PS5%20HDMI%20Tool%20e%20quero%20falar%20sobre%20uma%20parceria." target="_blank" rel="noopener">WhatsApp · партнёрство</a>
+    </div>
+  </div></section>
+  <section class="sec outros" id="outros-projetos" aria-label="Другие проекты"><div class="card spot projeto">
+    <div class="selo" aria-hidden="true"><img src="../img/logo-ps5-controle-test.webp" width="380" height="380" loading="lazy" alt=""></div>
+    <div><span class="kick">Ещё один наш проект</span><h2 id="tituloOutros">Познакомьтесь с PS-5 Controle Test</h2><p>Проверьте и откалибруйте геймпад PS5: кнопки, стики, дрифт, триггеры и вибрацию. Бесплатно в браузере на компьютере. На телефоне у приложения для Android есть 2 бесплатных дня.</p></div>
+    <a class="b p magnetic" style="min-height:56px;font-size:17px;padding-inline:26px" href="https://techmeow.app/ps5-controle-test/" target="_blank" rel="noopener" aria-label="Подробнее о проекте PS-5 Controle Test"><span>Подробнее о проекте</span><svg class="i"><use href="#i-arrow"/></svg></a>
+  </div><div class="card spot projeto">
+    <div class="selo" aria-hidden="true"><img src="../img/logo-control-ps5.webp" width="200" height="200" loading="lazy" alt=""></div>
+    <div><span class="kick">Ещё один наш проект</span><h2>Геймпад PS5 на Nintendo Switch</h2><p>Control PS-5 — бесплатное приложение для прошитой Nintendo Switch: подключает DualSense по Bluetooth без адаптера, с адаптивными триггерами, световой панелью и профилями для каждой игры.</p></div>
+    <a class="b p magnetic" style="min-height:56px;font-size:17px;padding-inline:26px" href="https://techmeow.app/Control-PS-5/" target="_blank" rel="noopener" aria-label="Как подключить геймпад PS5 к Nintendo Switch"><span>Как подключить</span><svg class="i"><use href="#i-arrow"/></svg></a>
+  </div></section>
+</main>
+
+<footer><div class="wrap fgrid">
+  <div><b>Developed by MeoWDeV MOD</b><br>Мастер и автор: Jefferson Honorio. Деталь продаётся как Interposer Tech MeoW.<br><br>PS5 и PlayStation — товарные знаки Sony Interactive Entertainment. Realtek, Nuvoton и Panasonic принадлежат своим владельцам. Этот проект не связан с этими компаниями.</div>
+  <div>
+    <h3>Контакты и партнёрство</h3>
+    <div class="redes">
+      <a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener" aria-label="Instagram Tech MeoW"><svg><use href="#s-ig"/></svg></a>
+      <a href="https://www.youtube.com/@techmeow" target="_blank" rel="noopener" aria-label="YouTube Tech MeoW"><svg><use href="#s-yt"/></svg></a>
+      <a href="https://wa.me/5521966547296?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20PS5%20HDMI%20Tool%20e%20quero%20falar%20sobre%20uma%20parceria." target="_blank" rel="noopener" aria-label="WhatsApp для партнёров"><svg><use href="#s-wa"/></svg></a>
+      <a href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool" target="_blank" rel="noopener" aria-label="Код на GitHub"><svg><use href="#s-gh"/></svg></a>
+    </div>
+    WhatsApp: <a href="https://wa.me/5521966547296" target="_blank" rel="noopener">+55 21 96654-7296</a><br>Instagram: <a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener">@tech_meow.oficial</a>
+  </div>
+  <div class="flinks">
+    <a href="guia/">Руководство по установке</a><a href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases">Версии программы</a><a href="https://techmeow.app/ps5-controle-test/">PS-5 Controle Test</a><a href="https://techmeow.app/Control-PS-5/">Control PS-5</a><a href="termos/">Условия использования</a><a href="privacidade/">Конфиденциальность и cookie</a><a href="#" data-ck-manage>Настройки cookie</a>
+  </div>
+</div></footer>
+
+<div class="mdl" id="mDl">
+  <a class="b loja" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener">Mercado Livre</a>
+  <a class="b loja" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener">Shopee</a>
+</div>
+<script defer src="../vendor/gsap.min.js"></script>
+<script defer src="../vendor/ScrollTrigger.min.js"></script>
+<script defer src="../vendor/lenis.min.js"></script>
+<script type="module" src="../js/site.js"></script>
+</body>
+</html>

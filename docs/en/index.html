@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PS5 Interposer for the Realtek RTD2175P HDMI chip | PS5 HDMI Tool</title>
+<meta name="description" content="Repair the PS5 Slim HDMI chip without paying R$1,700 (BRL) for the Realtek RTD2175P. The Tech MeoW Interposer fits the Nuvoton MN864739, and PS5 HDMI Tool converts the NOR for free.">
+<meta name="keywords" content="PS5 interposer, PS5 Slim HDMI interposer, PS5 HDMI chip, PS5 HDMI IC, Realtek RTD2175P, Nuvoton MN864739, Panasonic MN864739, PS5 no video, PS5 HDMI repair, PS5 NOR conversion, CH341A PS5">
+<meta name="author" content="MeoWDeV MOD">
+<meta name="theme-color" content="#0c0920">
+<link rel="canonical" href="https://techmeow.app/ps5-hdmi-tool/en/">
+<link rel="icon" href="../img/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../img/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PS5 HDMI Tool">
+<meta property="og:title" content="PS5 Interposer: swap the R$1,700 HDMI chip for an R$80 one">
+<meta property="og:description" content="Transparent flex interposer with the 1.8 V regulator already soldered and no wires on the board. The program that converts the NOR is free.">
+<meta property="og:image" content="https://techmeow.app/ps5-hdmi-tool/img/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://techmeow.app/ps5-hdmi-tool/en/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PS5 Interposer: swap the R$1,700 HDMI chip for an R$80 one">
+<meta name="twitter:description" content="Transparent flex interposer with the 1.8 V regulator already soldered and no wires on the board. The program that converts the NOR is free.">
+<meta name="twitter:image" content="https://techmeow.app/ps5-hdmi-tool/img/og-en.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://techmeow.app/ps5-hdmi-tool/#org",
+      "name": "MeoWDeV MOD",
+      "url": "https://techmeow.app/ps5-hdmi-tool/en/",
+      "logo": "https://techmeow.app/ps5-hdmi-tool/img/icon-192.png",
+      "sameAs": [
+        "https://www.instagram.com/tech_meow.oficial",
+        "https://www.youtube.com/@techmeow",
+        "https://github.com/MeoWDev-MOD"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "PS5 HDMI Tool",
+      "url": "https://techmeow.app/ps5-hdmi-tool/en/",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://techmeow.app/ps5-hdmi-tool/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "PS5 HDMI Tool",
+      "description": "Free program that reads, writes and converts the NOR of PS5 Slim boards to replace the Realtek RTD2175P HDMI chip with the Nuvoton/Panasonic MN864739, using a CH341A reader.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows",
+      "softwareVersion": "1.0.20",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "author": {
+        "@id": "https://techmeow.app/ps5-hdmi-tool/#org"
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Jefferson Honorio"
+      },
+      "downloadUrl": "https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest",
+      "image": "https://techmeow.app/ps5-hdmi-tool/img/ps5-hdmi-tool-tela-do-programa-en.webp",
+      "inLanguage": [
+        "pt-BR",
+        "en",
+        "es"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PS5 interposer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a thin adapter board that sits between the motherboard and the HDMI chip. The Tech MeoW Interposer is soldered onto the Realtek RTD2175P pads with its bottom side and takes the Nuvoton/Panasonic MN864739 on its top side."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if my PS5 uses the Realtek HDMI chip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check the marking on the chip between the APU and the HDMI connector: it must read RTD2175P. Do not rely on the position alone, especially on a board that has already been reworked. PS5 HDMI Tool also shows the HDMI chip configured in the NOR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which PS5 does the interposer work on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The part and the program were made for PS5 Slim boards that use the Realtek RTD2175P HDMI chip."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to change the NOR after swapping the chip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A board that leaves the factory with the Realtek only talks to the Realtek. PS5 HDMI Tool changes the NOR through the CH341A reader so the console recognizes the Nuvoton or Panasonic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Nuvoton and Panasonic chips both work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Both are the same MN864739, sold under the two brands on the replacement parts market."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does the PS5 HDMI chip cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As a reference, in Brazil the Realtek RTD2175P costs about R$1,700 for the part alone, and the MN864739 about R$80 on average. Prices change with the market. The interposer price is listed on our Mercado Livre and Shopee stores (Brazil)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to solder wires on the board?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The U1 regulator, already soldered on the part, takes the 3.3 V from the Realtek pad and delivers the 1.8 V the MN864739 needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What equipment do I need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CH341A reader, hot air station, precision soldering iron, flux, low-temperature solder paste, multimeter and a microscope or magnifier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I do it without microsoldering experience?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We do not recommend it. This job is for technicians experienced in microsoldering and NOR flashing. Done without preparation, it can destroy the motherboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "The PS5 has no video after the swap. What should I check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If the console powers on normally, suspect the soldering first: a cold joint, a bridge or a shifted chip. If it hangs on the blue check screen, make sure the program reported the conversion checksum as resolved."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script>
+  try { const t = localStorage.getItem("hdmi.theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  try { if (sessionStorage.getItem("hdmi.pt")) { sessionStorage.removeItem("hdmi.pt"); document.documentElement.classList.add("pt"); } } catch (e) {}
+</script>
+<style>:root{--pt-logo:url(../img/logo-gato-tech-meow.webp)}.webtit{display:block;font-size:clamp(20px,2.4vw,27px);line-height:1.14;letter-spacing:-.02em;font-weight:800;margin:2px 0}</style>
+<link rel="preload" as="image" href="../img/interposer-ps5-tech-meow.webp" fetchpriority="high">
+<link rel="stylesheet" href="../css/site.css">
+<!--i18n:head-->
+<link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/">
+<link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/">
+<link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/">
+<link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/">
+<link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/">
+<style>.i18n-menu{position:relative;display:inline-flex;flex:none}.i18n-btn{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border-radius:99px;border:1px solid var(--line,rgba(127,127,127,.35));background:var(--surface2,transparent);color:inherit;font:inherit;font-size:13px;font-weight:700;letter-spacing:.04em;cursor:pointer}.i18n-btn:hover{border-color:currentColor}.i18n-lista{position:absolute;right:0;top:calc(100% + 8px);z-index:200;list-style:none;margin:0;padding:6px;min-width:176px;border-radius:14px;border:1px solid var(--line,rgba(127,127,127,.35));background:var(--surface,#16122c);box-shadow:0 18px 40px rgba(0,0,0,.35)}.i18n-lista a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none;font-size:14px;font-weight:600}.i18n-lista a b{font-size:11px;letter-spacing:.06em;opacity:.65;width:22px}.i18n-lista a:hover,.i18n-lista a:focus-visible{background:var(--surface2,rgba(127,127,127,.15))}.i18n-lista a[aria-current]{color:var(--accent,#a78bfa)}.i18n-sug{position:absolute;right:0;top:calc(100% + 8px);z-index:199;display:flex;align-items:center;gap:8px;white-space:nowrap;padding:8px 8px 8px 14px;border-radius:99px;font-size:13px;font-weight:600;border:1px solid var(--line,rgba(127,127,127,.35));background:var(--surface,#16122c);box-shadow:0 14px 34px rgba(0,0,0,.35)}.i18n-sug a{padding:6px 12px;border-radius:99px;background:var(--accent,#7c5cff);color:#fff;text-decoration:none}.i18n-sug button{border:0;background:none;color:inherit;font:inherit;font-size:16px;line-height:1;padding:4px 6px;cursor:pointer;opacity:.7}.i18n-sug.m{position:fixed;left:12px;right:12px;top:calc(76px + env(safe-area-inset-top));z-index:60;justify-content:space-between;white-space:normal}</style>
+<script>(function(){var A="en",M={"pt": "../", "en": "./", "es": "../es/", "ru": "../ru/"},S={"pt": ["Ler esta página em português?", "Abrir"], "en": ["Read this page in English?", "Open"], "es": ["¿Leer esta página en español?", "Abrir"], "ru": ["Открыть эту страницу на русском?", "Открыть"]},K="techmeow.lang";
+function salva(l){try{localStorage.setItem(K,l)}catch(e){}}
+var p=null;try{p=localStorage.getItem(K)}catch(e){}
+if(p&&p!==A&&M[p]){location.replace(M[p]+location.search+location.hash);return}
+document.addEventListener("DOMContentLoaded",function(){var m=document.querySelector("[data-i18n-menu]");if(!m)return;
+var b=m.querySelector(".i18n-btn"),l=m.querySelector(".i18n-lista");
+function abre(v){l.hidden=!v;b.setAttribute("aria-expanded",v?"true":"false")}
+b.addEventListener("click",function(e){e.stopPropagation();var s=document.querySelector(".i18n-sug");if(s)s.remove();abre(l.hidden)});
+document.addEventListener("click",function(e){if(!m.contains(e.target))abre(false)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){abre(false);b.focus()}});
+m.querySelectorAll("a[data-lang]").forEach(function(a){a.addEventListener("click",function(e){salva(a.dataset.lang);
+e.preventDefault();location.href=a.getAttribute("href")+location.hash})});
+if(p)return;var n=((navigator.languages&&navigator.languages[0])||navigator.language||"").toLowerCase().slice(0,2);
+var q=M[n]?n:(n&&n!=="pt"?"en":null);if(!q||q===A||!M[q])return;
+var s=document.createElement("div");s.className="i18n-sug";s.setAttribute("role","status");s.lang=q;
+s.innerHTML='<span></span><a></a><button type="button" aria-label="×">×</button>';
+s.querySelector("span").textContent=S[q][0];var a=s.querySelector("a");a.textContent=S[q][1];a.href=M[q];
+a.addEventListener("click",function(){salva(q)});
+s.querySelector("button").addEventListener("click",function(){salva(A);s.remove()});
+if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.appendChild(s)}else m.appendChild(s)})})();</script>
+<!--/i18n:head-->
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="s-ig" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></symbol>
+  <symbol id="s-yt" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6z"/></symbol>
+  <symbol id="s-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 5 5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1-.8-.3-2.3-1.1-3.3-3-.2-.3 0-.5.1-.6l.4-.5.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.2 1.7.7 2.3.6 2.8.5.6-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0-.1-.2-.2-.4-.3z"/></symbol>
+  <symbol id="s-gh" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.2a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.2L21 7H6"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-nowire" viewBox="0 0 24 24"><path d="M2 2l20 20M4 19c3-1 4-3 5-6M20 5c-3 1-4 3-5 6"/></symbol>
+  <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v9M6.3 6.3a8 8 0 1 0 11.4 0"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></symbol>
+</svg>
+
+<canvas id="fxBg" aria-hidden="true"></canvas>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><img src="../img/icon-192.png" width="38" height="38" alt=""><span>PS5 HDMI Tool</span></a>
+  <nav class="links" aria-label="Sections"><a href="#interposer">Interposer</a><a href="#como-funciona">How it works</a><a href="#programa">Program</a><a href="#instalacao">Installation</a><a href="#comprar">Buy</a><a href="#faq">FAQ</a></nav>
+  <!--i18n:menu--><div class="i18n-menu" data-i18n-menu><button type="button" class="i18n-btn" aria-haspopup="true" aria-expanded="false" aria-label="Language: English" title="Language"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 3.9 5.8 3.9 9s-1.3 6.2-3.9 9c-2.6-2.8-3.9-5.8-3.9-9s1.3-6.2 3.9-9z"/></svg><span>EN</span></button><ul class="i18n-lista" hidden><li><a href="../" hreflang="pt-BR" lang="pt-BR" data-lang="pt"><b>PT</b>Português</a></li><li><a href="./" hreflang="en" lang="en" data-lang="en" aria-current="true"><b>EN</b>English</a></li><li><a href="../es/" hreflang="es" lang="es" data-lang="es"><b>ES</b>Español</a></li><li><a href="../ru/" hreflang="ru" lang="ru" data-lang="ru"><b>RU</b>Русский</a></li></ul></div><!--/i18n:menu-->
+  <button class="iconbtn" id="themeBtn" aria-label="Switch between light and dark" title="Switch between light and dark">
+    <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+  </button>
+  <a class="b p dl" style="min-height:42px;padding:8px 16px;font-size:14px" href="#comprar">Buy</a>
+</div><i id="scrollBar" aria-hidden="true"></i></header>
+
+<aside class="ad adlado hidden" id="adL" aria-label="Advertisement"><span class="adtag">Advertisement</span><div class="midia" id="adLMedia"></div></aside>
+<aside class="ad adlado hidden" id="adR" aria-label="Advertisement"><span class="adtag">Advertisement</span><div class="midia" id="adRMedia"></div></aside>
+
+<main class="wrap">
+  <section class="webcta" aria-label="Free program">
+    <div class="selo" aria-hidden="true"><img src="../img/logo-gato-tech-meow.webp" width="487" height="504" alt=""></div>
+    <div><span class="kick">Free, nothing to install</span><strong class="webtit">Convert the NOR with PS5 HDMI Tool</strong><p>Reads, backs up and converts the PS5 Slim NOR with a CH341A reader.</p></div>
+    <a class="b p magnetic" style="min-height:56px;font-size:17px;padding-inline:26px" href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe"><svg class="i"><use href="#i-down"/></svg><span>Download for Windows</span></a>
+  </section>
+
+  <section class="hero">
+    <div>
+      <span class="kick">For PS5 Slim technicians</span>
+      <h1>PS5 Interposer: swap the <span class="grad">R$1,700 HDMI chip</span> for an R$80 one.</h1>
+      <p class="lead">The Tech MeoW Interposer puts the Nuvoton/Panasonic MN864739 on a board that requires the Realtek RTD2175P. Transparent flex, 1.8 V regulator already soldered and no wires on the board. You convert the NOR for free with our program.</p>
+      <div class="cta">
+        <a class="b loja magnetic" style="min-height:54px;font-size:17px" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Buy on Mercado Livre</a>
+        <a class="b loja magnetic" style="min-height:54px;font-size:17px" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Buy on Shopee</a>
+      </div>
+      <ul class="chips">
+        <li><svg class="i"><use href="#i-check"/></svg>Transparent flex</li>
+        <li><svg class="i"><use href="#i-check"/></svg>1.8 V regulator soldered</li>
+        <li><svg class="i"><use href="#i-check"/></svg>No wires on the board</li>
+        <li><svg class="i"><use href="#i-check"/></svg>Free program</li>
+      </ul>
+    </div>
+    <div>
+      <div class="stage3d" id="heroStage"><span class="ribbon" aria-hidden="true"></span>
+        <img class="poster" src="../img/interposer-ps5-tech-meow.webp" width="773" height="1110" alt="Tech MeoW Interposer for PS5 Slim: amber flexible board with the footprint for the MN864739 chip and the U1 regulator soldered" fetchpriority="high">
+        <canvas id="hero3d" aria-label="3D model of the interposer. Drag to rotate."></canvas>
+      </div>
+      <p class="caption">3D model made from the real drawing of the part. Drag to rotate and see both sides.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="conta">
+    <div class="h"><span class="kick">The repair math</span><h2>Why repairing the PS5 HDMI chip used to be unviable</h2><p>Some PS5 Slim boards leave the factory with the Realtek RTD2175P HDMI chip. When it fails, the console has no video and the replacement part weighs heavily on the repair quote. Prices below are in Brazilian reais (R$).</p></div>
+    <div class="conta">
+      <div class="card spot">
+        <h3>Part only, labor not included</h3>
+        <div class="barra"><span>Realtek RTD2175P <b class="vm">R$1,700</b></span><i class="r" style="width:100%"></i></div>
+        <div class="barra"><span>Nuvoton/Panasonic MN864739, on average <b class="am">R$80</b></span><i class="a" style="width:4.7%"></i></div>
+        <p style="margin-top:16px">With labor, the repair with the Realtek gets close to <strong style="color:var(--text)">R$3,000</strong> for the customer, and many people give up. The interposer is what makes it possible to use the cheaper chip on this board. Reference prices: they change with the market.</p>
+      </div>
+      <div class="card spot cortado">
+        <img src="../img/realtek-rtd2175p-cortado-de-placa.webp" width="566" height="596" loading="lazy" alt="Realtek RTD2175P chip sold still attached to a piece cut from another PS5 board">
+        <p>And the Realtek often arrives like this: cut out of another board.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="como-funciona">
+    <div class="h"><span class="kick">How it works</span><h2>From the dead chip to video again, layer by layer</h2><p>Scroll the page and follow the HDMI chip swap on the board. The 3D model follows photos of the board and the real drawing of the interposer.</p></div>
+    <div class="story" id="montagem">
+      <div class="storypalco" id="storyStage"><canvas id="story3d" aria-label="3D model of the PS5 board showing the HDMI chip swap step by step"></canvas><div id="rotulos3d" aria-hidden="true"></div><div class="carrega">Loading the 3D model</div></div>
+      <div class="passos">
+        <article class="card passo on"><span class="nro">1</span><h3>The Realtek RTD2175P comes off the board</h3><p>First of all, back up the NOR. Then remove the original HDMI chip and clean the pads. This is where the repair used to stall: the new part costs R$1,700.</p><img src="../img/placa/realtek-rtd2175p-detalhe-na-placa.webp" width="900" height="1200" loading="lazy" alt="Realtek RTD2175P on the PS5 Slim board, between the APU and the HDMI connector"></article>
+        <article class="card passo"><span class="nro">2</span><h3>The interposer takes its place</h3><p>The transparent flex lets you see the board pads underneath: you align by looking, not guessing. The bottom side has the RTD2175P pinout, and the small holes let you solder by capillarity with the iron.</p><img src="../img/interposer-ps5-flex-transparente-na-placa.webp" width="1000" height="1333" loading="lazy" alt="Real photo of the flex interposer on the PS5 board, with the board visible through it"></article>
+        <article class="card passo"><span class="nro">3</span><h3>The MN864739 goes on top</h3><p>The Nuvoton or Panasonic chip, about R$80, is soldered on the top side. The arrow and the triangle on the silkscreen show the orientation and pin 1.</p><img src="../img/ci-hdmi-nuvoton-mn864739-soldado-na-interposer.webp" width="960" height="1280" loading="lazy" alt="Real photo of the Nuvoton MN864739 HDMI chip soldered on the interposer on the PS5 board"></article>
+        <article class="card passo"><span class="nro">4</span><h3>The regulator handles the voltage</h3><p>The Realtek PMIC, the small square next to the chip, provides 3.3 V and 0.9 V. The Nuvoton uses 0.9 V and 1.8 V. The interposer takes the 3.3 V from a Realtek pin and routes it to pin 1 of the U1 regulator, already soldered on the part. Pin 2 is GND, pin 3 (EN) gets the 0.9 V, and the 1.8 V output powers the new chip. No wire pulled from the CXD PMIC and no extra load on that circuit.</p><img src="../img/interposer-ps5-tech-meow.webp" width="773" height="1110" loading="lazy" alt="Interposer with the U1 1.8 V regulator soldered in the corner"></article>
+        <article class="card passo"><span class="nro">5</span><h3>PS5 HDMI Tool converts the NOR</h3><p>The board only talks to the chip the NOR tells it to. The free program changes the NOR through the CH341A reader so the PS5 recognizes the new chip. Write it, power on and the video is back.</p><img src="../img/ps5-hdmi-tool-tela-do-programa-en.webp" width="1022" height="552" loading="lazy" alt="PS5 HDMI Tool screen with the option to write the NOR configured for Nuvoton"></article>
+      </div>
+    </div>
+  </section>
+
+  <aside class="ad hidden" id="adSlotComo" aria-label="Advertisement"><span class="adtag">Advertisement</span><div class="midia" id="adMediaComo"></div></aside>
+
+  <section class="sec" id="interposer">
+    <div class="h"><span class="kick">The part</span><h2>What comes with the Tech MeoW Interposer</h2><p>A flexible adapter board made to simplify bench repair: the technician solders the part to the board, solders the chip on top and that's it.</p></div>
+    <div class="bento">
+      <article class="card wide spot"><div class="ico"><svg class="i"><use href="#i-eye"/></svg></div><h3>Transparent flex</h3><p>You can see the other side while fitting it. Aligning the interposer pads with the board pads becomes much easier.</p></article>
+      <article class="card wide spot"><div class="ico"><svg class="i"><use href="#i-zap"/></svg></div><h3>1.8 V regulator already soldered</h3><p>U1 is a TI TLV71318 in SOT-23-5. It uses the 3.3 V already present at the Realtek pad and delivers the 1.8 V the MN864739 needs.</p></article>
+      <article class="card spot"><div class="ico"><svg class="i"><use href="#i-nowire"/></svg></div><h3>No wires on the board</h3><p>The 1.8 V does not come from another point of the board. An overload in the video section stays contained in the part itself.</p></article>
+      <article class="card spot"><div class="ico"><svg class="i"><use href="#i-power"/></svg></div><h3>Power sequencing</h3><p>The regulator EN pin is on the 0.9 V trace: the 1.8 V only rises once the 0.9 V is already there.</p></article>
+      <article class="card spot"><div class="ico"><svg class="i"><use href="#i-list"/></svg></div><h3>Passives mounted</h3><p>Capacitors C1 to C7 come already on the part. Just solder and go.</p></article>
+      <article class="card wide spot"><div class="ico"><svg class="i"><use href="#i-layers"/></svg></div><h3>Two sides, two chips</h3><p>Bottom: the Realtek RTD2175P pinout. Top: the Nuvoton/Panasonic MN864739 pinout. No rerouting trace by trace.</p></article>
+      <article class="card wide spot"><div class="ico"><svg class="i"><use href="#i-target"/></svg></div><h3>Pin 1 marked</h3><p>A triangle on both sides and an arrow for the new chip, to reduce the risk of mounting it reversed.</p></article>
+    </div>
+    <div class="fotos">
+      <figure class="foto"><img src="../img/interposer-ps5-flex-transparente-na-placa.webp" width="1000" height="1333" loading="lazy" alt="Transparent flex interposer on the PS5 Slim board, with the board copper and via showing through it"><figcaption>Real photo: the board shows through the flex.</figcaption></figure>
+      <figure class="foto"><img src="../img/ci-hdmi-nuvoton-mn864739-soldado-na-interposer.webp" width="960" height="1280" loading="lazy" alt="Nuvoton MN864739 HDMI chip soldered on the interposer, already installed on the PS5 Slim board"><figcaption>Real photo: MN864739 soldered, already on the board.</figcaption></figure>
+      <figure class="foto"><img src="../img/interposers-ps5-flex-frente-e-verso.webp" width="960" height="1280" loading="lazy" alt="Several PS5 interposers showing the front with the MN864739 pinout and the back with the RTD2175P pinout"><figcaption>Real photo: the part, front and back.</figcaption></figure>
+    </div>
+    <div class="comprar">
+      <a class="b loja" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Buy on Mercado Livre</a>
+      <a class="b loja" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Buy on Shopee</a>
+    </div>
+  </section>
+
+  <aside class="ad hidden" id="adSlot2" aria-label="Advertisement"><span class="adtag">Advertisement</span><div class="midia" id="adMedia2"></div></aside>
+
+  <section class="sec" id="comparar">
+    <div class="h"><span class="kick">Comparison</span><h2>Interposer with regulator, wired solution or a new Realtek?</h2><p>The three ways to bring video back to a board that requires the RTD2175P.</p></div>
+    <div class="card tablewrap"><table>
+      <thead><tr><th>What changes</th><th class="me">Tech MeoW Interposer</th><th>Wired interposer</th><th>New Realtek</th></tr></thead>
+      <tbody>
+        <tr><td>Chip used</td><td class="me">MN864739</td><td>MN864739</td><td>RTD2175P</td></tr>
+        <tr><td>Chip cost</td><td class="me y">About R$80</td><td class="y">About R$80</td><td class="n">About R$1,700</td></tr>
+        <tr><td>Wires on the board</td><td class="me y">No</td><td class="l">Yes</td><td class="y">No</td></tr>
+        <tr><td>Where the 1.8 V comes from</td><td class="me">U1 regulator, on the part itself</td><td>Another point of the board, such as the CXD PMIC</td><td class="n">Not used: the Realtek needs 3.3 V</td></tr>
+        <tr><td>Overload in the video section</td><td class="me y">Stays contained in the part</td><td class="l">Can reach the point the wire comes from</td><td class="n">As on the original board</td></tr>
+        <tr><td>Change the NOR</td><td class="me">Yes, free with PS5 HDMI Tool</td><td>Yes</td><td class="y">Not needed</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="sec" id="programa">
+    <div class="h"><span class="kick">The program</span><h2>PS5 HDMI Tool: the NOR converted for free</h2><p>The interposer solves the physical side. The NOR side is handled by our program, free and open source, made for the bench.</p></div>
+    <div class="programa">
+      <img class="janela" src="../img/ps5-hdmi-tool-tela-do-programa-en.webp" width="1022" height="552" loading="lazy" alt="PS5 HDMI Tool screen: detect the CH341A reader, read the NOR, apply the Nuvoton patch and write the NOR">
+      <ul class="lista">
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Reads and checks.</b> Reads the NOR twice, compares byte by byte and only saves the backup if both match.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Converts both ways.</b> Realtek ⇄ Nuvoton/Panasonic, with a preview before writing.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Writes with confirmation.</b> Checks, erases, writes and verifies, with the progress on screen.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Analyzes .bin files.</b> Shows the HDMI chip, the MAC and the board data, even with no board connected.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Also includes</b> a UART reader, a controller test and an interface in Portuguese, English and Spanish.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>A single file.</b> Just open it on Windows. If the CH341A driver is missing, the program warns you and installs it.</span></li>
+      </ul>
+    </div>
+    <div class="cta" style="margin-top:18px">
+      <a class="b p magnetic" href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe"><svg class="i"><use href="#i-down"/></svg>Download the program (.exe)</a>
+      <a class="b arrow" href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool" target="_blank" rel="noopener"><span>View the code on GitHub</span><span class="ar"><svg class="i"><use href="#i-arrow"/></svg></span></a>
+    </div>
+    <p class="aviso"><b>Before writing a customer's board:</b> check the log to see whether the conversion checksum came out as resolved. If the program warns that it did not, use it only on a bench board.</p>
+  </section>
+
+  <aside class="ad hidden" id="adSlotPrograma" aria-label="Advertisement"><span class="adtag">Advertisement</span><div class="midia" id="adMediaPrograma"></div></aside>
+
+  <section class="sec" id="instalacao">
+    <div class="h"><span class="kick">Installation</span><h2>How to install the interposer on the PS5 Slim</h2><p>A summary of the process. The full step-by-step guide, with photos and the location of the HDMI chip, is in the guide.</p></div>
+    <ol class="steps">
+      <li class="card"><h3>NOR backup</h3><p>With the CH341A, read the NOR before touching the iron.</p></li>
+      <li class="card"><h3>Generate the conversion</h3><p>In the program, choose nuvoton and preview. Do not write yet.</p></li>
+      <li class="card"><h3>Remove the RTD2175P</h3><p>With flux and hot air, remove the chip and clean the pads.</p></li>
+      <li class="card"><h3>Solder the interposer</h3><p>183 °C paste, align pin 1 looking through the flex and reflow.</p></li>
+      <li class="card"><h3>Solder the MN864739</h3><p>On the top side, following the silkscreen arrow.</p></li>
+      <li class="card"><h3>Inspect</h3><p>Magnifier or microscope and multimeter, before powering on.</p></li>
+      <li class="card"><h3>Write and test</h3><p>Write the converted file, power on and test the video.</p></li>
+      <li class="card semnro" style="display:flex;flex-direction:column;justify-content:center;gap:10px"><h3 style="margin:0">Want the step-by-step guide?</h3><a class="b arrow" href="guia/"><span>Open the full guide</span><span class="ar"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+    </ol>
+    <div class="ferramentas">
+      <div class="card ferramenta"><img src="../img/ferramentas/programador-ch341a.webp" width="84" height="84" loading="lazy" alt="CH341A programmer">CH341A programmer</div>
+      <div class="card ferramenta"><img src="../img/ferramentas/estacao-sugon-2020d.webp" width="84" height="84" loading="lazy" alt="Sugon 2020D hot air station">Hot air station</div>
+      <div class="card ferramenta"><img src="../img/ferramentas/ferro-aifen-a9-pro.webp" width="84" height="84" loading="lazy" alt="Aifen A9 Pro soldering iron">Precision iron</div>
+      <div class="card ferramenta"><img src="../img/ferramentas/fluxo-amtech-nc559.webp" width="84" height="84" loading="lazy" alt="Amtech NC-559 solder flux">Solder flux</div>
+      <div class="card ferramenta"><img src="../img/ferramentas/pasta-de-solda-183c.webp" width="84" height="84" loading="lazy" alt="183 degree solder paste">183 °C solder paste</div>
+    </div>
+    <p class="aviso"><b>For technicians.</b> Requires experience in SMD/QFN microsoldering and SPI NOR flashing. Done without preparation, it can destroy the motherboard, and the modification voids the console's factory warranty.</p>
+  </section>
+
+  <section class="sec" id="comprar">
+    <div class="h"><span class="kick">Buy</span><h2>The part in the stores, the program for free</h2></div>
+    <div class="prices">
+      <article class="card price best spot"><span class="tag">Tech MeoW Interposer</span><div class="val">See the price <small>in the stores</small></div><p>Sold on Mercado Livre and Shopee (Brazil).</p>
+        <ul><li><svg class="i"><use href="#i-check"/></svg>Transparent flex, with both pinouts</li><li><svg class="i"><use href="#i-check"/></svg>1.8 V regulator and capacitors mounted</li><li><svg class="i"><use href="#i-check"/></svg>For the MN864739, Nuvoton or Panasonic</li><li><svg class="i"><use href="#i-check"/></svg>Check in the store whether the chip is included</li></ul>
+        <div class="cta"><a class="b loja" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Mercado Livre</a><a class="b loja" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Shopee</a></div></article>
+      <article class="card price spot"><span class="tag alt">PS5 HDMI Tool</span><div class="val">Free</div><p>No sign-up and no installation.</p>
+        <ul><li><svg class="i"><use href="#i-check"/></svg>NOR reading, backup, conversion and writing</li><li><svg class="i"><use href="#i-check"/></svg>Works with the CH341A reader, on Windows</li><li><svg class="i"><use href="#i-check"/></svg>Tells you when a new version is out</li></ul>
+        <a class="b arrow" href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe"><span>Download the program</span><span class="ar"><svg class="i"><use href="#i-down"/></svg></span></a></article>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="h"><span class="kick">FAQ</span><h2>Frequently asked questions about the PS5 HDMI chip</h2></div>
+    <div class="faq">
+      <details><summary>What is a PS5 interposer?</summary><p>It is a thin adapter board that sits between the motherboard and the HDMI chip. The Tech MeoW Interposer is soldered onto the Realtek RTD2175P pads with its bottom side and takes the Nuvoton/Panasonic MN864739 on its top side.</p></details>
+      <details><summary>How do I know if my PS5 uses the Realtek HDMI chip?</summary><p>Check the marking on the chip between the APU and the HDMI connector: it must read RTD2175P. Do not rely on the position alone, especially on a board that has already been reworked. PS5 HDMI Tool also shows the HDMI chip configured in the NOR.</p></details>
+      <details><summary>Which PS5 does the interposer work on?</summary><p>The part and the program were made for PS5 Slim boards that use the Realtek RTD2175P HDMI chip.</p></details>
+      <details><summary>Do I need to change the NOR after swapping the chip?</summary><p>Yes. A board that leaves the factory with the Realtek only talks to the Realtek. PS5 HDMI Tool changes the NOR through the CH341A reader so the console recognizes the Nuvoton or Panasonic.</p></details>
+      <details><summary>Do Nuvoton and Panasonic chips both work?</summary><p>Yes. Both are the same MN864739, sold under the two brands on the replacement parts market.</p></details>
+      <details><summary>How much does the PS5 HDMI chip cost?</summary><p>As a reference, in Brazil the Realtek RTD2175P costs about R$1,700 for the part alone, and the MN864739 about R$80 on average. Prices change with the market. The interposer price is listed on our Mercado Livre and Shopee stores (Brazil).</p></details>
+      <details><summary>Do I need to solder wires on the board?</summary><p>No. The U1 regulator, already soldered on the part, takes the 3.3 V from the Realtek pad and delivers the 1.8 V the MN864739 needs.</p></details>
+      <details><summary>What equipment do I need?</summary><p>CH341A reader, hot air station, precision soldering iron, flux, low-temperature solder paste, multimeter and a microscope or magnifier.</p></details>
+      <details><summary>Can I do it without microsoldering experience?</summary><p>We do not recommend it. This job is for technicians experienced in microsoldering and NOR flashing. Done without preparation, it can destroy the motherboard.</p></details>
+      <details><summary>The PS5 has no video after the swap. What should I check?</summary><p>If the console powers on normally, suspect the soldering first: a cold joint, a bridge or a shifted chip. If it hangs on the blue check screen, make sure the program reported the conversion checksum as resolved.</p></details>
+    </div>
+  </section>
+
+  <aside class="ad hidden" id="adSlotFaq" aria-label="Advertisement"><span class="adtag">Advertisement</span><div class="midia" id="adMediaFaq"></div></aside>
+
+  <section class="sec"><div class="card final spot">
+    <h2>Got a PS5 with no video sitting on your bench?</h2>
+    <p style="margin-bottom:18px">Buy the interposer, download the free program and close the repair. Do you run a repair shop, a store or a channel? Talk to us about partnerships.</p>
+    <div class="cta">
+      <a class="b loja magnetic" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Mercado Livre</a>
+      <a class="b loja magnetic" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener"><svg class="i"><use href="#i-cart"/></svg>Shopee</a>
+      <a class="b wa" href="https://wa.me/5521966547296?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20PS5%20HDMI%20Tool%20e%20quero%20falar%20sobre%20uma%20parceria." target="_blank" rel="noopener">WhatsApp · partnerships</a>
+    </div>
+  </div></section>
+  <section class="sec outros" id="outros-projetos" aria-label="Other projects"><div class="card spot projeto">
+    <div class="selo" aria-hidden="true"><img src="../img/logo-ps5-controle-test.webp" width="380" height="380" loading="lazy" alt=""></div>
+    <div><span class="kick">Another project of ours</span><h2 id="tituloOutros">Meet PS-5 Controle Test</h2><p>Test and calibrate the PS5 controller: buttons, sticks, drift, triggers and vibration. Free in the computer browser. On the phone, the Android app has 2 free days.</p></div>
+    <a class="b p magnetic" style="min-height:56px;font-size:17px;padding-inline:26px" href="https://techmeow.app/ps5-controle-test/" target="_blank" rel="noopener" aria-label="Learn about the PS-5 Controle Test project"><span>Learn about the project</span><svg class="i"><use href="#i-arrow"/></svg></a>
+  </div><div class="card spot projeto">
+    <div class="selo" aria-hidden="true"><img src="../img/logo-control-ps5.webp" width="200" height="200" loading="lazy" alt=""></div>
+    <div><span class="kick">Another project of ours</span><h2>PS5 controller on the Nintendo Switch</h2><p>Control PS-5 is a free app for hacked Nintendo Switch consoles: it connects the DualSense over Bluetooth, with no adapter, with adaptive triggers, light bar and per-game profiles.</p></div>
+    <a class="b p magnetic" style="min-height:56px;font-size:17px;padding-inline:26px" href="https://techmeow.app/Control-PS-5/" target="_blank" rel="noopener" aria-label="See how to connect the PS5 controller to the Nintendo Switch"><span>See how to connect</span><svg class="i"><use href="#i-arrow"/></svg></a>
+  </div></section>
+</main>
+
+<footer><div class="wrap fgrid">
+  <div><b>Developed by MeoWDeV MOD</b><br>Technician and creator: Jefferson Honorio. Part sold as the Tech MeoW Interposer.<br><br>PS5 and PlayStation are trademarks of Sony Interactive Entertainment. Realtek, Nuvoton and Panasonic belong to their respective owners. This project is not affiliated with these companies.</div>
+  <div>
+    <h3>Contact and partnerships</h3>
+    <div class="redes">
+      <a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener" aria-label="Tech MeoW on Instagram"><svg><use href="#s-ig"/></svg></a>
+      <a href="https://www.youtube.com/@techmeow" target="_blank" rel="noopener" aria-label="Tech MeoW on YouTube"><svg><use href="#s-yt"/></svg></a>
+      <a href="https://wa.me/5521966547296?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20PS5%20HDMI%20Tool%20e%20quero%20falar%20sobre%20uma%20parceria." target="_blank" rel="noopener" aria-label="WhatsApp for partnerships"><svg><use href="#s-wa"/></svg></a>
+      <a href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool" target="_blank" rel="noopener" aria-label="Code on GitHub"><svg><use href="#s-gh"/></svg></a>
+    </div>
+    WhatsApp: <a href="https://wa.me/5521966547296" target="_blank" rel="noopener">+55 21 96654-7296</a><br>Instagram: <a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener">@tech_meow.oficial</a>
+  </div>
+  <div class="flinks">
+    <a href="guia/">Installation guide</a><a href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases">Program releases</a><a href="https://techmeow.app/ps5-controle-test/">PS-5 Controle Test</a><a href="https://techmeow.app/Control-PS-5/">Control PS-5</a><a href="termos/">Terms of use</a><a href="privacidade/">Privacy and cookies</a><a href="#" data-ck-manage>Manage cookies</a>
+  </div>
+</div></footer>
+
+<div class="mdl" id="mDl">
+  <a class="b loja" href="https://www.mercadolivre.com.br/interposer-ps5--realtek-rtd2175p--novoton-mn864739/up/MLBU5753776340?pdp_filters=item_id:MLB7912493932" target="_blank" rel="noopener">Mercado Livre</a>
+  <a class="b loja" href="https://shopee.com.br/product/1363007318/54670119610" target="_blank" rel="noopener">Shopee</a>
+</div>
+<script defer src="../vendor/gsap.min.js"></script>
+<script defer src="../vendor/ScrollTrigger.min.js"></script>
+<script defer src="../vendor/lenis.min.js"></script>
+<script type="module" src="../js/site.js"></script>
+</body>
+</html>

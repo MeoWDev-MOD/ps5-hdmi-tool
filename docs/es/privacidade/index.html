@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacidad y cookies | PS5 HDMI Tool</title>
+<meta name="description" content="Este sitio no usa cookies de rastreo ni analítica de terceros. Mira lo que se guarda en tu navegador y cómo se cuentan los anuncios.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://techmeow.app/ps5-hdmi-tool/es/privacidade/">
+<link rel="icon" href="../../img/icon-192.png" type="image/png">
+<script>try { const t = localStorage.getItem("hdmi.theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<link rel="stylesheet" href="../../css/site.css">
+<style>
+  .artigo{max-width:760px;margin:0 auto;padding:30px 20px 150px}
+  .artigo h1{font-size:clamp(30px,6vw,42px)}
+  .artigo h2{font-size:20px;margin:26px 0 6px}
+  .artigo p,.artigo li{color:var(--muted)}
+  .artigo p{margin:0 0 10px}
+  .artigo code{font:13px ui-monospace,Menlo,monospace;overflow-wrap:anywhere}
+  .rodape{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;margin-top:26px}
+</style>
+<!--i18n:head-->
+<link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/privacidade/">
+<link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/privacidade/">
+<link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/privacidade/">
+<link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/privacidade/">
+<link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/privacidade/">
+<style>.i18n-menu{position:relative;display:inline-flex;flex:none}.i18n-btn{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border-radius:99px;border:1px solid var(--line,rgba(127,127,127,.35));background:var(--surface2,transparent);color:inherit;font:inherit;font-size:13px;font-weight:700;letter-spacing:.04em;cursor:pointer}.i18n-btn:hover{border-color:currentColor}.i18n-lista{position:absolute;right:0;top:calc(100% + 8px);z-index:200;list-style:none;margin:0;padding:6px;min-width:176px;border-radius:14px;border:1px solid var(--line,rgba(127,127,127,.35));background:var(--surface,#16122c);box-shadow:0 18px 40px rgba(0,0,0,.35)}.i18n-lista a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none;font-size:14px;font-weight:600}.i18n-lista a b{font-size:11px;letter-spacing:.06em;opacity:.65;width:22px}.i18n-lista a:hover,.i18n-lista a:focus-visible{background:var(--surface2,rgba(127,127,127,.15))}.i18n-lista a[aria-current]{color:var(--accent,#a78bfa)}.i18n-sug{position:absolute;right:0;top:calc(100% + 8px);z-index:199;display:flex;align-items:center;gap:8px;white-space:nowrap;padding:8px 8px 8px 14px;border-radius:99px;font-size:13px;font-weight:600;border:1px solid var(--line,rgba(127,127,127,.35));background:var(--surface,#16122c);box-shadow:0 14px 34px rgba(0,0,0,.35)}.i18n-sug a{padding:6px 12px;border-radius:99px;background:var(--accent,#7c5cff);color:#fff;text-decoration:none}.i18n-sug button{border:0;background:none;color:inherit;font:inherit;font-size:16px;line-height:1;padding:4px 6px;cursor:pointer;opacity:.7}.i18n-sug.m{position:fixed;left:12px;right:12px;top:calc(76px + env(safe-area-inset-top));z-index:60;justify-content:space-between;white-space:normal}</style>
+<script>(function(){var A="es",M={"pt": "../../privacidade/", "en": "../../en/privacidade/", "es": "./", "ru": "../../ru/privacidade/"},S={"pt": ["Ler esta página em português?", "Abrir"], "en": ["Read this page in English?", "Open"], "es": ["¿Leer esta página en español?", "Abrir"], "ru": ["Открыть эту страницу на русском?", "Открыть"]},K="techmeow.lang";
+function salva(l){try{localStorage.setItem(K,l)}catch(e){}}
+var p=null;try{p=localStorage.getItem(K)}catch(e){}
+if(p&&p!==A&&M[p]){location.replace(M[p]+location.search+location.hash);return}
+document.addEventListener("DOMContentLoaded",function(){var m=document.querySelector("[data-i18n-menu]");if(!m)return;
+var b=m.querySelector(".i18n-btn"),l=m.querySelector(".i18n-lista");
+function abre(v){l.hidden=!v;b.setAttribute("aria-expanded",v?"true":"false")}
+b.addEventListener("click",function(e){e.stopPropagation();var s=document.querySelector(".i18n-sug");if(s)s.remove();abre(l.hidden)});
+document.addEventListener("click",function(e){if(!m.contains(e.target))abre(false)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){abre(false);b.focus()}});
+m.querySelectorAll("a[data-lang]").forEach(function(a){a.addEventListener("click",function(e){salva(a.dataset.lang);
+e.preventDefault();location.href=a.getAttribute("href")+location.hash})});
+if(p)return;var n=((navigator.languages&&navigator.languages[0])||navigator.language||"").toLowerCase().slice(0,2);
+var q=M[n]?n:(n&&n!=="pt"?"en":null);if(!q||q===A||!M[q])return;
+var s=document.createElement("div");s.className="i18n-sug";s.setAttribute("role","status");s.lang=q;
+s.innerHTML='<span></span><a></a><button type="button" aria-label="×">×</button>';
+s.querySelector("span").textContent=S[q][0];var a=s.querySelector("a");a.textContent=S[q][1];a.href=M[q];
+a.addEventListener("click",function(){salva(q)});
+s.querySelector("button").addEventListener("click",function(){salva(A);s.remove()});
+if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.appendChild(s)}else m.appendChild(s)})})();</script>
+<!--/i18n:head-->
+</head>
+<body>
+<main class="artigo">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><a class="brand" href="../"><img src="../../img/icon-192.png" width="38" height="38" alt=""><span>PS5 HDMI Tool</span></a><!--i18n:menu--><div class="i18n-menu" data-i18n-menu><button type="button" class="i18n-btn" aria-haspopup="true" aria-expanded="false" aria-label="Idioma: Español" title="Idioma"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 3.9 5.8 3.9 9s-1.3 6.2-3.9 9c-2.6-2.8-3.9-5.8-3.9-9s1.3-6.2 3.9-9z"/></svg><span>ES</span></button><ul class="i18n-lista" hidden><li><a href="../../privacidade/" hreflang="pt-BR" lang="pt-BR" data-lang="pt"><b>PT</b>Português</a></li><li><a href="../../en/privacidade/" hreflang="en" lang="en" data-lang="en"><b>EN</b>English</a></li><li><a href="./" hreflang="es" lang="es" data-lang="es" aria-current="true"><b>ES</b>Español</a></li><li><a href="../../ru/privacidade/" hreflang="ru" lang="ru" data-lang="ru"><b>RU</b>Русский</a></li></ul></div><!--/i18n:menu--></div>
+  <h1>Privacidad y cookies</h1>
+  <p>Actualizado el 4 de noviembre de 2026.</p>
+  <h2>Resumen</h2>
+  <p>Este sitio no usa cookies de rastreo ni herramientas de analítica de terceros, como Google Analytics. Lo que aquí llamamos cookies es, en la práctica, el almacenamiento de tu navegador: pequeñas informaciones que quedan en tu dispositivo.</p>
+  <h2>Siempre activos (necesarios)</h2>
+  <ul><li>Tu elección de términos y cookies (<code>hdmi.consent</code>).</li><li>Tema claro u oscuro (<code>hdmi.theme</code>).</li><li>Idioma elegido (<code>techmeow.lang</code>), que vale para todos los sitios de techmeow.app.</li><li>Efecto de transición entre páginas (<code>hdmi.pt</code>), que desaparece al cerrar la pestaña.</li></ul>
+  <h2>Opcionales (solo con Aceptar todo)</h2>
+  <ul><li>Último anuncio visto, para mostrar otro en la próxima visita, y qué anuncios ya vio este navegador (<code>hdmi-ad-*</code>).</li><li>Sitio del que llegaste (<code>hdmi-de</code>), que desaparece al cerrar la pestaña.</li><li>Conteo de los anuncios, explicado abajo.</li></ul>
+  <h2>Si eliges solo lo necesario</h2>
+  <p>Los anuncios siguen apareciendo, pero las vistas y los clics no se cuentan, y los opcionales no se guardan. Cambiar la elección borra los opcionales de este navegador.</p>
+  <h2>Conteo de los anuncios</h2>
+  <p>Con tu autorización, avisamos a nuestro servidor cuando un anuncio aparece o recibe un clic, en qué lugar del sitio y de qué sitio llegaste. El servidor suma esos avisos por día, con ciudad y país aproximados y tipo de dispositivo. No guardamos tu IP ni creamos un identificador tuyo.</p>
+  <h2>El programa</h2>
+  <p>PS5 HDMI Tool funciona en tu computadora. Los respaldos de la NOR quedan en tu máquina y no se nos envían. El programa solo consulta GitHub para saber si existe una versión nueva.</p>
+  <h2>Servicios usados</h2>
+  <p>El sitio está alojado en GitHub Pages. La lista y los archivos de los anuncios vienen de Vercel y Supabase. Como en cualquier sitio, estos servicios reciben tu IP y datos técnicos para entregar el contenido. Mercado Livre, Shopee, WhatsApp, Instagram y YouTube solo reciben datos si haces clic en sus enlaces.</p>
+  <h2>Tus derechos</h2>
+  <p>Puedes cambiar tu elección en cualquier momento en Administrar cookies, al final de las páginas, y pedir información según la ley brasileña de protección de datos (LGPD). Responsable: MeoWDeV MOD (Jefferson Honorio). Contacto: <a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp +55 21 96654-7296</a>.</p>
+  <div class="rodape"><a href="../termos/">Términos de uso</a><a href="../">Inicio</a><a href="#" data-ck-manage>Administrar cookies</a></div>
+</main>
+<script type="module" src="../../js/sub.js"></script>
+</body>
+</html>

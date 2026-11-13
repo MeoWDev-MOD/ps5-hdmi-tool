@@ -1,0 +1,737 @@
+# Traduções para o inglês. Cada "@@ chave" vem de textos-pt.json (rode "traduzir.py extrair").
+@@ 15670013b7
+PS5 Interposer for the Realtek RTD2175P HDMI chip | PS5 HDMI Tool
+@@ ef678d76c4
+Repair the PS5 Slim HDMI chip without paying R$1,700 (BRL) for the Realtek RTD2175P. The Tech MeoW Interposer fits the Nuvoton MN864739, and PS5 HDMI Tool converts the NOR for free.
+@@ b5671477fc
+PS5 interposer, PS5 Slim HDMI interposer, PS5 HDMI chip, PS5 HDMI IC, Realtek RTD2175P, Nuvoton MN864739, Panasonic MN864739, PS5 no video, PS5 HDMI repair, PS5 NOR conversion, CH341A PS5
+@@ 8f094f2bb8
+PS5 Interposer: swap the R$1,700 HDMI chip for an R$80 one
+@@ 29315f800a
+Transparent flex interposer with the 1.8 V regulator already soldered and no wires on the board. The program that converts the NOR is free.
+@@ a89fc4c1e7
+Free program that reads, writes and converts the NOR of PS5 Slim boards to replace the Realtek RTD2175P HDMI chip with the Nuvoton/Panasonic MN864739, using a CH341A reader.
+@@ fa2c391cf3
+What is a PS5 interposer?
+@@ 9d7c0562eb
+It is a thin adapter board that sits between the motherboard and the HDMI chip. The Tech MeoW Interposer is soldered onto the Realtek RTD2175P pads with its bottom side and takes the Nuvoton/Panasonic MN864739 on its top side.
+@@ 5095973f3b
+How do I know if my PS5 uses the Realtek HDMI chip?
+@@ 2415071b65
+Check the marking on the chip between the APU and the HDMI connector: it must read RTD2175P. Do not rely on the position alone, especially on a board that has already been reworked. PS5 HDMI Tool also shows the HDMI chip configured in the NOR.
+@@ 8c4983cf4a
+Which PS5 does the interposer work on?
+@@ fc52994ba2
+The part and the program were made for PS5 Slim boards that use the Realtek RTD2175P HDMI chip.
+@@ bf049ef494
+Do I need to change the NOR after swapping the chip?
+@@ 9236e9a1ff
+Yes. A board that leaves the factory with the Realtek only talks to the Realtek. PS5 HDMI Tool changes the NOR through the CH341A reader so the console recognizes the Nuvoton or Panasonic.
+@@ c472313867
+Do Nuvoton and Panasonic chips both work?
+@@ 45248aacd5
+Yes. Both are the same MN864739, sold under the two brands on the replacement parts market.
+@@ 3642a96c78
+How much does the PS5 HDMI chip cost?
+@@ 4b72df7e80
+As a reference, in Brazil the Realtek RTD2175P costs about R$1,700 for the part alone, and the MN864739 about R$80 on average. Prices change with the market. The interposer price is listed on our Mercado Livre and Shopee stores (Brazil).
+@@ 90fe8946d3
+Do I need to solder wires on the board?
+@@ d1eb635ee3
+No. The U1 regulator, already soldered on the part, takes the 3.3 V from the Realtek pad and delivers the 1.8 V the MN864739 needs.
+@@ 92b4bd7e9e
+What equipment do I need?
+@@ d9e383a4d8
+CH341A reader, hot air station, precision soldering iron, flux, low-temperature solder paste, multimeter and a microscope or magnifier.
+@@ 9141c57363
+Can I do it without microsoldering experience?
+@@ 37f44000e4
+We do not recommend it. This job is for technicians experienced in microsoldering and NOR flashing. Done without preparation, it can destroy the motherboard.
+@@ 1289ab15b8
+The PS5 has no video after the swap. What should I check?
+@@ cdc4dca78b
+If the console powers on normally, suspect the soldering first: a cold joint, a bridge or a shifted chip. If it hangs on the blue check screen, make sure the program reported the conversion checksum as resolved.
+@@ 9c17140691
+PS5 HDMI Tool
+@@ cec5a35096
+Sections
+@@ a9ecb16e1c
+Interposer
+@@ a3a7b250b2
+How it works
+@@ be62ddc902
+Program
+@@ a28d8447f6
+Installation
+@@ f8aad3ba6f
+Buy
+@@ f4c0260715
+FAQ
+@@ 750c79e9b6
+Switch between light and dark
+@@ 59b7adb81b
+Advertisement
+@@ de8ff0cc07
+Free program
+@@ e802994bab
+Free, nothing to install
+@@ be152ae03a
+Convert the NOR with PS5 HDMI Tool
+@@ 9de0aad3eb
+Reads, backs up and converts the PS5 Slim NOR with a CH341A reader.
+@@ 3101bec4ba
+Download for Windows
+@@ 660b370646
+For PS5 Slim technicians
+@@ a804198f08
+PS5 Interposer: swap the <span class="grad">R$1,700 HDMI chip</span> for an R$80 one.
+@@ 182bc8a343
+The Tech MeoW Interposer puts the Nuvoton/Panasonic MN864739 on a board that requires the Realtek RTD2175P. Transparent flex, 1.8 V regulator already soldered and no wires on the board. You convert the NOR for free with our program.
+@@ 32732ce184
+<svg class="i"><use href="#i-cart"/></svg>Buy on Mercado Livre
+@@ 0509d6d27a
+<svg class="i"><use href="#i-cart"/></svg>Buy on Shopee
+@@ f61267df02
+<svg class="i"><use href="#i-check"/></svg>Transparent flex
+@@ 8fe7b7eb82
+<svg class="i"><use href="#i-check"/></svg>1.8 V regulator soldered
+@@ f0ce48f94c
+<svg class="i"><use href="#i-check"/></svg>No wires on the board
+@@ 07649b1fab
+<svg class="i"><use href="#i-check"/></svg>Free program
+@@ 60457522a3
+Tech MeoW Interposer for PS5 Slim: amber flexible board with the footprint for the MN864739 chip and the U1 regulator soldered
+@@ 1582452af2
+3D model of the interposer. Drag to rotate.
+@@ cfca566a0e
+3D model made from the real drawing of the part. Drag to rotate and see both sides.
+@@ 0bbf1a8fde
+The repair math
+@@ 293e97417b
+Why repairing the PS5 HDMI chip used to be unviable
+@@ 1c6ff7fa69
+Some PS5 Slim boards leave the factory with the Realtek RTD2175P HDMI chip. When it fails, the console has no video and the replacement part weighs heavily on the repair quote. Prices below are in Brazilian reais (R$).
+@@ bf74712f6e
+Part only, labor not included
+@@ 0da5b04069
+Realtek RTD2175P <b class="vm">R$1,700</b>
+@@ 8d5d6c327a
+Nuvoton/Panasonic MN864739, on average <b class="am">R$80</b>
+@@ bbe4547b0e
+With labor, the repair with the Realtek gets close to <strong style="color:var(--text)">R$3,000</strong> for the customer, and many people give up. The interposer is what makes it possible to use the cheaper chip on this board. Reference prices: they change with the market.
+@@ 41c6dd4e16
+Realtek RTD2175P chip sold still attached to a piece cut from another PS5 board
+@@ a26f63a7cc
+And the Realtek often arrives like this: cut out of another board.
+@@ 3c7f40dab4
+From the dead chip to video again, layer by layer
+@@ bf09106bab
+Scroll the page and follow the HDMI chip swap on the board. The 3D model follows photos of the board and the real drawing of the interposer.
+@@ 5bda006d98
+3D model of the PS5 board showing the HDMI chip swap step by step
+@@ 53bfbfc3da
+Loading the 3D model
+@@ 44adb1b336
+The Realtek RTD2175P comes off the board
+@@ f0e5417bea
+First of all, back up the NOR. Then remove the original HDMI chip and clean the pads. This is where the repair used to stall: the new part costs R$1,700.
+@@ e8a3655081
+Realtek RTD2175P on the PS5 Slim board, between the APU and the HDMI connector
+@@ 82da1875aa
+The interposer takes its place
+@@ 926989c670
+The transparent flex lets you see the board pads underneath: you align by looking, not guessing. The bottom side has the RTD2175P pinout, and the small holes let you solder by capillarity with the iron.
+@@ e43b07e392
+Real photo of the flex interposer on the PS5 board, with the board visible through it
+@@ eb085bb794
+The MN864739 goes on top
+@@ 38d0ace4ee
+The Nuvoton or Panasonic chip, about R$80, is soldered on the top side. The arrow and the triangle on the silkscreen show the orientation and pin 1.
+@@ a7be581de3
+Real photo of the Nuvoton MN864739 HDMI chip soldered on the interposer on the PS5 board
+@@ 1843abc0f8
+The regulator handles the voltage
+@@ f42cc663d4
+The Realtek PMIC, the small square next to the chip, provides 3.3 V and 0.9 V. The Nuvoton uses 0.9 V and 1.8 V. The interposer takes the 3.3 V from a Realtek pin and routes it to pin 1 of the U1 regulator, already soldered on the part. Pin 2 is GND, pin 3 (EN) gets the 0.9 V, and the 1.8 V output powers the new chip. No wire pulled from the CXD PMIC and no extra load on that circuit.
+@@ 1424ae7269
+Interposer with the U1 1.8 V regulator soldered in the corner
+@@ 494a8808c0
+PS5 HDMI Tool converts the NOR
+@@ d578259f0a
+The board only talks to the chip the NOR tells it to. The free program changes the NOR through the CH341A reader so the PS5 recognizes the new chip. Write it, power on and the video is back.
+@@ a359821a9e
+PS5 HDMI Tool screen with the option to write the NOR configured for Nuvoton
+@@ 2dc4f25046
+The part
+@@ a0beacd1f3
+What comes with the Tech MeoW Interposer
+@@ 8932883d03
+A flexible adapter board made to simplify bench repair: the technician solders the part to the board, solders the chip on top and that's it.
+@@ 34d46ce517
+Transparent flex
+@@ 11f938938a
+You can see the other side while fitting it. Aligning the interposer pads with the board pads becomes much easier.
+@@ 28eb290e8c
+1.8 V regulator already soldered
+@@ e52698bbe1
+U1 is a TI TLV71318 in SOT-23-5. It uses the 3.3 V already present at the Realtek pad and delivers the 1.8 V the MN864739 needs.
+@@ bf178ef106
+No wires on the board
+@@ 21225a4cbf
+The 1.8 V does not come from another point of the board. An overload in the video section stays contained in the part itself.
+@@ a51bae5188
+Power sequencing
+@@ 60167192ae
+The regulator EN pin is on the 0.9 V trace: the 1.8 V only rises once the 0.9 V is already there.
+@@ 41e3e89225
+Passives mounted
+@@ 6749421448
+Capacitors C1 to C7 come already on the part. Just solder and go.
+@@ 29dd30a646
+Two sides, two chips
+@@ f56732de47
+Bottom: the Realtek RTD2175P pinout. Top: the Nuvoton/Panasonic MN864739 pinout. No rerouting trace by trace.
+@@ 39c3fcd1da
+Pin 1 marked
+@@ 059ca27d3a
+A triangle on both sides and an arrow for the new chip, to reduce the risk of mounting it reversed.
+@@ 2be5ccc794
+Transparent flex interposer on the PS5 Slim board, with the board copper and via showing through it
+@@ f55fbbb6c1
+Real photo: the board shows through the flex.
+@@ 7a08c38ad0
+Nuvoton MN864739 HDMI chip soldered on the interposer, already installed on the PS5 Slim board
+@@ 362f85cee4
+Real photo: MN864739 soldered, already on the board.
+@@ 5b486628ed
+Several PS5 interposers showing the front with the MN864739 pinout and the back with the RTD2175P pinout
+@@ 3417fc63ea
+Real photo: the part, front and back.
+@@ 1182ee046c
+Comparison
+@@ d165548ef1
+Interposer with regulator, wired solution or a new Realtek?
+@@ eb7853bc61
+The three ways to bring video back to a board that requires the RTD2175P.
+@@ e81f744b17
+What changes
+@@ ca102f4db9
+Tech MeoW Interposer
+@@ 482e4299f0
+Wired interposer
+@@ 58303d9946
+New Realtek
+@@ 40f78b5ac0
+Chip used
+@@ bacd3e3e9a
+MN864739
+@@ e506f6ca40
+RTD2175P
+@@ d7719324c1
+Chip cost
+@@ 3c872c909a
+About R$80
+@@ be260f092c
+About R$1,700
+@@ 6bcd836274
+Wires on the board
+@@ 72534bbb0c
+No
+@@ 84fb9bfc81
+Yes
+@@ f89daf80e6
+Where the 1.8 V comes from
+@@ 70f3be5b24
+U1 regulator, on the part itself
+@@ 8311c7e772
+Another point of the board, such as the CXD PMIC
+@@ 65fe0e84d0
+Not used: the Realtek needs 3.3 V
+@@ 864b145247
+Overload in the video section
+@@ b515e2b94e
+Stays contained in the part
+@@ cced1f4d32
+Can reach the point the wire comes from
+@@ 2eaeeec1f4
+As on the original board
+@@ 5693ac6532
+Change the NOR
+@@ f391aee5ad
+Yes, free with PS5 HDMI Tool
+@@ e76fe88c6e
+Not needed
+@@ 8d02d09406
+The program
+@@ 226bcff6e0
+PS5 HDMI Tool: the NOR converted for free
+@@ e2fd2dfc8c
+The interposer solves the physical side. The NOR side is handled by our program, free and open source, made for the bench.
+@@ e455b4c53f
+PS5 HDMI Tool screen: detect the CH341A reader, read the NOR, apply the Nuvoton patch and write the NOR
+@@ 98b75dc4f8
+<b>Reads and checks.</b> Reads the NOR twice, compares byte by byte and only saves the backup if both match.
+@@ 3c31e197eb
+<b>Converts both ways.</b> Realtek ⇄ Nuvoton/Panasonic, with a preview before writing.
+@@ 02a552e352
+<b>Writes with confirmation.</b> Checks, erases, writes and verifies, with the progress on screen.
+@@ 10ebb3e76a
+<b>Analyzes .bin files.</b> Shows the HDMI chip, the MAC and the board data, even with no board connected.
+@@ 869931b5e6
+<b>Also includes</b> a UART reader, a controller test and an interface in Portuguese, English and Spanish.
+@@ a3d9f7b05d
+<b>A single file.</b> Just open it on Windows. If the CH341A driver is missing, the program warns you and installs it.
+@@ d653750222
+<svg class="i"><use href="#i-down"/></svg>Download the program (.exe)
+@@ fcab6fa86f
+View the code on GitHub
+@@ 2ef811700f
+<b>Before writing a customer's board:</b> check the log to see whether the conversion checksum came out as resolved. If the program warns that it did not, use it only on a bench board.
+@@ 44ed32420d
+How to install the interposer on the PS5 Slim
+@@ 7a3ae9fc76
+A summary of the process. The full step-by-step guide, with photos and the location of the HDMI chip, is in the guide.
+@@ c43768eddf
+NOR backup
+@@ fb9ed782a8
+With the CH341A, read the NOR before touching the iron.
+@@ 8c06a522f7
+Generate the conversion
+@@ 5649d26b12
+In the program, choose nuvoton and preview. Do not write yet.
+@@ 0efe32709c
+Remove the RTD2175P
+@@ dbc7231c8b
+With flux and hot air, remove the chip and clean the pads.
+@@ bab80fc5c5
+Solder the interposer
+@@ cf4bd50b1e
+183 °C paste, align pin 1 looking through the flex and reflow.
+@@ ce6bd74df2
+Solder the MN864739
+@@ 7fefdaff8e
+On the top side, following the silkscreen arrow.
+@@ e1a4864486
+Inspect
+@@ 2c5b8bf79e
+Magnifier or microscope and multimeter, before powering on.
+@@ a6afc743d2
+Write and test
+@@ 2bf20405f8
+Write the converted file, power on and test the video.
+@@ 589cec0fb8
+Want the step-by-step guide?
+@@ 022712f063
+Open the full guide
+@@ 05e312072b
+CH341A programmer
+@@ 1287141ccf
+<img src="img/ferramentas/programador-ch341a.webp" width="84" height="84" loading="lazy" alt="CH341A programmer">CH341A programmer
+@@ 4cf628fd75
+Sugon 2020D hot air station
+@@ 6af3c39c52
+<img src="img/ferramentas/estacao-sugon-2020d.webp" width="84" height="84" loading="lazy" alt="Sugon 2020D hot air station">Hot air station
+@@ cbc66455d7
+Aifen A9 Pro soldering iron
+@@ 23c3c01bc8
+<img src="img/ferramentas/ferro-aifen-a9-pro.webp" width="84" height="84" loading="lazy" alt="Aifen A9 Pro soldering iron">Precision iron
+@@ 5bd2ca4571
+Amtech NC-559 solder flux
+@@ beb95f4681
+<img src="img/ferramentas/fluxo-amtech-nc559.webp" width="84" height="84" loading="lazy" alt="Amtech NC-559 solder flux">Solder flux
+@@ 491378177a
+183 degree solder paste
+@@ 87c985ab95
+<img src="img/ferramentas/pasta-de-solda-183c.webp" width="84" height="84" loading="lazy" alt="183 degree solder paste">183 °C solder paste
+@@ b90c366841
+<b>For technicians.</b> Requires experience in SMD/QFN microsoldering and SPI NOR flashing. Done without preparation, it can destroy the motherboard, and the modification voids the console's factory warranty.
+@@ 26fc7f0336
+The part in the stores, the program for free
+@@ 37548945be
+See the price <small>in the stores</small>
+@@ de8a60ab38
+Sold on Mercado Livre and Shopee (Brazil).
+@@ 3c7d128764
+<svg class="i"><use href="#i-check"/></svg>Transparent flex, with both pinouts
+@@ 2db00881fc
+<svg class="i"><use href="#i-check"/></svg>1.8 V regulator and capacitors mounted
+@@ c347eb6d51
+<svg class="i"><use href="#i-check"/></svg>For the MN864739, Nuvoton or Panasonic
+@@ be3b8fdd6f
+<svg class="i"><use href="#i-check"/></svg>Check in the store whether the chip is included
+@@ 5f04fcca3d
+<svg class="i"><use href="#i-cart"/></svg>Mercado Livre
+@@ 23b4a98285
+<svg class="i"><use href="#i-cart"/></svg>Shopee
+@@ 26f630caad
+Free
+@@ 425c704b68
+No sign-up and no installation.
+@@ 437bd4cae8
+<svg class="i"><use href="#i-check"/></svg>NOR reading, backup, conversion and writing
+@@ f5374adc9e
+<svg class="i"><use href="#i-check"/></svg>Works with the CH341A reader, on Windows
+@@ 7a609d8ab5
+<svg class="i"><use href="#i-check"/></svg>Tells you when a new version is out
+@@ 624468d03b
+Download the program
+@@ 493b748940
+Frequently asked questions about the PS5 HDMI chip
+@@ 8bd4e7ff49
+Got a PS5 with no video sitting on your bench?
+@@ 93710149af
+Buy the interposer, download the free program and close the repair. Do you run a repair shop, a store or a channel? Talk to us about partnerships.
+@@ 2f1ff30d73
+WhatsApp · partnerships
+@@ a21abebb0e
+Other projects
+@@ b633e4cdf0
+Another project of ours
+@@ 52c52e5712
+Meet PS-5 Controle Test
+@@ 6e372056f1
+Test and calibrate the PS5 controller: buttons, sticks, drift, triggers and vibration. Free in the computer browser. On the phone, the Android app has 2 free days.
+@@ 8c1e534a70
+Learn about the PS-5 Controle Test project
+@@ ea736292ed
+Learn about the project
+@@ 1d795d9352
+PS5 controller on the Nintendo Switch
+@@ 3a15332d02
+Control PS-5 is a free app for hacked Nintendo Switch consoles: it connects the DualSense over Bluetooth, with no adapter, with adaptive triggers, light bar and per-game profiles.
+@@ be8b4751e3
+See how to connect the PS5 controller to the Nintendo Switch
+@@ 28cfb6dfbd
+See how to connect
+@@ 81660bc726
+<b>Developed by MeoWDeV MOD</b><br>Technician and creator: Jefferson Honorio. Part sold as the Tech MeoW Interposer.<br><br>PS5 and PlayStation are trademarks of Sony Interactive Entertainment. Realtek, Nuvoton and Panasonic belong to their respective owners. This project is not affiliated with these companies.
+@@ 313a7561dd
+Contact and partnerships
+@@ 09f29abe0d
+Tech MeoW on Instagram
+@@ 775c6a45e3
+Tech MeoW on YouTube
+@@ 3ef23e0114
+WhatsApp for partnerships
+@@ 9873e9a96e
+Code on GitHub
+@@ a40c2e3964
+WhatsApp: <a href="https://wa.me/5521966547296" target="_blank" rel="noopener">+55 21 96654-7296</a><br>Instagram: <a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener">@tech_meow.oficial</a>
+@@ a5691165f7
+Installation guide
+@@ 86a910bed2
+Program releases
+@@ 8526a9a8fc
+PS-5 Controle Test
+@@ a5e9d6aac4
+Control PS-5
+@@ 42237dd3e6
+Terms of use
+@@ 00998dcd68
+Privacy and cookies
+@@ 68bf44c0db
+Manage cookies
+@@ 5d44e28604
+Mercado Livre
+@@ 25b7ed8097
+Shopee
+@@ 2ef091af39
+How to install the interposer on the PS5 Slim: RTD2175P HDMI chip guide
+@@ 57eae29e2a
+Guide for technicians: location of the PS5 Slim HDMI chip, tools, NOR backup, removing the Realtek RTD2175P, soldering the interposer and the MN864739, and common problems.
+@@ b0f31aa0a7
+Step by step to replace the Realtek RTD2175P HDMI chip with the MN864739 using the Tech MeoW Interposer.
+@@ 8d0c13d576
+Guide for technicians
+@@ 61a73ae3d7
+Step by step to replace the <strong>Realtek RTD2175P</strong> HDMI chip with the <strong>Nuvoton/Panasonic MN864739</strong> using the Tech MeoW Interposer and PS5 HDMI Tool.
+@@ a094ca18d2
+<b>Who this guide is for.</b> Advanced bench and microsoldering technicians. It does not teach rework technique and is not an introductory soldering tutorial. Without the preparation below, the risk of <strong>destroying the motherboard</strong> is high.
+@@ 5c28d63b81
+Experience in SMD/QFN microsoldering, with hot air and a precision iron.
+@@ d26c4161ee
+Knowledge of SPI NOR reading and writing: CH341A programmer, dumps and a backup before writing.
+@@ 4e6d3fe040
+A bench with ESD protection, good lighting and a microscope or magnifier.
+@@ 3c550d7813
+The Tech MeoW Interposer itself: it is made for this fit, and you cannot improvise wiring straight to the chip.
+@@ c17cefa548
+What the interposer does
+@@ be8a3eb948
+It replaces the original Realtek RTD2175P with an MN864739 without redesigning the motherboard traces. The bottom side has the RTD2175P footprint and is soldered onto the same pads where the Realtek was. The top side has the MN864739 footprint, where the new chip is soldered. Capacitors C1 to C7 and the U1 regulator come already mounted.
+@@ d8f0e907a5
+Drawing of the bottom side of the interposer, with the Realtek RTD2175P pinout
+@@ 32714082d9
+Bottom side: soldered to the motherboard.
+@@ cca9c2df2f
+Drawing of the top side of the interposer, with the MN864739 pinout and the U1 regulator
+@@ 774061aebe
+Top side: takes the MN864739.
+@@ 6c22a77036
+<strong>Pin 1:</strong> both sides have a triangular mark in the same corner. Always align it with the pin 1 indicator of the original footprint and with pin 1 of the MN864739. The <code>MN864739 ---&gt;</code> arrow shows the mounting direction of the new chip.
+@@ 24563755c5
+Why the 1.8 V regulator matters
+@@ e8b70b707f
+The MN864739 needs 0.9 V and 1.8 V. The RTD2175P it replaces needs 0.9 V and 3.3 V, and that 3.3 V trace already exists on the board. The <strong>U1 (TI TLV71318PDBVR)</strong> regulator takes that 3.3 V and steps it down locally to 1.8 V.
+@@ 4da7cbb08d
+This way the interposer does not need to pull 1.8 V from another point of the motherboard. The HDMI chip is one of the parts that fail most in the PS5 video section: if the 1.8 V came from another point, such as the APU PMIC (CXD), an overload would have a free path to reach that circuit too. With the regulator on the part itself, that failure path stays contained there.
+@@ ec51d86670
+The regulator <strong>EN</strong> pin is on the 0.9 V trace: the 1.8 V output only rises once the 0.9 V is present, with no external component. This matches the <a href="https://www.ti.com/lit/gpn/TLV713" target="_blank" rel="noopener">TI datasheet</a>: EN turns on from 0.9 V and turns off below 0.4 V.
+@@ b705d8bbfa
+TLV71318PDBVR (SOT-23-5)
+@@ 4271eb8ae4
+Value
+@@ 2b1f6e548b
+Output voltage
+@@ 894cf574d3
+Fixed 1.8 V
+@@ 22ad083123
+Input range
+@@ 569ce73ff7
+1.4 V to 5.5 V
+@@ 9a0a488fb8
+EN pin, on (minimum)
+@@ ff2f275c4f
+0.9 V
+@@ 1d517759a9
+EN pin, off (maximum)
+@@ 524f7b7510
+0.4 V
+@@ 775c93a2b3
+Tools and supplies
+@@ ecdda59aea
+Item
+@@ 3227e4b3ea
+What for
+@@ d3a3a80254
+Backing up and writing the SPI NOR, before and after the swap.
+@@ 7f86d87fff
+Amtech NC-559 flux
+@@ 4783b3bd88
+Removing the RTD2175P and reflowing the interposer and the MN864739.
+@@ e51fa63e96
+183 °C solder paste
+@@ 2da5dd24cd
+Low-temperature alloy, so the neighboring components are not stressed.
+@@ d8b6f90598
+Sugon 2020D hot air
+@@ 1f19cd4541
+Removal and reflow. Profile according to your bench calibration.
+@@ 3514a91f17
+Aifen A9 Pro iron, C210 tip
+@@ a1df808d6b
+Precision touch-ups and pad cleaning.
+@@ 5c0ac47a14
+You also need the <a href="../#comprar">Tech MeoW Interposer</a>, an MN864739 and a computer with <a href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe">PS5 HDMI Tool</a>.
+@@ f20e0eff15
+Where the HDMI chip is on the PS5 Slim board
+@@ bfa9e6ec02
+The RTD2175P sits between the APU (<code>SIE CXD90069GS</code>) and the HDMI connector, in an area with plenty of exposed copper around it.
+@@ a2b888fc60
+Overview of the PS5 Slim board showing the position of the HDMI chip
+@@ d30838893a
+Overview
+@@ 1edff958d2
+PS5 Slim HDMI chip near the connector
+@@ 24c866701b
+Near the connector
+@@ 2982e2ca65
+PS5 Slim HDMI chip between the APU and the HDMI connector
+@@ 849390f4e9
+Between the APU and the connector
+@@ ee6a964fa4
+Close-up of the Realtek RTD2175P chip on the PS5 Slim board
+@@ ab3e602f4e
+Realtek close-up
+@@ a004ef91c5
+Confirm the <code>RTD2175P</code> marking on the chip itself before desoldering. Do not rely on the position alone, especially on a board that has already been reworked.
+@@ 34df82fa6c
+Procedure
+@@ 91f4d2fc2c
+The steps alternate between software and soldering. Follow the order: writing the NOR at the wrong time is the most common cause of a blue screen with no video after the conversion. The program buttons are named as they appear with the program in English.
+@@ e9fcd9527e
+1. NOR backup, before anything else
+@@ abe0f9c416
+Connect the CH341A to the NOR, still with the original RTD2175P, and open PS5 HDMI Tool on the <strong>CH341A Reader</strong> tab.
+@@ 4ed6148f74
+Click <strong>1. Detect CH341A reader</strong> and then <strong>2. Read NOR</strong>. The program reads twice, compares and saves <code>DUMP1.bin</code> and <code>DUMP2.bin</code>.
+@@ e21b2afa90
+If the reads do not match, the program warns you and saves nothing: redo the reader contact before going on.
+@@ 3d16e66aee
+2. Generate the conversion, still without soldering
+@@ 77ba9f1a65
+Under <strong>3. Apply patch (HDMI chip)</strong>, choose <strong>nuvoton</strong> and click <strong>Apply patch</strong>. This button only prepares the file: it does not write anything to the board yet.
+@@ 43519d173f
+The program saves <code>REALTEK_FOR_NUVOTON.bin</code> next to the backup. This is the file you write after the physical swap.
+@@ f5d5a6efdc
+Check the log to see whether the checksum came out as resolved. If it came out as not resolved, stop and <a href="https://wa.me/5521966547296" target="_blank" rel="noopener">talk to us</a> before going on with a customer's board.
+@@ c51a7863f0
+Do not click Write to NOR yet.
+@@ dfc27be885
+3. Remove the RTD2175P
+@@ 7fcf7d3296
+Protect the neighboring components with Kapton tape.
+@@ 271e68c1f8
+Apply plenty of flux over the chip and remove it with hot air, using your bench profile for fine-pitch QFN.
+@@ ed6d5c2a1a
+Clean the pads with the iron until they are flat and free of excess solder.
+@@ e0b04b4394
+4. Install the interposer
+@@ d56869ba9f
+Apply a thin layer of 183 °C paste on the clean pads.
+@@ 684689a2fe
+Place the part with the <strong>RTD2175P</strong> side down. The flex is transparent: align it by looking at the pads underneath and check the pin 1 mark.
+@@ f2ce90cff7
+Reflow until all pins are wetted. The small holes in the flex also let you solder by capillarity with the iron. Inspect: no bridges and no lifted pins.
+@@ f97a7b39ba
+Let it cool down before handling.
+@@ 45bf6ce703
+Flex interposer placed on the PS5 board, with the board visible through it
+@@ a7778748cf
+Real photo: the flex lets you see the board.
+@@ c7ff7a3bf0
+MN864739 soldered on the interposer on the PS5 board
+@@ b4dbfffec6
+Real photo: the result with the MN864739.
+@@ 118049de3d
+5. Solder the MN864739 on the interposer
+@@ acdd5ab302
+Apply flux and 183 °C paste on the top side.
+@@ 92bfd0c6be
+Place the chip following the arrow and the pin 1 mark.
+@@ 921b260f8d
+Reflow with lower temperature and airflow, so the part that is already fixed does not shift.
+@@ 61e8589a24
+Touch up individual pins with the iron if needed.
+@@ e9d99f0de3
+6. Inspect before powering on
+@@ 39fb9e802a
+Look at both solder layers under magnification: board to interposer and interposer to MN864739.
+@@ 28e863402c
+Test continuity and shorts with the multimeter between neighboring traces and against ground.
+@@ a51eb411b4
+7. Write the converted NOR and test
+@@ ff84bbf73c
+Connect the CH341A to the NOR again.
+@@ 49824e7fa0
+In the program, use <strong>Load .bin file to write...</strong> and select the <code>REALTEK_FOR_NUVOTON.bin</code> from step 2. That is the right file, not an old backup.
+@@ 76b936270c
+Confirm the write (the program asks for a double confirmation and for you to type the word <code>GRAVAR</code>, the same in every language) and wait for the 4 stages: check, erase, write and verify.
+@@ d8a7dc858f
+Power on the board and test the HDMI output.
+@@ 81887ef854
+Common problems
+@@ c213a303af
+<strong>No video, but the console powers on normally:</strong> suspect the soldering first (cold joint, bridge or shifted chip) before touching the NOR again.
+@@ 914f6f1bd7
+<strong>Hangs on the blue check screen:</strong> make sure the conversion checksum came out as resolved for this board's Wi-Fi revision.
+@@ f882644d53
+<strong>The CH341A does not detect the NOR after soldering:</strong> look for a short or a cold joint on the interposer pads before suspecting the programmer. Flux residue there can affect other lines of the board.
+@@ 20e22c4f32
+Legal notice
+@@ f5d9050db5
+This procedure modifies the hardware, voids the console's factory warranty and carries a real risk of permanent damage to the motherboard if done incorrectly. The part and this documentation are offered with no guarantee of the repair result, and whoever does the work is responsible for it. This does not remove any rights the law grants to consumers.
+@@ cf6451f288
+Buy on Mercado Livre
+@@ dc2148ec24
+Buy on Shopee
+@@ 8fbb10ca27
+Back to the home page
+@@ 9363325410
+<b>Developed by MeoWDeV MOD</b><br>PS5 and PlayStation are trademarks of Sony Interactive Entertainment. Realtek, Nuvoton, Panasonic and Texas Instruments belong to their respective owners. This project is not affiliated with these companies.
+@@ b01e1c8cfb
+Home page
+@@ 5721bbef40
+Instagram
+@@ 558865a16f
+YouTube
+@@ c76ebb75fa
+Terms of use | PS5 HDMI Tool
+@@ e9a1d39c2c
+Terms of use of the PS5 HDMI Tool website and program: risks of NOR writing and rework, purchases in the stores, ads and contact.
+@@ d659a8e09a
+Updated on November 4, 2026.
+@@ ba4498228a
+What it is
+@@ 06ff399fff
+PS5 HDMI Tool is a free program to read, write and convert the NOR of PS5 Slim boards. This website also promotes the Tech MeoW Interposer, a physical part sold separately. The project is maintained by MeoWDeV MOD (Jefferson Honorio).
+@@ 61395e754f
+Acceptance
+@@ 9928976b30
+By using the website or the program, you agree to these terms. If you do not agree, do not use them.
+@@ 057ae887b2
+NOR writing and rework
+@@ f65f5bb0e9
+The program writes data to the board memory, and the chip swap requires microsoldering. The job is for experienced technicians. Make a backup, use it only on your own board or with the owner's permission, and check the result before writing. Done wrong, it can cause permanent damage to the motherboard. The modification voids the console's factory warranty.
+@@ a4afb302e5
+No warranty for the program
+@@ 088304d1c1
+The program is provided as is, with no guarantee that it works on every board, reader or computer. To the extent permitted by law, we are not liable for data loss or other damage caused by its use. This does not remove any rights the law grants to consumers.
+@@ bd0f2a171b
+Buying the interposer
+@@ 779650882c
+Sales take place on Mercado Livre and Shopee, under each store's rules and protections. Price, delivery time and returns are shown in the listing.
+@@ c57f3f41f6
+Ads and links
+@@ e751d565e8
+The website shows ads and third-party links. Whatever you buy or hire on those websites is their responsibility.
+@@ eed9cb6195
+Permitted use
+@@ fbc37515e5
+Do not use the website or the program to attack the website, circumvent the rights of others or break the law.
+@@ 28cef50e5e
+Trademarks
+@@ e4abea34c9
+PS5 and PlayStation are trademarks of Sony Interactive Entertainment. Realtek, Nuvoton and Panasonic belong to their respective owners. This project is not affiliated with these companies.
+@@ f1d6c86fc8
+Changes
+@@ a2b8ac25dd
+We may update these terms. When that happens, the website will ask for a new acceptance.
+@@ 831d8659ea
+Law and contact
+@@ 26fb6e1002
+These terms are governed by the laws of Brazil. The Portuguese version prevails in case of doubt. To talk to us: <a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp +55 21 96654-7296</a>.
+@@ 7a0b9ea6f1
+Privacy and cookies | PS5 HDMI Tool
+@@ 0273dadf2d
+This website uses no tracking cookies or third-party analytics. See what is saved in your browser and how the ads are counted.
+@@ ef8d51ef99
+Summary
+@@ b5147d6288
+This website does not use tracking cookies or third-party analytics tools such as Google Analytics. What we call cookies here is, in practice, your browser's storage: small pieces of information kept on your device.
+@@ c7073faaaa
+Always on (necessary)
+@@ cbdb8c0695
+Your choice of terms and cookies (<code>hdmi.consent</code>).
+@@ 3603fd7437
+Light or dark theme (<code>hdmi.theme</code>).
+@@ 9984f3d7da
+Chosen language (<code>techmeow.lang</code>), which applies to all techmeow.app websites.
+@@ 08fec51c84
+Page transition effect (<code>hdmi.pt</code>), which disappears when you close the tab.
+@@ c8e5c4405c
+Optional (only with Accept all)
+@@ 1995af18bf
+Last ad seen, to show a different one on your next visit, and which ads this browser has already seen (<code>hdmi-ad-*</code>).
+@@ e0e0382de4
+The website you came from (<code>hdmi-de</code>), which disappears when you close the tab.
+@@ bb98f0ecb4
+Ad counting, explained below.
+@@ 88b53f8eee
+If you choose only the necessary
+@@ c04a072141
+Ads still appear, but views and clicks are not counted, and the optional items are not saved. Changing your choice deletes the optional items from this browser.
+@@ d68b84efbc
+Ad counting
+@@ e25d33038b
+With your permission, we tell our server when an ad appears or is clicked, in which place of the website and which website you came from. The server adds up these notices per day, with approximate city and country and device type. We do not store your IP or create an identifier for you.
+@@ dad570a840
+PS5 HDMI Tool runs on your computer. NOR backups stay on your machine and are not sent to us. The program only checks GitHub to know whether a new version exists.
+@@ 4a4098c42d
+Services used
+@@ 36bafc98e5
+The website is hosted on GitHub Pages. The ad list and ad files come from Vercel and Supabase. As with any website, these services receive your IP and technical data to deliver the content. Mercado Livre, Shopee, WhatsApp, Instagram and YouTube only receive data if you click their links.
+@@ 8ea8d5b876
+Your rights
+@@ 3be64ec2d7
+You can change your choice at any time under Manage cookies, at the bottom of the pages, and request information under Brazil's data protection law (LGPD). Controller: MeoWDeV MOD (Jefferson Honorio). Contact: <a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp +55 21 96654-7296</a>.

@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://meowdev-mod.github.io/ps5-hdmi-tool/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://meowdev-mod.github.io/ps5-hdmi-tool/guia/</loc><lastmod>2026-11-04</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://techmeow.app/ps5-hdmi-tool/</loc><lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/"/>
+  </url>
+  <url><loc>https://techmeow.app/ps5-hdmi-tool/en/</loc><lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/"/>
+  </url>
+  <url><loc>https://techmeow.app/ps5-hdmi-tool/es/</loc><lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/"/>
+  </url>
+  <url><loc>https://techmeow.app/ps5-hdmi-tool/ru/</loc><lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/"/>
+  </url>
+  <url><loc>https://techmeow.app/ps5-hdmi-tool/guia/</loc><lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/guia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/guia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/guia/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/guia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/guia/"/>
+  </url>
+  <url><loc>https://techmeow.app/ps5-hdmi-tool/en/guia/</loc><lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/guia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/guia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/guia/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/guia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/guia/"/>
+  </url>
+  <url><loc>https://techmeow.app/ps5-hdmi-tool/es/guia/</loc><lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/guia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/guia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/guia/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/guia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/guia/"/>
+  </url>
+  <url><loc>https://techmeow.app/ps5-hdmi-tool/ru/guia/</loc><lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://techmeow.app/ps5-hdmi-tool/guia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techmeow.app/ps5-hdmi-tool/en/guia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techmeow.app/ps5-hdmi-tool/es/guia/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://techmeow.app/ps5-hdmi-tool/ru/guia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techmeow.app/ps5-hdmi-tool/guia/"/>
+  </url>
 </urlset>
