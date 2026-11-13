@@ -5,7 +5,7 @@
 Developed by **Tech MeoW** — [techmeow.app](https://techmeow.app/)
 Lead technician: **Jefferson Honorio**
 
-🔗 **[Project website](https://techmeow.app/ps5-hdmi-tool/)**
+🔗 **[Project website](https://techmeow.app/ps5-hdmi-tool/en/)** · [Installation guide](https://techmeow.app/ps5-hdmi-tool/en/guia/) · also in [Español](https://techmeow.app/ps5-hdmi-tool/es/) and [Русский](https://techmeow.app/ps5-hdmi-tool/ru/)
 
 ![PS5 HDMI Tool main screen](docs/assets/screenshot.png)
 

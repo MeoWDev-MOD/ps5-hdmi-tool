@@ -3,6 +3,8 @@
 **Tech MeoW** — [techmeow.app](https://techmeow.app/)
 Técnico criador: **Jefferson Honorio**
 
+🌐 **English:** this guide, up to date, at [techmeow.app/ps5-hdmi-tool/en/guia/](https://techmeow.app/ps5-hdmi-tool/en/guia/) · también en [español](https://techmeow.app/ps5-hdmi-tool/es/guia/) · также на [русском](https://techmeow.app/ps5-hdmi-tool/ru/guia/)
+
 ---
 
 ## ⚠️ Para quem é este guia
