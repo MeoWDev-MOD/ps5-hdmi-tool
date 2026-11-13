@@ -467,7 +467,7 @@ def traduz_pagina(src, pag, idioma, dic, faltas):
         n = normal(texto)
         k = chave(n)
         if k in dic:
-            return dic[k]
+            return texto if dic[k] is None else dic[k]
         faltas.setdefault(k, n)
         return texto
 
@@ -538,9 +538,15 @@ def finaliza(html, pag, idioma):
 def carrega(idioma):
     """Traduções de <idioma>.txt: uma linha "@@ chave" e, embaixo, o texto traduzido (HTML como na página)."""
     f = os.path.join(AQUI, f"{idioma}.txt")
-    if not os.path.exists(f):
-        return {}
     dic, k, linhas = {}, None, []
+    # iguais.txt: chaves de textos que ficam iguais em todos os idiomas (nomes de marca, números)
+    g = os.path.join(AQUI, "iguais.txt")
+    if os.path.exists(g):
+        for linha in open(g, encoding="utf-8").read().splitlines():
+            if linha.strip() and not linha.startswith("#"):
+                dic[linha.split()[0]] = None
+    if not os.path.exists(f):
+        return dic
     for linha in open(f, encoding="utf-8").read().splitlines():
         if linha.startswith("@@ "):
             if k:
@@ -623,8 +629,9 @@ def sitemap():
             linhas.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url_pagina(pag, "pt")}"/>')
             linhas.append("  </url>")
     linhas.append("</urlset>")
-    open(os.path.join(DOCS, "sitemap.xml"), "w", encoding="utf-8", newline="\n").write("\n".join(linhas) + "\n")
-    print(f"sitemap.xml: {len(pags) * len(todos)} endereços")
+    arq = CFG.get("sitemap_arquivo", "sitemap.xml")  # site com sitemap feito à mão: os idiomas vão num arquivo à parte
+    open(os.path.join(DOCS, arq), "w", encoding="utf-8", newline="\n").write("\n".join(linhas) + "\n")
+    print(f"{arq}: {len(pags) * len(todos)} endereços")
 
 
 if __name__ == "__main__":

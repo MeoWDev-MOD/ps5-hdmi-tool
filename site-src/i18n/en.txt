@@ -2,7 +2,7 @@
 @@ 15670013b7
 PS5 Interposer for the Realtek RTD2175P HDMI chip | PS5 HDMI Tool
 @@ ef678d76c4
-Repair the PS5 Slim HDMI chip without paying R$1,700 (BRL) for the Realtek RTD2175P. The Tech MeoW Interposer fits the Nuvoton MN864739, and PS5 HDMI Tool converts the NOR for free.
+Repair the PS5 Slim HDMI chip without paying R$1,700 (BRL) for the Realtek RTD2175P. The Interposer Tech MeoW fits the Nuvoton MN864739, and PS5 HDMI Tool converts the NOR for free.
 @@ b5671477fc
 PS5 interposer, PS5 Slim HDMI interposer, PS5 HDMI chip, PS5 HDMI IC, Realtek RTD2175P, Nuvoton MN864739, Panasonic MN864739, PS5 no video, PS5 HDMI repair, PS5 NOR conversion, CH341A PS5
 @@ 8f094f2bb8
@@ -14,7 +14,7 @@ Free program that reads, writes and converts the NOR of PS5 Slim boards to repla
 @@ fa2c391cf3
 What is a PS5 interposer?
 @@ 9d7c0562eb
-It is a thin adapter board that sits between the motherboard and the HDMI chip. The Tech MeoW Interposer is soldered onto the Realtek RTD2175P pads with its bottom side and takes the Nuvoton/Panasonic MN864739 on its top side.
+It is a thin adapter board that sits between the motherboard and the HDMI chip. The Interposer Tech MeoW is soldered onto the Realtek RTD2175P pads with its bottom side and takes the Nuvoton/Panasonic MN864739 on its top side.
 @@ 5095973f3b
 How do I know if my PS5 uses the Realtek HDMI chip?
 @@ 2415071b65
@@ -86,7 +86,7 @@ For PS5 Slim technicians
 @@ a804198f08
 PS5 Interposer: swap the <span class="grad">R$1,700 HDMI chip</span> for an R$80 one.
 @@ 182bc8a343
-The Tech MeoW Interposer puts the Nuvoton/Panasonic MN864739 on a board that requires the Realtek RTD2175P. Transparent flex, 1.8 V regulator already soldered and no wires on the board. You convert the NOR for free with our program.
+The Interposer Tech MeoW puts the Nuvoton/Panasonic MN864739 on a board that requires the Realtek RTD2175P. Transparent flex, 1.8 V regulator already soldered and no wires on the board. You convert the NOR for free with our program.
 @@ 32732ce184
 <svg class="i"><use href="#i-cart"/></svg>Buy on Mercado Livre
 @@ 0509d6d27a
@@ -100,7 +100,7 @@ The Tech MeoW Interposer puts the Nuvoton/Panasonic MN864739 on a board that req
 @@ 07649b1fab
 <svg class="i"><use href="#i-check"/></svg>Free program
 @@ 60457522a3
-Tech MeoW Interposer for PS5 Slim: amber flexible board with the footprint for the MN864739 chip and the U1 regulator soldered
+Interposer Tech MeoW for PS5 Slim: amber flexible board with the footprint for the MN864739 chip and the U1 regulator soldered
 @@ 1582452af2
 3D model of the interposer. Drag to rotate.
 @@ cfca566a0e
@@ -164,7 +164,7 @@ PS5 HDMI Tool screen with the option to write the NOR configured for Nuvoton
 @@ 2dc4f25046
 The part
 @@ a0beacd1f3
-What comes with the Tech MeoW Interposer
+What comes with the Interposer Tech MeoW
 @@ 8932883d03
 A flexible adapter board made to simplify bench repair: the technician solders the part to the board, solders the chip on top and that's it.
 @@ 34d46ce517
@@ -216,7 +216,7 @@ The three ways to bring video back to a board that requires the RTD2175P.
 @@ e81f744b17
 What changes
 @@ ca102f4db9
-Tech MeoW Interposer
+Interposer Tech MeoW
 @@ 482e4299f0
 Wired interposer
 @@ 58303d9946
@@ -404,7 +404,7 @@ See how to connect the PS5 controller to the Nintendo Switch
 @@ 28cfb6dfbd
 See how to connect
 @@ 81660bc726
-<b>Developed by MeoWDeV MOD</b><br>Technician and creator: Jefferson Honorio. Part sold as the Tech MeoW Interposer.<br><br>PS5 and PlayStation are trademarks of Sony Interactive Entertainment. Realtek, Nuvoton and Panasonic belong to their respective owners. This project is not affiliated with these companies.
+<b>Developed by MeoWDeV MOD</b><br>Technician and creator: Jefferson Honorio. Part sold as the Interposer Tech MeoW.<br><br>PS5 and PlayStation are trademarks of Sony Interactive Entertainment. Realtek, Nuvoton and Panasonic belong to their respective owners. This project is not affiliated with these companies.
 @@ 313a7561dd
 Contact and partnerships
 @@ 09f29abe0d
@@ -440,11 +440,11 @@ How to install the interposer on the PS5 Slim: RTD2175P HDMI chip guide
 @@ 57eae29e2a
 Guide for technicians: location of the PS5 Slim HDMI chip, tools, NOR backup, removing the Realtek RTD2175P, soldering the interposer and the MN864739, and common problems.
 @@ b0f31aa0a7
-Step by step to replace the Realtek RTD2175P HDMI chip with the MN864739 using the Tech MeoW Interposer.
+Step by step to replace the Realtek RTD2175P HDMI chip with the MN864739 using the Interposer Tech MeoW.
 @@ 8d0c13d576
 Guide for technicians
 @@ 61a73ae3d7
-Step by step to replace the <strong>Realtek RTD2175P</strong> HDMI chip with the <strong>Nuvoton/Panasonic MN864739</strong> using the Tech MeoW Interposer and PS5 HDMI Tool.
+Step by step to replace the <strong>Realtek RTD2175P</strong> HDMI chip with the <strong>Nuvoton/Panasonic MN864739</strong> using the Interposer Tech MeoW and PS5 HDMI Tool.
 @@ a094ca18d2
 <b>Who this guide is for.</b> Advanced bench and microsoldering technicians. It does not teach rework technique and is not an introductory soldering tutorial. Without the preparation below, the risk of <strong>destroying the motherboard</strong> is high.
 @@ 5c28d63b81
@@ -454,7 +454,7 @@ Knowledge of SPI NOR reading and writing: CH341A programmer, dumps and a backup 
 @@ 4e6d3fe040
 A bench with ESD protection, good lighting and a microscope or magnifier.
 @@ 3c550d7813
-The Tech MeoW Interposer itself: it is made for this fit, and you cannot improvise wiring straight to the chip.
+The Interposer Tech MeoW itself: it is made for this fit, and you cannot improvise wiring straight to the chip.
 @@ c17cefa548
 What the interposer does
 @@ be8a3eb948
@@ -522,7 +522,7 @@ Aifen A9 Pro iron, C210 tip
 @@ a1df808d6b
 Precision touch-ups and pad cleaning.
 @@ 5c0ac47a14
-You also need the <a href="../#comprar">Tech MeoW Interposer</a>, an MN864739 and a computer with <a href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe">PS5 HDMI Tool</a>.
+You also need the <a href="../#comprar">Interposer Tech MeoW</a>, an MN864739 and a computer with <a href="https://github.com/MeoWDev-MOD/ps5-hdmi-tool/releases/latest/download/PS5_HDMI_Tool.exe">PS5 HDMI Tool</a>.
 @@ f20e0eff15
 Where the HDMI chip is on the PS5 Slim board
 @@ bfa9e6ec02
@@ -654,7 +654,7 @@ Updated on November 4, 2026.
 @@ ba4498228a
 What it is
 @@ 06ff399fff
-PS5 HDMI Tool is a free program to read, write and convert the NOR of PS5 Slim boards. This website also promotes the Tech MeoW Interposer, a physical part sold separately. The project is maintained by MeoWDeV MOD (Jefferson Honorio).
+PS5 HDMI Tool is a free program to read, write and convert the NOR of PS5 Slim boards. This website also promotes the Interposer Tech MeoW, a physical part sold separately. The project is maintained by MeoWDeV MOD (Jefferson Honorio).
 @@ 61395e754f
 Acceptance
 @@ 9928976b30
