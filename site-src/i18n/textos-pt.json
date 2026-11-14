@@ -810,6 +810,11 @@
   "pt": "Abrir o guia completo"
  },
  {
+  "k": "647b99415c",
+  "pagina": "index.html",
+  "pt": "Mapa de pontos (PDF)"
+ },
+ {
   "k": "1287141ccf",
   "pagina": "index.html",
   "pt": "<img src=\"img/ferramentas/programador-ch341a.webp\" width=\"84\" height=\"84\" loading=\"lazy\" alt=\"Programador CH341A\">Programador CH341A"
@@ -1165,9 +1170,9 @@
   "pt": "O MN864739 precisa de 0,9 V e 1,8 V. O RTD2175P que ele substitui precisa de 0,9 V e 3,3 V, e essa trilha de 3,3 V já existe na placa. O regulador <strong>U1 (TI TLV71318PDBVR)</strong> aproveita esses 3,3 V e baixa localmente para 1,8 V."
  },
  {
-  "k": "4da7cbb08d",
+  "k": "7990cf3c0a",
   "pagina": "guia/index.html",
-  "pt": "Assim, a interposer não precisa puxar 1,8 V de outro ponto da placa-mãe. O CI HDMI é uma das peças que mais dão defeito no setor de vídeo do PS5: se o 1,8 V viesse de outro ponto, como o PMIC da APU (CXD), uma sobrecarga teria caminho livre para atingir também esse circuito. Com o regulador na própria peça, esse caminho de falha fica contido ali."
+  "pt": "Assim, a interposer não precisa puxar 1,8 V de outro ponto da placa-mãe. O CI HDMI é uma das peças que mais dão defeito no setor de vídeo do PS5: se o 1,8 V viesse de outro ponto, como o PMIC do CXD (southbridge), uma sobrecarga teria caminho livre para atingir também esse circuito. Com o regulador na própria peça, esse caminho de falha fica contido ali."
  },
  {
   "k": "ec51d86670",
@@ -1223,6 +1228,21 @@
   "k": "524f7b7510",
   "pagina": "guia/index.html",
   "pt": "0,4 V"
+ },
+ {
+  "k": "7057904330",
+  "pagina": "guia/index.html",
+  "pt": "Mapa de pontos da interposer (PDF)"
+ },
+ {
+  "k": "f21532e4a5",
+  "pagina": "guia/index.html",
+  "pt": "Documentação com alguns pontos de teste da placa, sem e com a interposer, o código de cores, o layout da interposer e o esquema do regulador de 1,8 V. Existem mais pontos: o diagrama completo será disponibilizado em breve."
+ },
+ {
+  "k": "ba8ea9730b",
+  "pagina": "guia/index.html",
+  "pt": "Baixar o mapa de pontos (PDF, 13 MB)"
  },
  {
   "k": "775c93a2b3",

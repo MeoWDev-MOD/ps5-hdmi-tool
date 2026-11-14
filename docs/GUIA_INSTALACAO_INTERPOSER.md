@@ -67,10 +67,10 @@ Isso significa que **o interposer não precisa puxar 1,8V de nenhum outro
 ponto da placa-mãe**. Essa decisão de projeto existe por um motivo
 concreto: o CI HDMI é historicamente uma das peças com maior índice de
 defeito/queima no setor de vídeo do PS5. Se a alimentação de 1,8V fosse
-puxada de outro ponto da placa — por exemplo, direto do PMIC da APU
-(CXD) — uma eventual sobrecarga no setor de vídeo teria caminho livre pra
+puxada de outro ponto da placa — por exemplo, direto do PMIC do CXD
+(southbridge) — uma eventual sobrecarga no setor de vídeo teria caminho livre pra
 se propagar e queimar não só o CI HDMI, mas também o PMIC e, na pior
-hipótese, a própria APU junto. Com o regulador dedicado e isolado no
+hipótese, o próprio CXD (southbridge) junto. Com o regulador dedicado e isolado no
 próprio interposer, esse caminho de falha fica contido ali, protegendo o
 resto da placa.
 

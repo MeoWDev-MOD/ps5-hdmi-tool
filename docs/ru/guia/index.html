@@ -138,7 +138,7 @@ if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.a
 
   <h3>Почему важен стабилизатор 1,8 В</h3>
   <p>MN864739 нужны 0,9 В и 1,8 В. RTD2175P, который он заменяет, нужны 0,9 В и 3,3 В, и дорожка 3,3 В на плате уже есть. Стабилизатор <strong>U1 (TI TLV71318PDBVR)</strong> берёт эти 3,3 В и прямо на месте понижает их до 1,8 В.</p>
-  <p>Поэтому интерпозеру не нужно брать 1,8 В с другой точки материнской платы. HDMI-чип — одна из самых часто выходящих из строя деталей видеотракта PS5: если бы 1,8 В шли с другой точки, например с PMIC APU (CXD), перегрузка могла бы свободно дойти и до этой цепи. Со стабилизатором на самой детали этот путь отказа остаётся внутри неё.</p>
+  <p>Поэтому интерпозеру не нужно брать 1,8 В с другой точки материнской платы. HDMI-чип — одна из самых часто выходящих из строя деталей видеотракта PS5: если бы 1,8 В шли с другой точки, например с PMIC CXD (южного моста), перегрузка могла бы свободно дойти и до этой цепи. Со стабилизатором на самой детали этот путь отказа остаётся внутри неё.</p>
   <p>Вывод <strong>EN</strong> стабилизатора подключён к дорожке 0,9 В: выход 1,8 В появляется только при наличии 0,9 В, без внешних компонентов. Это соответствует <a href="https://www.ti.com/lit/gpn/TLV713" target="_blank" rel="noopener">даташиту TI</a>: EN включается от 0,9 В и выключается ниже 0,4 В.</p>
   <div class="card tab"><table>
     <thead><tr><th>TLV71318PDBVR (SOT-23-5)</th><th>Значение</th></tr></thead>
@@ -149,6 +149,12 @@ if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.a
       <tr><td>Вывод EN, выключение (максимум)</td><td>0,4 В</td></tr>
     </tbody>
   </table></div>
+
+  <h2 id="mapa-de-pontos">Карта контрольных точек интерпозера (PDF)</h2>
+  <p>Документация с некоторыми контрольными точками платы без интерпозера и с ним, цветовым кодом, разводкой интерпозера и схемой стабилизатора 1,8 В. Точек больше: полная схема скоро будет опубликована.</p>
+  <div class="cta" style="margin-top:14px">
+    <a class="b" href="../../pdf/mapa-de-pontos-interposer-ru.pdf" target="_blank" rel="noopener">Скачать карту контрольных точек (PDF, 13 МБ)</a>
+  </div>
 
   <h2>Инструменты и материалы</h2>
   <div class="card tab"><table>
@@ -251,7 +257,7 @@ if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.a
 
 <footer><div class="wrap fgrid" style="grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)">
   <div><b>Developed by MeoWDeV MOD</b><br>PS5 и PlayStation — товарные знаки Sony Interactive Entertainment. Realtek, Nuvoton, Panasonic и Texas Instruments принадлежат своим владельцам. Этот проект не связан с этими компаниями.</div>
-  <div class="flinks"><a href="../">Главная</a><a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@techmeow" target="_blank" rel="noopener">YouTube</a><a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp · партнёрство</a><a href="../termos/">Условия использования</a><a href="../privacidade/">Конфиденциальность и cookie</a><a href="#" data-ck-manage>Настройки cookie</a></div>
+  <div class="flinks"><a href="../">Главная</a><a href="../../pdf/mapa-de-pontos-interposer-ru.pdf" target="_blank" rel="noopener">Карта контрольных точек (PDF)</a><a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@techmeow" target="_blank" rel="noopener">YouTube</a><a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp · партнёрство</a><a href="../termos/">Условия использования</a><a href="../privacidade/">Конфиденциальность и cookie</a><a href="#" data-ck-manage>Настройки cookie</a></div>
 </div></footer>
 <script type="module" src="../../js/sub.js"></script>
 </body>

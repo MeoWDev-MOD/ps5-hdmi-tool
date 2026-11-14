@@ -138,7 +138,7 @@ if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.a
 
   <h3>Why the 1.8 V regulator matters</h3>
   <p>The MN864739 needs 0.9 V and 1.8 V. The RTD2175P it replaces needs 0.9 V and 3.3 V, and that 3.3 V trace already exists on the board. The <strong>U1 (TI TLV71318PDBVR)</strong> regulator takes that 3.3 V and steps it down locally to 1.8 V.</p>
-  <p>This way the interposer does not need to pull 1.8 V from another point of the motherboard. The HDMI chip is one of the parts that fail most in the PS5 video section: if the 1.8 V came from another point, such as the APU PMIC (CXD), an overload would have a free path to reach that circuit too. With the regulator on the part itself, that failure path stays contained there.</p>
+  <p>This way the interposer does not need to pull 1.8 V from another point of the motherboard. The HDMI chip is one of the parts that fail most in the PS5 video section: if the 1.8 V came from another point, such as the CXD PMIC (southbridge), an overload would have a free path to reach that circuit too. With the regulator on the part itself, that failure path stays contained there.</p>
   <p>The regulator <strong>EN</strong> pin is on the 0.9 V trace: the 1.8 V output only rises once the 0.9 V is present, with no external component. This matches the <a href="https://www.ti.com/lit/gpn/TLV713" target="_blank" rel="noopener">TI datasheet</a>: EN turns on from 0.9 V and turns off below 0.4 V.</p>
   <div class="card tab"><table>
     <thead><tr><th>TLV71318PDBVR (SOT-23-5)</th><th>Value</th></tr></thead>
@@ -149,6 +149,12 @@ if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.a
       <tr><td>EN pin, off (maximum)</td><td>0.4 V</td></tr>
     </tbody>
   </table></div>
+
+  <h2 id="mapa-de-pontos">Interposer test point map (PDF)</h2>
+  <p>Documentation with some of the board's test points, without and with the interposer, the color code, the interposer layout and the 1.8 V regulator schematic. There are more points: the full diagram will be available soon.</p>
+  <div class="cta" style="margin-top:14px">
+    <a class="b" href="../../pdf/mapa-de-pontos-interposer-en.pdf" target="_blank" rel="noopener">Download the test point map (PDF, 13 MB)</a>
+  </div>
 
   <h2>Tools and supplies</h2>
   <div class="card tab"><table>
@@ -251,7 +257,7 @@ if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.a
 
 <footer><div class="wrap fgrid" style="grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)">
   <div><b>Developed by MeoWDeV MOD</b><br>PS5 and PlayStation are trademarks of Sony Interactive Entertainment. Realtek, Nuvoton, Panasonic and Texas Instruments belong to their respective owners. This project is not affiliated with these companies.</div>
-  <div class="flinks"><a href="../">Home page</a><a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@techmeow" target="_blank" rel="noopener">YouTube</a><a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp · partnerships</a><a href="../termos/">Terms of use</a><a href="../privacidade/">Privacy and cookies</a><a href="#" data-ck-manage>Manage cookies</a></div>
+  <div class="flinks"><a href="../">Home page</a><a href="../../pdf/mapa-de-pontos-interposer-en.pdf" target="_blank" rel="noopener">Test point map (PDF)</a><a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@techmeow" target="_blank" rel="noopener">YouTube</a><a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp · partnerships</a><a href="../termos/">Terms of use</a><a href="../privacidade/">Privacy and cookies</a><a href="#" data-ck-manage>Manage cookies</a></div>
 </div></footer>
 <script type="module" src="../../js/sub.js"></script>
 </body>

@@ -473,8 +473,8 @@ Cara de arriba: recibe el MN864739.
 Por qué importa el regulador de 1,8 V
 @@ e8b70b707f
 El MN864739 necesita 0,9 V y 1,8 V. El RTD2175P que reemplaza necesita 0,9 V y 3,3 V, y esa pista de 3,3 V ya existe en la placa. El regulador <strong>U1 (TI TLV71318PDBVR)</strong> aprovecha esos 3,3 V y los baja localmente a 1,8 V.
-@@ 4da7cbb08d
-Así, la interposer no necesita sacar 1,8 V de otro punto de la placa madre. El chip HDMI es una de las piezas que más fallan en la sección de video del PS5: si los 1,8 V vinieran de otro punto, como el PMIC de la APU (CXD), una sobrecarga tendría camino libre para alcanzar también ese circuito. Con el regulador en la propia pieza, ese camino de falla queda contenido ahí.
+@@ 7990cf3c0a
+Así, la interposer no necesita sacar 1,8 V de otro punto de la placa madre. El chip HDMI es una de las piezas que más fallan en la sección de video del PS5: si los 1,8 V vinieran de otro punto, como el PMIC del CXD (southbridge), una sobrecarga tendría camino libre para alcanzar también ese circuito. Con el regulador en la propia pieza, ese camino de falla queda contenido ahí.
 @@ ec51d86670
 El pin <strong>EN</strong> del regulador está en la pista de 0,9 V: la salida de 1,8 V solo sube cuando los 0,9 V ya están presentes, sin componente externo. Esto coincide con el <a href="https://www.ti.com/lit/gpn/TLV713" target="_blank" rel="noopener">datasheet de TI</a>: el EN enciende a partir de 0,9 V y apaga por debajo de 0,4 V.
 @@ b705d8bbfa
@@ -737,3 +737,11 @@ Tus derechos
 Puedes cambiar tu elección en cualquier momento en Administrar cookies, al final de las páginas, y pedir información según la ley brasileña de protección de datos (LGPD). Responsable: MeoWDeV MOD (Jefferson Honorio). Contacto: <a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp +55 21 96654-7296</a>.
 @@ 66d4e53b0b
 ¡Hola! Vengo de la página de PS5 HDMI Tool y quiero hablar sobre una alianza.
+@@ 647b99415c
+Mapa de puntos (PDF)
+@@ 7057904330
+Mapa de puntos de la interposer (PDF)
+@@ f21532e4a5
+Documentación con algunos puntos de prueba de la placa, sin y con la interposer, el código de colores, el layout de la interposer y el esquema del regulador de 1,8 V. Hay más puntos: el diagrama completo estará disponible pronto.
+@@ ba8ea9730b
+Descargar el mapa de puntos (PDF, 13 MB)

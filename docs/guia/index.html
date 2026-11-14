@@ -115,7 +115,7 @@ if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.a
 
   <h3>Por que o regulador de 1,8 V importa</h3>
   <p>O MN864739 precisa de 0,9 V e 1,8 V. O RTD2175P que ele substitui precisa de 0,9 V e 3,3 V, e essa trilha de 3,3 V já existe na placa. O regulador <strong>U1 (TI TLV71318PDBVR)</strong> aproveita esses 3,3 V e baixa localmente para 1,8 V.</p>
-  <p>Assim, a interposer não precisa puxar 1,8 V de outro ponto da placa-mãe. O CI HDMI é uma das peças que mais dão defeito no setor de vídeo do PS5: se o 1,8 V viesse de outro ponto, como o PMIC da APU (CXD), uma sobrecarga teria caminho livre para atingir também esse circuito. Com o regulador na própria peça, esse caminho de falha fica contido ali.</p>
+  <p>Assim, a interposer não precisa puxar 1,8 V de outro ponto da placa-mãe. O CI HDMI é uma das peças que mais dão defeito no setor de vídeo do PS5: se o 1,8 V viesse de outro ponto, como o PMIC do CXD (southbridge), uma sobrecarga teria caminho livre para atingir também esse circuito. Com o regulador na própria peça, esse caminho de falha fica contido ali.</p>
   <p>O pino <strong>EN</strong> do regulador está na trilha de 0,9 V: a saída de 1,8 V só sobe quando o 0,9 V já está presente, sem componente externo. Isso bate com o <a href="https://www.ti.com/lit/gpn/TLV713" target="_blank" rel="noopener">datasheet da TI</a>: o EN liga a partir de 0,9 V e desliga abaixo de 0,4 V.</p>
   <div class="card tab"><table>
     <thead><tr><th>TLV71318PDBVR (SOT-23-5)</th><th>Valor</th></tr></thead>
@@ -126,6 +126,12 @@ if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.a
       <tr><td>Pino EN, desliga (máximo)</td><td>0,4 V</td></tr>
     </tbody>
   </table></div>
+
+  <h2 id="mapa-de-pontos">Mapa de pontos da interposer (PDF)</h2>
+  <p>Documentação com alguns pontos de teste da placa, sem e com a interposer, o código de cores, o layout da interposer e o esquema do regulador de 1,8 V. Existem mais pontos: o diagrama completo será disponibilizado em breve.</p>
+  <div class="cta" style="margin-top:14px">
+    <a class="b" href="../pdf/mapa-de-pontos-interposer-pt.pdf" target="_blank" rel="noopener">Baixar o mapa de pontos (PDF, 13 MB)</a>
+  </div>
 
   <h2>Ferramentas e insumos</h2>
   <div class="card tab"><table>
@@ -228,7 +234,7 @@ if(matchMedia("(max-width:600px)").matches){s.classList.add("m");document.body.a
 
 <footer><div class="wrap fgrid" style="grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)">
   <div><b>Developed by MeoWDeV MOD</b><br>PS5 e PlayStation são marcas da Sony Interactive Entertainment. Realtek, Nuvoton, Panasonic e Texas Instruments pertencem aos respectivos donos. Este projeto não é afiliado a essas empresas.</div>
-  <div class="flinks"><a href="../">Página inicial</a><a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@techmeow" target="_blank" rel="noopener">YouTube</a><a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp · parcerias</a><a href="../termos/">Termos de uso</a><a href="../privacidade/">Privacidade e cookies</a><a href="#" data-ck-manage>Gerenciar cookies</a></div>
+  <div class="flinks"><a href="../">Página inicial</a><a href="../pdf/mapa-de-pontos-interposer-pt.pdf" target="_blank" rel="noopener">Mapa de pontos (PDF)</a><a href="https://www.instagram.com/tech_meow.oficial" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@techmeow" target="_blank" rel="noopener">YouTube</a><a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp · parcerias</a><a href="../termos/">Termos de uso</a><a href="../privacidade/">Privacidade e cookies</a><a href="#" data-ck-manage>Gerenciar cookies</a></div>
 </div></footer>
 <script type="module" src="../js/sub.js"></script>
 </body>

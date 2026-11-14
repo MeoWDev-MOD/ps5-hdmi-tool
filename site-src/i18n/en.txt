@@ -473,8 +473,8 @@ Top side: takes the MN864739.
 Why the 1.8 V regulator matters
 @@ e8b70b707f
 The MN864739 needs 0.9 V and 1.8 V. The RTD2175P it replaces needs 0.9 V and 3.3 V, and that 3.3 V trace already exists on the board. The <strong>U1 (TI TLV71318PDBVR)</strong> regulator takes that 3.3 V and steps it down locally to 1.8 V.
-@@ 4da7cbb08d
-This way the interposer does not need to pull 1.8 V from another point of the motherboard. The HDMI chip is one of the parts that fail most in the PS5 video section: if the 1.8 V came from another point, such as the APU PMIC (CXD), an overload would have a free path to reach that circuit too. With the regulator on the part itself, that failure path stays contained there.
+@@ 7990cf3c0a
+This way the interposer does not need to pull 1.8 V from another point of the motherboard. The HDMI chip is one of the parts that fail most in the PS5 video section: if the 1.8 V came from another point, such as the CXD PMIC (southbridge), an overload would have a free path to reach that circuit too. With the regulator on the part itself, that failure path stays contained there.
 @@ ec51d86670
 The regulator <strong>EN</strong> pin is on the 0.9 V trace: the 1.8 V output only rises once the 0.9 V is present, with no external component. This matches the <a href="https://www.ti.com/lit/gpn/TLV713" target="_blank" rel="noopener">TI datasheet</a>: EN turns on from 0.9 V and turns off below 0.4 V.
 @@ b705d8bbfa
@@ -737,3 +737,11 @@ Your rights
 You can change your choice at any time under Manage cookies, at the bottom of the pages, and request information under Brazil's data protection law (LGPD). Controller: MeoWDeV MOD (Jefferson Honorio). Contact: <a href="https://wa.me/5521966547296" target="_blank" rel="noopener">WhatsApp +55 21 96654-7296</a>.
 @@ 66d4e53b0b
 Hello! I came from the PS5 HDMI Tool page and would like to talk about a partnership.
+@@ 647b99415c
+Test point map (PDF)
+@@ 7057904330
+Interposer test point map (PDF)
+@@ f21532e4a5
+Documentation with some of the board's test points, without and with the interposer, the color code, the interposer layout and the 1.8 V regulator schematic. There are more points: the full diagram will be available soon.
+@@ ba8ea9730b
+Download the test point map (PDF, 13 MB)
